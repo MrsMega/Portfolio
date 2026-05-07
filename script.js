@@ -1,243 +1,287 @@
-const entries = [
+const experiences = [
   {
-    type: "SAE a venir",
-    title: "Bloc SAE #01",
-    status: "placeholder",
-    period: "A renseigner",
+    category: "SAE",
+    period: "S3-S4 2025-2026",
+    title: "Caisse-Cro&ucirc;te",
+    subtitle: "Jeu web de cuisine, loot boxes et marketplace",
     summary:
-      "Cet emplacement accueillera une SAE importante avec son contexte, ses objectifs et sa valeur dans ton parcours.",
-    prompts: [
-      {
-        label: "Ce que j'ai realise",
-        text: "Decrire les fonctionnalites, livrables ou missions prises en charge.",
-      },
-      {
-        label: "Pourquoi c'est pertinent",
-        text: "Expliquer pourquoi cette SAE dit quelque chose d'utile sur ton profil.",
-      },
-      {
-        label: "Ce que j'ai appris",
-        text: "Nommer des apprentissages concrets, dans leur contexte precis.",
-      },
-      {
-        label: "Preuves a joindre",
-        text: "Captures, code, documentation, schema, soutenance, demo ou resultat mesurable.",
-      },
+      "Projet men&eacute; en &eacute;quipe de quatre dans le cadre de la SAE D&eacute;veloppement d'une application. L'objectif &eacute;tait de concevoir puis d&eacute;velopper un jeu par navigateur original, accessible en ligne, avec compte joueur, inventaire, recettes, loot boxes et marketplace.",
+    role:
+      "Participation &agrave; la conception fonctionnelle, &agrave; la structuration du projet, aux choix de fonctionnalit&eacute;s, aux maquettes, au d&eacute;coupage agile et &agrave; la pr&eacute;paration du d&eacute;veloppement web.",
+    actions: [
+      "Formalisation du besoin avec une m&eacute;thode SMART et une priorisation MoSCoW.",
+      "Construction d'un dossier de conception : cas d'utilisation, s&eacute;quence d'ouverture de loot box, classes m&eacute;tier et WBS.",
+      "D&eacute;finition des modules principaux : authentification, inventaire, recettes, marketplace, shop administrateur, tirage c&ocirc;t&eacute; serveur.",
+      "Organisation en sprints avec suivi de projet, maquettes Figma et collaboration via la forge GitLab de l'IUT."
     ],
-    tags: ["Analyse", "Developpement", "Travail d'equipe"],
+    learning:
+      "Cette SAE m'a surtout fait progresser sur le passage entre une id&eacute;e de jeu et une application structur&eacute;e. Je n'ai pas seulement list&eacute; des fonctionnalit&eacute;s : j'ai appris &agrave; les relier &agrave; des utilisateurs, des donn&eacute;es, des r&egrave;gles m&eacute;tier et un planning r&eacute;aliste.",
+    contribution:
+      "Elle montre ma capacit&eacute; &agrave; travailler dans un cadre collectif, &agrave; produire une conception exploitable et &agrave; anticiper les contraintes d'une application web avec base de donn&eacute;es, serveur et interactions entre joueurs.",
+    skills: ["R&eacute;aliser", "G&eacute;rer", "Conduire", "Collaborer", "Administrer"],
+    proofs: [
+      "Dossier de conception SAE S3-S4",
+      "Diagramme de cas d'utilisation",
+      "Diagramme de s&eacute;quence sur l'ouverture d'une loot box",
+      "Diagramme de classes : utilisateur, inventaire, recette, transaction, annonce",
+      "WBS, EPIC, user stories, Gantt",
+      "Maquettes Figma : connexion, accueil, marketplace, inventaire"
+    ]
   },
   {
-    type: "Projet marquant",
-    title: "Projet academique ou personnel",
-    status: "placeholder",
-    period: "A renseigner",
+    category: "Projet",
+    period: "Projet personnel",
+    title: "Sleep Space Game",
+    subtitle: "Sp&eacute;cification d'une application Android de routine du soir",
     summary:
-      "Reserve pour un projet significatif a traiter comme une entree coherente, sans se perdre dans des details repetitifs.",
-    prompts: [
-      {
-        label: "Contexte",
-        text: "Dans quel cadre le projet a eu lieu et quel etait ton role exact ?",
-      },
-      {
-        label: "Apport au profil",
-        text: "Ce projet montre une methode, une autonomie ou une competence particuliere ?",
-      },
-      {
-        label: "Competences mobilisees",
-        text: "Relier le projet a des savoir-faire reels plutot qu'a une simple liste de technologies.",
-      },
-      {
-        label: "Trace concrete",
-        text: "Ajouter une capture d'ecran, un repository, une architecture ou une documentation.",
-      },
+      "Concept de jeu mobile Android en Kotlin, avec TypeScript, Firebase et Cloud Functions, qui transforme la r&eacute;duction de l'usage du t&eacute;l&eacute;phone au coucher en progression spatiale. Le joueur suit un vaisseau, choisit une destination et avance davantage quand sa session du soir est respect&eacute;e.",
+    role:
+      "Conception produit et fonctionnelle : vision, boucle de jeu, progression, r&egrave;gles m&eacute;tier, parcours utilisateur, mod&egrave;le logique et contraintes techniques.",
+    actions: [
+      "D&eacute;finition d'une boucle quotidienne simple : lancer une session du soir, poser le t&eacute;l&eacute;phone, constater le gain le lendemain.",
+      "Conception d'un syst&egrave;me de trajet spatial autopilot&eacute; avec phases de d&eacute;part, croisi&egrave;re et arriv&eacute;e.",
+      "Formalisation des r&egrave;gles de validation : gains progressifs, tol&eacute;rance, protection contre une logique trop punitive.",
+      "Identification des contraintes techniques : temps fiable c&ocirc;t&eacute; serveur, sobri&eacute;t&eacute; batterie, donn&eacute;es m&eacute;tier, backend centralis&eacute;."
     ],
-    tags: ["Organisation", "Conception", "Communication"],
+    learning:
+      "Ce projet m'a permis de travailler la conception avant le code : clarifier une intention, &eacute;viter les fonctionnalit&eacute;s inutiles, penser les r&egrave;gles m&eacute;tier et anticiper les limites techniques d'une application mobile.",
+    contribution:
+      "Il apporte au portfolio une dimension produit plus personnelle : je montre ma capacit&eacute; &agrave; concevoir une exp&eacute;rience coh&eacute;rente, &agrave; justifier les arbitrages et &agrave; penser l'impact utilisateur sans pr&eacute;tendre produire un outil m&eacute;dical.",
+    skills: ["R&eacute;aliser", "Optimiser", "G&eacute;rer", "Conduire"],
+    proofs: [
+      "Sp&eacute;cification produit et fonctionnelle",
+      "P&eacute;rim&egrave;tre inclus et hors p&eacute;rim&egrave;tre",
+      "R&egrave;gles de progression et de session du soir",
+      "Mod&egrave;le logique : utilisateur, routine, vaisseau, trajet, session, groupe",
+      "Contraintes techniques Android, backend, Firebase et Cloud Functions"
+    ]
   },
   {
-    type: "SAE a venir",
-    title: "Bloc SAE #02",
-    status: "placeholder",
-    period: "A renseigner",
+    category: "Stage",
+    period: "En cours",
+    title: "Flotto",
+    subtitle: "D&eacute;couverte d'Angular sur une application de gestion de flottes",
     summary:
-      "Deuxieme espace pret a accueillir une experience differente si elle apporte une vraie valeur a la lecture du portfolio.",
-    prompts: [
-      {
-        label: "Probleme traite",
-        text: "Quel besoin, quelle consigne ou quelle difficulte devait etre resolue ?",
-      },
-      {
-        label: "Ce qui a change",
-        text: "Montrer la progression : meilleure rigueur, nouveaux outils, meilleure comprehension du sujet.",
-      },
-      {
-        label: "Resultat obtenu",
-        text: "Presenter un resultat visible, un retour, un indicateur ou un livrable final.",
-      },
-      {
-        label: "Point a expliciter",
-        text: "Eviter les formulations vagues : toujours donner du contexte a l'apprentissage.",
-      },
+      "D&eacute;but de stage sur Flotto, une application web permettant de g&eacute;rer des parcs et flottes de voitures. La premi&egrave;re phase consiste &agrave; d&eacute;couvrir Angular, technologie non encore abord&eacute;e &agrave; l'IUT, puis &agrave; prendre progressivement en charge des tickets simples.",
+    role:
+      "Int&eacute;gration progressive dans un projet existant : apprentissage du framework, lecture de la base de code, compr&eacute;hension du domaine m&eacute;tier et premiers correctifs ou petites &eacute;volutions.",
+    actions: [
+      "Comprendre l'architecture Angular du projet et la logique des composants.",
+      "Identifier les conventions de l'application avant de modifier du code.",
+      "R&eacute;soudre des tickets simples pour prendre confiance dans le contexte technique.",
+      "Documenter au fil du stage les missions significatives, les apprentissages et les preuves anonymisables."
     ],
-    tags: ["Methodologie", "Resolution", "Qualite"],
-  },
-  {
-    type: "Stage",
-    title: "Missions de stage",
-    status: "a venir",
-    period: "Apres la periode de stage",
-    summary:
-      "Le stage n'est pas encore effectue. Cette carte est deja prete pour accueillir les missions retenues, leur analyse et les preuves associees.",
-    prompts: [
-      {
-        label: "Missions selectionnees",
-        text: "Ne garder que les missions significatives ou apportant un element nouveau.",
-      },
-      {
-        label: "Lien avec le referentiel",
-        text: "Associer chaque mission a des competences clairement argumentees.",
-      },
-      {
-        label: "Apprentissage professionnel",
-        text: "Expliquer ce qui a ete appris sur le plan technique, organisationnel ou humain.",
-      },
-      {
-        label: "Preuves de terrain",
-        text: "Captures, livrables, documentation, schema, temoignage, elements anonymises si necessaire.",
-      },
-    ],
-    tags: ["Professionnalisation", "Competences", "Experience reelle"],
-  },
+    learning:
+      "Cette exp&eacute;rience est encore en construction. Son int&eacute;r&ecirc;t principal est de m'obliger &agrave; apprendre dans une base de code r&eacute;elle, avec une technologie nouvelle et des contraintes professionnelles.",
+    contribution:
+      "Elle servira &agrave; montrer ma capacit&eacute; d'adaptation : passer d'exercices ou de SAE &agrave; un projet existant, comprendre les tickets, demander les bons retours et livrer des changements simples mais utiles.",
+    skills: ["R&eacute;aliser", "Collaborer", "Conduire"],
+    proofs: [
+      "Notes de prise en main Angular",
+      "Tickets trait&eacute;s ou suivis",
+      "Captures ou extraits anonymis&eacute;s si autoris&eacute;s",
+      "Documentation personnelle des conventions du projet",
+      "Bilan hebdomadaire des apprentissages"
+    ]
+  }
 ];
 
-const skills = [
+const competences = [
   {
-    title: "Lire une experience avec recul",
-    meta: "Analyse",
-    text:
-      "Transformer une experience en argument : distinguer ce qui releve de l'action, de l'apprentissage et de la competence.",
-    level: 78,
+    id: "realiser",
+    title: "R&eacute;aliser",
+    level: "Niveau 2 en consolidation",
+    short: "Concevoir, d&eacute;velopper, tester et int&eacute;grer une solution.",
+    ac: ["AC21.01", "AC21.02", "AC21.03", "AC21.04"],
+    evidence:
+      "Caisse-Cro&ucirc;te mobilise les sp&eacute;cifications, les interfaces, les choix de conception et la qualit&eacute; attendue d'une application compl&egrave;te. Flotto ajoute le travail sur une base de code existante avec Angular.",
+    traces: ["Dossier SAE", "Maquettes", "Tickets Flotto", "Code et tests &agrave; ajouter au fil du stage"]
   },
   {
-    title: "Structurer des preuves",
-    meta: "Documentation",
-    text:
-      "Conserver des traces utiles et les presenter proprement pour soutenir un acquis ou une progression.",
-    level: 72,
+    id: "optimiser",
+    title: "Optimiser",
+    level: "Comp&eacute;tence en &eacute;mergence",
+    short: "Choisir des structures, analyser des contraintes et justifier des r&eacute;sultats.",
+    ac: ["AC22.01", "AC22.03", "AC22.04"],
+    evidence:
+      "Sleep Space Game demande d'anticiper des contraintes de temps fiable, de batterie, de progression et de comportement utilisateur. La comp&eacute;tence reste &agrave; renforcer avec des mesures et tests plus concrets.",
+    traces: ["R&egrave;gles de progression", "Contraintes Android", "Sc&eacute;narios optimiste / r&eacute;f&eacute;rence / pessimiste"]
   },
   {
-    title: "Relier a un referentiel",
-    meta: "Competences",
-    text:
-      "Faire correspondre les projets et missions a des competences explicites et defendables.",
-    level: 69,
+    id: "administrer",
+    title: "Administrer",
+    level: "Niveau 2 &agrave; consolider",
+    short: "D&eacute;ployer, s&eacute;curiser et maintenir des services.",
+    ac: ["AC23.01", "AC23.02", "AC23.03"],
+    evidence:
+      "La SAE impose un serveur, une base de donn&eacute;es et un projet accessible en ligne. Le projet Sleep Space Game ajoute la question d'un backend centralis&eacute; et d'une r&eacute;f&eacute;rence serveur pour limiter les incoh&eacute;rences.",
+    traces: ["Architecture SAE", "Choix serveur", "R&egrave;gles c&ocirc;t&eacute; serveur", "S&eacute;curisation &agrave; documenter"]
   },
   {
-    title: "Construire un bilan reflechi",
-    meta: "Autoevaluation",
-    text:
-      "Aller au-dela de la liste des taches pour expliquer ce qui a vraiment ete compris et consolide.",
-    level: 74,
+    id: "gerer",
+    title: "G&eacute;rer",
+    level: "Niveau 2 en construction",
+    short: "Concevoir, exploiter et prot&eacute;ger les donn&eacute;es.",
+    ac: ["AC24.01", "AC24.02", "AC24.03", "AC24.04"],
+    evidence:
+      "Caisse-Cro&ucirc;te repose sur des donn&eacute;es de compte, inventaire, ingr&eacute;dients, recettes, annonces et transactions. Sleep Space Game formalise aussi des entit&eacute;s m&eacute;tier : routine, trajet, session, groupe et historique.",
+    traces: ["Diagramme de classes", "Mod&egrave;le logique Sleep Space Game", "Marketplace", "Inventaire"]
   },
+  {
+    id: "conduire",
+    title: "Conduire",
+    level: "Niveau 2 solide",
+    short: "Organiser un projet, formaliser le besoin et suivre l'avancement.",
+    ac: ["AC25.02", "AC25.03", "AC25.04"],
+    evidence:
+      "La SAE montre une d&eacute;marche projet compl&egrave;te : objectif SMART, MoSCoW, EPIC, user stories, WBS, Gantt et maquettes. Le projet personnel montre aussi une capacit&eacute; &agrave; arbitrer un p&eacute;rim&egrave;tre.",
+    traces: ["Objectifs SMART", "MoSCoW", "EPIC et user stories", "Gantt", "P&eacute;rim&egrave;tre produit"]
+  },
+  {
+    id: "collaborer",
+    title: "Collaborer",
+    level: "Niveau 2 en situation",
+    short: "Travailler efficacement dans une &eacute;quipe informatique.",
+    ac: ["AC26.01", "AC26.02", "AC26.03", "AC26.04"],
+    evidence:
+      "La SAE a &eacute;t&eacute; men&eacute;e en &eacute;quipe de quatre avec outils partag&eacute;s, r&eacute;partition des sujets et communication r&eacute;guli&egrave;re. Le stage va enrichir cette comp&eacute;tence dans une organisation professionnelle.",
+    traces: ["GitLab de l'IUT", "Google Docs", "Fiche de suivi", "Retours de stage &agrave; ajouter"]
+  }
 ];
 
-const timelineSteps = [
+const progressionSteps = [
   {
-    meta: "Etape 01",
-    title: "Selectionner les experiences les plus representatives",
+    marker: "01",
+    title: "Structurer une application en &eacute;quipe",
     text:
-      "Le portfolio doit privilegier les experiences pertinentes plutot qu'une accumulation exhaustive d'elements.",
+      "Avec Caisse-Cro&ucirc;te, j'ai travaill&eacute; sur un projet suffisamment large pour demander une vraie organisation : fonctionnalit&eacute;s, donn&eacute;es, maquettes, planning, r&ocirc;les et contraintes techniques."
   },
   {
-    meta: "Etape 02",
-    title: "Donner une place aux SAE marquantes",
+    marker: "02",
+    title: "Concevoir une exp&eacute;rience produit coh&eacute;rente",
     text:
-      "Chaque SAE retenue doit faire apparaitre l'action menee, ce qu'elle apporte et ce qu'elle a permis d'apprendre.",
+      "Avec Sleep Space Game, je suis parti d'une id&eacute;e personnelle pour produire une sp&eacute;cification compl&egrave;te : objectifs, boucle utilisateur, r&egrave;gles m&eacute;tier, mod&egrave;le logique et limites assum&eacute;es."
   },
   {
-    meta: "Etape 03",
-    title: "Integrer le stage comme preuve de professionnalisation",
+    marker: "03",
+    title: "Entrer dans une base de code professionnelle",
     text:
-      "Quand les missions de stage seront connues, elles viendront completer la lecture du profil avec des situations reelles.",
-  },
-  {
-    meta: "Etape 04",
-    title: "Conclure par une progression visible",
-    text:
-      "L'ensemble du portfolio doit raconter une evolution sur l'annee et non une juxtaposition de vignettes.",
-  },
+      "Avec Flotto, je commence &agrave; apprendre Angular dans un contexte r&eacute;el. Le but est de transformer la d&eacute;couverte d'une technologie en contributions simples, tra&ccedil;ables et utiles."
+  }
 ];
 
-function createEntryCard(entry) {
-  const promptsMarkup = entry.prompts
-    .map(
-      (prompt) => `
-        <div class="prompt-item">
-          <strong>${prompt.label}</strong>
-          <span>${prompt.text}</span>
-        </div>
-      `
-    )
-    .join("");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const chipsMarkup = entry.tags
-    .map((tag) => `<span class="chip">${tag}</span>`)
-    .join("");
+function createTags(items) {
+  return items.map((item) => `<span class="tag">${item}</span>`).join("");
+}
 
+function createList(items) {
+  return items.map((item) => `<li>${item}</li>`).join("");
+}
+
+function createExperienceCard(experience) {
   return `
-    <article class="entry-card tilt-card">
-      <div class="entry-header">
-        <div class="entry-title-block">
-          <p class="entry-meta">${entry.type} // ${entry.period}</p>
-          <h3>${entry.title}</h3>
-        </div>
-        <span class="entry-status">${entry.status}</span>
+    <article class="experience-card reveal" data-category="${experience.category}">
+      <div class="experience-side">
+        <p class="card-label">${experience.category}</p>
+        <span>${experience.period}</span>
       </div>
-      <p class="entry-summary">${entry.summary}</p>
-      <div class="prompt-grid">${promptsMarkup}</div>
-      <div class="chip-row">${chipsMarkup}</div>
+      <div class="experience-main">
+        <div class="experience-heading">
+          <p class="card-label">${experience.subtitle}</p>
+          <h3>${experience.title}</h3>
+        </div>
+        <p class="experience-summary">${experience.summary}</p>
+        <p class="experience-role"><strong>Mon r&ocirc;le :</strong> ${experience.role}</p>
+
+        <div class="analysis-grid">
+          <section>
+            <h4>Ce que j'ai r&eacute;alis&eacute;</h4>
+            <ul>${createList(experience.actions)}</ul>
+          </section>
+          <section>
+            <h4>Ce que cela m'apporte</h4>
+            <p>${experience.learning}</p>
+            <p>${experience.contribution}</p>
+          </section>
+        </div>
+
+        <div class="evidence-row">
+          <div>
+            <p class="card-label">Comp&eacute;tences travaill&eacute;es</p>
+            <div class="tag-row">${createTags(experience.skills)}</div>
+          </div>
+          <details>
+            <summary>Preuves et traces</summary>
+            <ul>${createList(experience.proofs)}</ul>
+          </details>
+        </div>
+      </div>
     </article>
   `;
 }
 
-function createSkillCard(skill) {
+function createCompetenceButton(competence, index) {
   return `
-    <article class="skill-card tilt-card">
-      <p class="skill-meta">${skill.meta}</p>
-      <h3>${skill.title}</h3>
-      <p>${skill.text}</p>
-      <div class="skill-level" aria-label="Niveau estime a ${skill.level}%">
-        <div class="skill-track">
-          <div class="skill-fill" style="width: ${skill.level}%"></div>
-        </div>
-      </div>
-    </article>
+    <button
+      class="competence-tab${index === 0 ? " is-active" : ""}"
+      type="button"
+      data-competence="${competence.id}"
+    >
+      <span>${competence.title}</span>
+      <small>${competence.level}</small>
+    </button>
   `;
 }
 
-function createTimelineCard(step) {
-  return `
-    <article class="timeline-card reveal">
-      <div class="timeline-dot" aria-hidden="true"></div>
-      <div class="timeline-body">
-        <p class="timeline-meta">${step.meta}</p>
-        <h3>${step.title}</h3>
-        <p>${step.text}</p>
+function renderCompetencePanel(competence) {
+  const panel = document.querySelector("#competence-panel");
+  panel.innerHTML = `
+    <article class="competence-card">
+      <p class="card-label">${competence.level}</p>
+      <h3>${competence.title}</h3>
+      <p class="competence-short">${competence.short}</p>
+      <div class="code-row" aria-label="Apprentissages critiques">
+        ${competence.ac.map((code) => `<span>${code}</span>`).join("")}
+      </div>
+      <p>${competence.evidence}</p>
+      <div>
+        <p class="card-label">Preuves associ&eacute;es</p>
+        <div class="tag-row">${createTags(competence.traces)}</div>
       </div>
     </article>
   `;
 }
 
 function injectContent() {
-  const entryTarget = document.querySelector("#entries-grid");
-  const skillsTarget = document.querySelector("#skills-grid");
-  const timelineTarget = document.querySelector("#timeline");
+  document.querySelector("#experiences-list").innerHTML = experiences.map(createExperienceCard).join("");
+  document.querySelector("#competence-tabs").innerHTML = competences.map(createCompetenceButton).join("");
+  document.querySelector("#progression-list").innerHTML = progressionSteps
+    .map(
+      (step) => `
+        <article class="progression-item reveal">
+          <span>${step.marker}</span>
+          <div>
+            <h3>${step.title}</h3>
+            <p>${step.text}</p>
+          </div>
+        </article>
+      `
+    )
+    .join("");
 
-  entryTarget.innerHTML = entries.map(createEntryCard).join("");
-  skillsTarget.innerHTML = skills.map(createSkillCard).join("");
-  timelineTarget.innerHTML = timelineSteps.map(createTimelineCard).join("");
+  renderCompetencePanel(competences[0]);
 }
 
-function observeReveal() {
+function setupReveal() {
+  const elements = document.querySelectorAll(".reveal");
+
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    elements.forEach((element) => element.classList.add("is-visible"));
+    return;
+  }
+
   const observer = new IntersectionObserver(
     (entriesList) => {
       entriesList.forEach((entry) => {
@@ -247,59 +291,180 @@ function observeReveal() {
         }
       });
     },
-    {
-      threshold: 0.18,
-    }
+    { threshold: 0.16 }
   );
 
-  document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+  elements.forEach((element) => observer.observe(element));
 }
 
-function updateScrollProgress() {
-  const progressBar = document.querySelector(".progress-bar");
+function setupFilters() {
+  const buttons = document.querySelectorAll(".filter-button");
+  const cards = document.querySelectorAll(".experience-card");
 
-  const handleScroll = () => {
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.filter;
+      buttons.forEach((item) => item.classList.toggle("is-active", item === button));
+      cards.forEach((card) => {
+        const visible = filter === "all" || card.dataset.category === filter;
+        card.hidden = !visible;
+      });
+    });
+  });
+}
+
+function setupCompetenceTabs() {
+  const buttons = document.querySelectorAll(".competence-tab");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const competence = competences.find((item) => item.id === button.dataset.competence);
+      buttons.forEach((item) => item.classList.toggle("is-active", item === button));
+      renderCompetencePanel(competence);
+    });
+  });
+}
+
+function setupScrollMeter() {
+  const meter = document.querySelector(".scroll-meter span");
+
+  function update() {
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
     const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
-    progressBar.style.width = `${ratio * 100}%`;
-  };
+    meter.style.transform = `scaleX(${Math.min(1, Math.max(0, ratio))})`;
+  }
 
-  handleScroll();
-  window.addEventListener("scroll", handleScroll, { passive: true });
+  update();
+  window.addEventListener("scroll", update, { passive: true });
 }
 
-function followCursorGlow() {
-  const glow = document.querySelector(".cursor-glow");
+function setupActiveNav() {
+  const sections = ["parcours", "experiences", "competences", "bilan"]
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+  const links = [...document.querySelectorAll(".site-nav a")];
 
-  window.addEventListener("pointermove", (event) => {
-    glow.style.transform = `translate(${event.clientX}px, ${event.clientY}px) translate(-50%, -50%)`;
-  });
+  function update() {
+    const current = sections
+      .filter((section) => section.getBoundingClientRect().top < window.innerHeight * 0.42)
+      .pop();
+
+    links.forEach((link) => {
+      link.classList.toggle("is-active", current && link.getAttribute("href") === `#${current.id}`);
+    });
+  }
+
+  update();
+  window.addEventListener("scroll", update, { passive: true });
 }
 
-function setupTilt() {
-  const cards = document.querySelectorAll(".tilt-card");
+function setupCanvasMap() {
+  const canvas = document.querySelector("#map-canvas");
+  const ctx = canvas.getContext("2d");
+  const nodes = [
+    { label: "SAE", x: 0.22, y: 0.46, color: "#d6533a" },
+    { label: "Projet", x: 0.58, y: 0.24, color: "#00766d" },
+    { label: "Stage", x: 0.78, y: 0.58, color: "#26324d" },
+    { label: "Preuves", x: 0.42, y: 0.68, color: "#b38a1f" },
+    { label: "Bilan", x: 0.68, y: 0.82, color: "#5a4b7a" }
+  ];
+  const pointer = { x: 0.5, y: 0.5 };
+  let width = 0;
+  let height = 0;
+  let frame = 0;
 
-  cards.forEach((card) => {
-    card.addEventListener("pointermove", (event) => {
-      if (window.innerWidth < 900) {
-        return;
-      }
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = rect.width;
+    height = rect.height;
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
 
-      const bounds = card.getBoundingClientRect();
-      const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-      const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+  function drawLabel(text, x, y) {
+    ctx.font = "600 12px Segoe UI, sans-serif";
+    ctx.fillStyle = "rgba(35, 43, 59, 0.72)";
+    ctx.fillText(text, x + 14, y + 4);
+  }
 
-      card.style.transform = `rotateX(${(-y * 5).toFixed(2)}deg) rotateY(${(x * 7).toFixed(2)}deg)`;
+  function draw() {
+    frame += reduceMotion ? 0 : 0.012;
+    ctx.clearRect(0, 0, width, height);
+
+    const scrollRatio = Math.min(1, window.scrollY / Math.max(1, window.innerHeight));
+    const pulse = reduceMotion ? 0 : Math.sin(frame) * 7;
+
+    ctx.fillStyle = "rgba(244, 240, 229, 0.84)";
+    ctx.fillRect(0, 0, width, height);
+
+    ctx.strokeStyle = "rgba(38, 50, 77, 0.08)";
+    ctx.lineWidth = 1;
+    for (let x = 0; x < width; x += 44) {
+      ctx.beginPath();
+      ctx.moveTo(x + scrollRatio * 18, 0);
+      ctx.lineTo(x - 70 + scrollRatio * 18, height);
+      ctx.stroke();
+    }
+
+    const points = nodes.map((node, index) => ({
+      ...node,
+      px: node.x * width + Math.cos(frame + index) * pulse + (pointer.x - 0.5) * 18,
+      py: node.y * height + Math.sin(frame * 0.8 + index) * pulse + (pointer.y - 0.5) * 14
+    }));
+
+    ctx.strokeStyle = "rgba(38, 50, 77, 0.22)";
+    ctx.lineWidth = 1.5;
+    points.forEach((point, index) => {
+      const next = points[(index + 1) % points.length];
+      ctx.beginPath();
+      ctx.moveTo(point.px, point.py);
+      ctx.lineTo(next.px, next.py);
+      ctx.stroke();
     });
 
-    card.addEventListener("pointerleave", () => {
-      card.style.transform = "";
+    points.forEach((point) => {
+      ctx.beginPath();
+      ctx.arc(point.px, point.py, 17, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(244, 240, 229, 0.92)";
+      ctx.fill();
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = point.color;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(point.px, point.py, 4.5, 0, Math.PI * 2);
+      ctx.fillStyle = point.color;
+      ctx.fill();
+
+      drawLabel(point.label, point.px, point.py);
     });
-  });
+
+    if (!reduceMotion) {
+      requestAnimationFrame(draw);
+    }
+  }
+
+  resize();
+  draw();
+
+  window.addEventListener("resize", resize);
+  window.addEventListener(
+    "pointermove",
+    (event) => {
+      const rect = canvas.getBoundingClientRect();
+      pointer.x = (event.clientX - rect.left) / rect.width;
+      pointer.y = (event.clientY - rect.top) / rect.height;
+    },
+    { passive: true }
+  );
 }
 
 injectContent();
-observeReveal();
-updateScrollProgress();
-followCursorGlow();
-setupTilt();
+setupReveal();
+setupFilters();
+setupCompetenceTabs();
+setupScrollMeter();
+setupActiveNav();
+setupCanvasMap();
