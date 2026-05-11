@@ -429,6 +429,7 @@ function setupCanvasMap() {
   const canvas = document.querySelector("#map-canvas");
   const hero = canvas.closest(".hero");
   const ctx = canvas.getContext("2d");
+  const compactGraph = window.matchMedia("(max-width: 760px)");
   const nodes = [
     { id: "sae", label: "SAE", x: 0.22, y: 0.46, color: "#d6533a", filter: "SAE", target: "experiences" },
     { id: "projet", label: "Projet", x: 0.58, y: 0.24, color: "#00766d", filter: "Projet", target: "experiences" },
@@ -752,10 +753,23 @@ function setupCanvasMap() {
   resize();
   draw();
 
-  window.addEventListener("resize", resize);
+  window.addEventListener("resize", () => {
+    resize();
+
+    if (compactGraph.matches) {
+      drag.node = null;
+      hoverNode = null;
+      hero.classList.remove("is-graph-hover", "is-graph-dragging");
+      canvas.classList.remove("is-dragging");
+    }
+  });
   hero.addEventListener(
     "pointermove",
     (event) => {
+      if (compactGraph.matches) {
+        return;
+      }
+
       const point = getCanvasPoint(event);
       pointer.x = point.ratioX;
       pointer.y = point.ratioY;
@@ -778,6 +792,10 @@ function setupCanvasMap() {
   );
 
   hero.addEventListener("pointerdown", (event) => {
+    if (compactGraph.matches) {
+      return;
+    }
+
     if (event.button !== 0 || event.target.closest("a, button")) {
       return;
     }
@@ -863,8 +881,8 @@ function setupScrollCompanion() {
 
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
     const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
-    const minY = clampValue(window.innerHeight * 0.16, 92, 150);
-    const maxY = Math.max(minY + 80, window.innerHeight - 170);
+    const minY = clampValue(window.innerHeight * 0.16, 94, 150);
+    const maxY = Math.max(minY + 80, window.innerHeight - 174);
     const nextY = minY + (maxY - minY) * ratio;
     const delta = window.scrollY - lastScrollY;
 
@@ -876,11 +894,10 @@ function setupScrollCompanion() {
     const centerY = nextY + bounds.height / 2;
     const lookX = clampValue((pointer.x - centerX) / 24, -4.5, 4.5);
     const lookY = clampValue((pointer.y - centerY) / 34, -3.5, 3.5);
-    const turn = clampValue((pointer.x - centerX) / 30, -16, 12);
-    const tilt = clampValue(scrollVelocity * 0.045, -10, 10);
+    const turn = clampValue((pointer.x - centerX) / 31, -15, 11);
+    const tilt = clampValue(scrollVelocity * 0.04, -9, 9);
 
     companion.style.setProperty("--companion-y", `${nextY.toFixed(1)}px`);
-    companion.style.setProperty("--scroll-ratio", ratio.toFixed(4));
     companion.style.setProperty("--look-x", `${lookX.toFixed(2)}px`);
     companion.style.setProperty("--look-y", `${lookY.toFixed(2)}px`);
     companion.style.setProperty("--turn", `${turn.toFixed(2)}deg`);
