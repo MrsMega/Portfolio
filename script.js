@@ -41,6 +41,10 @@ const experiences = [
     subtitle: "Sp&eacute;cification d'une application Android de routine du soir",
     logo: "asset/logo_ssg.jpg",
     logoAlt: "Logo Sleep Space Game",
+    screenImage: "asset/screen-ssg.png",
+    screenAlt: "Capture d'ecran de Sleep Space Game",
+    screenCaption: "Aper&ccedil;u visuel du projet Sleep Space Game.",
+    screenLayout: "phone",
     summary:
       "Concept de jeu mobile Android en Kotlin, avec TypeScript, Firebase et Cloud Functions, qui transforme la r&eacute;duction de l'usage du t&eacute;l&eacute;phone au coucher en progression spatiale. Le joueur suit un vaisseau, choisit une destination et avance davantage quand sa session du soir est respect&eacute;e.",
     role:
@@ -219,6 +223,25 @@ function createExperienceLink(experience) {
   `;
 }
 
+function createExperienceScreen(experience) {
+  if (!experience.screenImage) {
+    return "";
+  }
+
+  return `
+    <figure class="experience-screen${experience.screenLayout === "phone" ? " experience-screen-phone" : ""}">
+      <div class="experience-screen-window">
+        <div class="site-preview-bar">
+          <span></span>
+          <strong>${experience.title}</strong>
+        </div>
+        <img src="${experience.screenImage}" alt="${experience.screenAlt}" loading="lazy">
+      </div>
+      <figcaption>${experience.screenCaption}</figcaption>
+    </figure>
+  `;
+}
+
 function createExperienceCard(experience) {
   return `
     <article class="experience-card reveal" data-category="${experience.category}">
@@ -237,6 +260,7 @@ function createExperienceCard(experience) {
         <p class="experience-summary">${experience.summary}</p>
         <p class="experience-role"><strong>Mon r&ocirc;le :</strong> ${experience.role}</p>
         ${createExperienceLink(experience)}
+        ${createExperienceScreen(experience)}
 
         <div class="analysis-grid">
           <section>
@@ -814,6 +838,78 @@ function setupCanvasMap() {
   });
 }
 
+function setupScrollCompanion() {
+  const companion = document.querySelector(".scroll-companion");
+  const character = document.querySelector(".companion-character");
+
+  if (!companion || !character) {
+    return;
+  }
+
+  const pointer = {
+    x: window.innerWidth * 0.46,
+    y: window.innerHeight * 0.42
+  };
+  let lastScrollY = window.scrollY;
+  let scrollVelocity = 0;
+  let ticking = false;
+
+  function clampValue(value, min, max) {
+    return Math.min(max, Math.max(min, value));
+  }
+
+  function updateCompanion() {
+    ticking = false;
+
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+    const minY = clampValue(window.innerHeight * 0.16, 92, 150);
+    const maxY = Math.max(minY + 80, window.innerHeight - 170);
+    const nextY = minY + (maxY - minY) * ratio;
+    const delta = window.scrollY - lastScrollY;
+
+    scrollVelocity = scrollVelocity * 0.72 + delta * 0.28;
+    lastScrollY = window.scrollY;
+
+    const bounds = character.getBoundingClientRect();
+    const centerX = bounds.left + bounds.width / 2;
+    const centerY = nextY + bounds.height / 2;
+    const lookX = clampValue((pointer.x - centerX) / 24, -4.5, 4.5);
+    const lookY = clampValue((pointer.y - centerY) / 34, -3.5, 3.5);
+    const turn = clampValue((pointer.x - centerX) / 30, -16, 12);
+    const tilt = clampValue(scrollVelocity * 0.045, -10, 10);
+
+    companion.style.setProperty("--companion-y", `${nextY.toFixed(1)}px`);
+    companion.style.setProperty("--scroll-ratio", ratio.toFixed(4));
+    companion.style.setProperty("--look-x", `${lookX.toFixed(2)}px`);
+    companion.style.setProperty("--look-y", `${lookY.toFixed(2)}px`);
+    companion.style.setProperty("--turn", `${turn.toFixed(2)}deg`);
+    companion.style.setProperty("--tilt", `${tilt.toFixed(2)}deg`);
+  }
+
+  function requestUpdate() {
+    if (ticking) {
+      return;
+    }
+
+    ticking = true;
+    requestAnimationFrame(updateCompanion);
+  }
+
+  window.addEventListener(
+    "pointermove",
+    (event) => {
+      pointer.x = event.clientX;
+      pointer.y = event.clientY;
+      requestUpdate();
+    },
+    { passive: true }
+  );
+  window.addEventListener("scroll", requestUpdate, { passive: true });
+  window.addEventListener("resize", requestUpdate);
+  requestUpdate();
+}
+
 injectContent();
 setupReveal();
 setupFilters();
@@ -821,3 +917,4 @@ setupCompetenceTabs();
 setupScrollMeter();
 setupActiveNav();
 setupCanvasMap();
+setupScrollCompanion();
