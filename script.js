@@ -856,75 +856,69 @@ function setupCanvasMap() {
   });
 }
 
-function setupScrollCompanion() {
-  const companion = document.querySelector(".scroll-companion");
-  const character = document.querySelector(".companion-character");
+function setupHeroTerminal() {
+  const terminal = document.querySelector(".hero-terminal");
+  const output = document.querySelector("[data-terminal-output]");
 
-  if (!companion || !character) {
+  if (!terminal || !output) {
     return;
   }
 
-  const pointer = {
-    x: window.innerWidth * 0.46,
-    y: window.innerHeight * 0.42
-  };
-  let lastScrollY = window.scrollY;
-  let scrollVelocity = 0;
-  let ticking = false;
+  const text = terminal.dataset.terminalText || "";
+  const cursor = terminal.querySelector(".terminal-cursor");
+  let index = 0;
+  let started = false;
 
-  function clampValue(value, min, max) {
-    return Math.min(max, Math.max(min, value));
+  function finish() {
+    output.textContent = text;
+    cursor?.classList.add("is-idle");
   }
 
-  function updateCompanion() {
-    ticking = false;
+  function typeNext() {
+    output.textContent = text.slice(0, index);
 
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
-    const minY = clampValue(window.innerHeight * 0.16, 94, 150);
-    const maxY = Math.max(minY + 80, window.innerHeight - 174);
-    const nextY = minY + (maxY - minY) * ratio;
-    const delta = window.scrollY - lastScrollY;
-
-    scrollVelocity = scrollVelocity * 0.72 + delta * 0.28;
-    lastScrollY = window.scrollY;
-
-    const bounds = character.getBoundingClientRect();
-    const centerX = bounds.left + bounds.width / 2;
-    const centerY = nextY + bounds.height / 2;
-    const lookX = clampValue((pointer.x - centerX) / 24, -4.5, 4.5);
-    const lookY = clampValue((pointer.y - centerY) / 34, -3.5, 3.5);
-    const turn = clampValue((pointer.x - centerX) / 31, -15, 11);
-    const tilt = clampValue(scrollVelocity * 0.04, -9, 9);
-
-    companion.style.setProperty("--companion-y", `${nextY.toFixed(1)}px`);
-    companion.style.setProperty("--look-x", `${lookX.toFixed(2)}px`);
-    companion.style.setProperty("--look-y", `${lookY.toFixed(2)}px`);
-    companion.style.setProperty("--turn", `${turn.toFixed(2)}deg`);
-    companion.style.setProperty("--tilt", `${tilt.toFixed(2)}deg`);
-  }
-
-  function requestUpdate() {
-    if (ticking) {
+    if (index >= text.length) {
+      cursor?.classList.add("is-idle");
       return;
     }
 
-    ticking = true;
-    requestAnimationFrame(updateCompanion);
+    const current = text[index];
+    index += 1;
+    const delay = current === "." || current === ":" || current === "," ? 90 : 22;
+    window.setTimeout(typeNext, delay);
   }
 
-  window.addEventListener(
-    "pointermove",
-    (event) => {
-      pointer.x = event.clientX;
-      pointer.y = event.clientY;
-      requestUpdate();
+  function start() {
+    if (started) {
+      return;
+    }
+
+    started = true;
+
+    if (reduceMotion) {
+      finish();
+      return;
+    }
+
+    typeNext();
+  }
+
+  if (!("IntersectionObserver" in window)) {
+    start();
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entriesList) => {
+      if (entriesList.some((entry) => entry.isIntersecting)) {
+        start();
+        observer.disconnect();
+      }
     },
-    { passive: true }
+    { threshold: 0.35 }
   );
-  window.addEventListener("scroll", requestUpdate, { passive: true });
-  window.addEventListener("resize", requestUpdate);
-  requestUpdate();
+
+  observer.observe(terminal);
 }
 
 injectContent();
@@ -934,4 +928,4 @@ setupCompetenceTabs();
 setupScrollMeter();
 setupActiveNav();
 setupCanvasMap();
-setupScrollCompanion();
+setupHeroTerminal();

@@ -14,27 +14,6 @@
   <div class="scroll-meter" aria-hidden="true">
     <span></span>
   </div>
-  <div class="scroll-companion" aria-hidden="true">
-    <div class="companion-character">
-      <span class="companion-shadow"></span>
-      <span class="companion-ear companion-ear-left"></span>
-      <span class="companion-ear companion-ear-right"></span>
-      <span class="companion-body">
-        <span class="companion-belly"></span>
-        <span class="companion-paw companion-paw-left"></span>
-        <span class="companion-paw companion-paw-right"></span>
-      </span>
-      <span class="companion-head">
-        <span class="companion-eye companion-eye-left">
-          <span class="companion-pupil"></span>
-        </span>
-        <span class="companion-eye companion-eye-right">
-          <span class="companion-pupil"></span>
-        </span>
-        <span class="companion-smile"></span>
-      </span>
-    </div>
-  </div>
 
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Retour au debut">
@@ -67,12 +46,22 @@
         <div class="hero-copy reveal">
           <p class="eyebrow">Portfolio de fin d'ann&eacute;e - 2026</p>
           <h1 id="hero-title">Des projets, des preuves, une progression.</h1>
-          <p class="hero-intro">
-            Je rassemble ici les exp&eacute;riences qui montrent le mieux mon &eacute;volution en BUT
-            Informatique : une SAE de d&eacute;veloppement web en &eacute;quipe, un projet mobile
-            personnel centr&eacute; sur la conception produit, et le d&eacute;but de mon stage sur une
-            application Angular.
-          </p>
+          <div
+            class="hero-terminal"
+            data-terminal-text="Bonjour, je rassemble ici les exp&eacute;riences qui montrent le mieux mon &eacute;volution en BUT Informatique : une SAE de d&eacute;veloppement web en &eacute;quipe, un projet mobile personnel centr&eacute; sur la conception produit, et le d&eacute;but de mon stage sur une application Angular :)."
+          >
+            <div class="terminal-bar" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <strong>portfolio_intro.sh</strong>
+            </div>
+            <p class="hero-intro">
+              <span class="terminal-prompt">nathanael@portfolio:~$</span>
+              <span data-terminal-output></span>
+              <span class="terminal-cursor" aria-hidden="true"></span>
+            </p>
+          </div>
 
           <div class="hero-actions" aria-label="Acces rapides">
             <a class="button button-primary" href="#experiences">Voir les exp&eacute;riences</a>
