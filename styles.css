@@ -1,3 +1,4 @@
+/* Design tokens */
 :root {
   --paper: #f2e8d5;
   --paper-soft: #e6d2b5;
@@ -20,6 +21,7 @@
   --radius: 8px;
 }
 
+/* Base */
 *,
 *::before,
 *::after {
@@ -56,6 +58,7 @@ img {
   max-width: 100%;
 }
 
+/* Scroll progress */
 .scroll-meter {
   position: fixed;
   top: 0;
@@ -74,6 +77,7 @@ img {
   background: var(--red);
 }
 
+/* Layout shells */
 .site-header,
 .hero-grid,
 .section,
@@ -82,6 +86,7 @@ img {
   margin-inline: auto;
 }
 
+/* Header */
 .site-header {
   position: sticky;
   top: 1rem;
@@ -160,12 +165,19 @@ img {
   transition: color 160ms ease, background 160ms ease;
 }
 
-.site-nav a:hover,
 .site-nav a.is-active {
   color: var(--surface);
   background: var(--ink);
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .site-nav a:hover {
+    color: var(--surface);
+    background: var(--ink);
+  }
+}
+
+/* Hero and graph */
 .hero {
   position: relative;
   min-height: 76vh;
@@ -243,6 +255,7 @@ img {
   line-height: 1.72;
 }
 
+/* Terminal intro */
 .hero-terminal {
   max-width: 66ch;
   margin: 1.35rem 0 0;
@@ -318,6 +331,7 @@ img {
   }
 }
 
+/* Hero actions */
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -419,6 +433,7 @@ main {
   gap: 0.85rem;
 }
 
+/* Shared cards */
 .principle,
 .experience-card,
 .competence-card,
@@ -510,6 +525,7 @@ main {
   outline-offset: 2px;
 }
 
+/* Experiences */
 .experiences-list {
   display: grid;
   gap: 0.95rem;
@@ -835,6 +851,7 @@ details ul {
   padding: 0 1rem 1rem 2rem;
 }
 
+/* Competences */
 .competence-layout {
   display: grid;
   grid-template-columns: 320px minmax(0, 1fr);
@@ -901,6 +918,7 @@ details ul {
   font-size: 0.85rem;
 }
 
+/* Progression and bilan */
 .progression-list {
   display: grid;
   gap: 0.75rem;
@@ -936,6 +954,7 @@ details ul {
   background: var(--surface-strong);
 }
 
+/* Footer */
 .site-footer {
   display: flex;
   justify-content: space-between;
@@ -970,6 +989,7 @@ details ul {
   transform: translateY(0);
 }
 
+/* Responsive */
 @media (max-width: 1180px) {
   .site-header,
   .hero-grid,
@@ -1273,6 +1293,7 @@ details ul {
   }
 }
 
+/* Motion preferences */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
