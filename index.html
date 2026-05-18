@@ -1,197 +1,327 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nathana&euml;l Bayard | Portfolio BUT Informatique</title>
-  <meta
-    name="description"
-    content="Portfolio de fin d'annee de Nathanael Bayard, etudiant en BUT Informatique : SAE, projet personnel, stage, competences et preuves."
-  >
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="scroll-meter" aria-hidden="true">
-    <span></span>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nathana&euml;l Bayard | Portfolio BUT Informatique</title>
+    <meta
+      name="description"
+      content="Portfolio de fin d'annee de Nathanael Bayard, etudiant en BUT Informatique : SAE, projet personnel, stage, competences et preuves."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="scroll-meter" aria-hidden="true">
+      <span></span>
+    </div>
 
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="Retour au debut">
-      <span class="brand-mark">
-        <img src="asset/pp.png" alt="Portrait de Nathana&euml;l Bayard">
-      </span>
-      <span>
-        <strong>Nathana&euml;l Bayard</strong>
-        <small>BUT Informatique - 2e ann&eacute;e</small>
-      </span>
-    </a>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Retour au debut">
+        <span class="brand-mark">
+          <img src="asset/pp.png" alt="Portrait de Nathana&euml;l Bayard" />
+        </span>
+        <span>
+          <strong>Nathana&euml;l Bayard</strong>
+          <small>BUT Informatique - 2e ann&eacute;e</small>
+        </span>
+      </a>
 
-    <nav class="site-nav" aria-label="Navigation principale">
-      <a href="#parcours">Parcours</a>
-      <a href="#experiences">Exp&eacute;riences</a>
-      <a href="#competences">Comp&eacute;tences</a>
-      <a href="#bilan">Bilan</a>
-    </nav>
-  </header>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <a href="#parcours">Parcours</a>
+        <a href="#experiences">Exp&eacute;riences</a>
+        <a href="#competences">Comp&eacute;tences</a>
+        <a href="#bilan">Bilan</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-  <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
-      <canvas
-        id="map-canvas"
-        class="map-canvas"
-        role="img"
-        aria-label="Carte interactive du portfolio : les points SAE, Projet, Stage, Preuves et Bilan peuvent etre deplaces et cliques."
-      ></canvas>
-      <div class="hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Portfolio de fin d'ann&eacute;e - 2026</p>
-          <h1 id="hero-title">Des projets, des preuves, une progression.</h1>
-          <div
-            class="hero-terminal"
-            data-terminal-text="Bonjour, je rassemble ici les exp&eacute;riences qui montrent le mieux mon &eacute;volution en BUT Informatique : une SAE de d&eacute;veloppement web en &eacute;quipe, un projet mobile personnel centr&eacute; sur la conception produit, et le d&eacute;but de mon stage sur une application Angular :)."
-          >
-            <div class="terminal-bar" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-              <strong>portfolio_intro.sh</strong>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <canvas
+          id="map-canvas"
+          class="map-canvas"
+          role="img"
+          aria-label="Carte interactive du portfolio : les points SAE, Projet, Stage, Preuves et Bilan peuvent etre deplaces et cliques."
+        ></canvas>
+        <div class="hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Portfolio de fin d'ann&eacute;e - 2026</p>
+            <h1 id="hero-title">Des projets, des preuves, une progression.</h1>
+            <div
+              class="hero-terminal"
+              data-terminal-text="Bonjour, bienvenue dans mon portfolio. 
+            J'y raconte les projets qui m'ont fait avancer cette ann&eacute;e : 
+            une SAE web men&eacute;e en &eacute;quipe, un projet mobile plus personnel 
+            Sleep Space Game, et mes premiers pas en stage chez Amiltone sur une application 
+            Angular. L'id&eacute;e, c'est de montrer mon chemin, mes essais, mes progr&egrave;s et ce que je construis peu &agrave; peu."
+            >
+              <div class="terminal-bar" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <strong>portfolio_intro.sh</strong>
+              </div>
+              <p class="hero-intro">
+                <span class="terminal-prompt">nathanael@portfolio:~$</span>
+                <span data-terminal-output></span>
+                <span class="terminal-cursor" aria-hidden="true"></span>
+              </p>
             </div>
-            <p class="hero-intro">
-              <span class="terminal-prompt">nathanael@portfolio:~$</span>
-              <span data-terminal-output></span>
-              <span class="terminal-cursor" aria-hidden="true"></span>
+
+            <div class="hero-actions" aria-label="Acces rapides">
+              <a class="button button-primary" href="#experiences"
+                >Voir les exp&eacute;riences</a
+              >
+              <a class="button button-secondary" href="#competences"
+                >Lire les comp&eacute;tences</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="parcours" class="section section-lead reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Cadre de lecture</p>
+          <h2>
+            Un portfolio construit comme une s&eacute;lection argument&eacute;e.
+          </h2>
+        </div>
+        <div class="principles">
+          <article class="principle">
+            <span>01</span>
+            <h3>S&eacute;lectionner</h3>
+            <p>
+              Je ne pr&eacute;sente pas tout ce que j'ai fait. Je garde les
+              situations qui apportent une information utile sur mon profil :
+              conception, d&eacute;veloppement, organisation, adaptation et
+              travail en &eacute;quipe.
             </p>
-          </div>
+          </article>
+          <article class="principle">
+            <span>02</span>
+            <h3>Analyser</h3>
+            <p>
+              Chaque entr&eacute;e d&eacute;passe la simple liste de
+              t&acirc;ches : je pr&eacute;cise le contexte, mon r&ocirc;le, les
+              choix effectu&eacute;s, les difficult&eacute;s rencontr&eacute;es
+              et les acquis.
+            </p>
+          </article>
+          <article class="principle">
+            <span>03</span>
+            <h3>Prouver</h3>
+            <p>
+              Les comp&eacute;tences sont reli&eacute;es &agrave; des traces :
+              dossier de conception, maquettes, diagrammes, user stories,
+              sp&eacute;cifications, code, tickets ou documentation.
+            </p>
+          </article>
+        </div>
+      </section>
 
-          <div class="hero-actions" aria-label="Acces rapides">
-            <a class="button button-primary" href="#experiences">Voir les exp&eacute;riences</a>
-            <a class="button button-secondary" href="#competences">Lire les comp&eacute;tences</a>
-          </div>
+      <section id="experiences" class="section reveal">
+        <div class="section-heading wide">
+          <p class="eyebrow">SAE, projet et stage</p>
+          <h2>Les exp&eacute;riences qui structurent mon ann&eacute;e.</h2>
         </div>
 
-      </div>
-    </section>
-
-    <section id="parcours" class="section section-lead reveal">
-      <div class="section-heading">
-        <p class="eyebrow">Cadre de lecture</p>
-        <h2>Un portfolio construit comme une s&eacute;lection argument&eacute;e.</h2>
-      </div>
-      <div class="principles">
-        <article class="principle">
-          <span>01</span>
-          <h3>S&eacute;lectionner</h3>
-          <p>
-            Je ne pr&eacute;sente pas tout ce que j'ai fait. Je garde les situations qui
-            apportent une information utile sur mon profil : conception, d&eacute;veloppement,
-            organisation, adaptation et travail en &eacute;quipe.
-          </p>
-        </article>
-        <article class="principle">
-          <span>02</span>
-          <h3>Analyser</h3>
-          <p>
-            Chaque entr&eacute;e d&eacute;passe la simple liste de t&acirc;ches : je pr&eacute;cise le contexte,
-            mon r&ocirc;le, les choix effectu&eacute;s, les difficult&eacute;s rencontr&eacute;es et les acquis.
-          </p>
-        </article>
-        <article class="principle">
-          <span>03</span>
-          <h3>Prouver</h3>
-          <p>
-            Les comp&eacute;tences sont reli&eacute;es &agrave; des traces : dossier de conception, maquettes,
-            diagrammes, user stories, sp&eacute;cifications, code, tickets ou documentation.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section id="experiences" class="section reveal">
-      <div class="section-heading wide">
-        <p class="eyebrow">SAE, projet et stage</p>
-        <h2>Les exp&eacute;riences qui structurent mon ann&eacute;e.</h2>
-      </div>
-
-      <div class="filter-bar" aria-label="Filtrer les experiences">
-        <button class="filter-button is-active" type="button" data-filter="all">Tout</button>
-        <button class="filter-button" type="button" data-filter="SAE">SAE</button>
-        <button class="filter-button" type="button" data-filter="Projet">Projet</button>
-        <button class="filter-button" type="button" data-filter="Stage">Stage</button>
-      </div>
-
-      <div id="experiences-list" class="experiences-list"></div>
-    </section>
-
-    <section id="competences" class="section reveal">
-      <div class="section-heading wide">
-        <p class="eyebrow">Portefeuille des comp&eacute;tences</p>
-        <h2>Mettre en relation exp&eacute;riences, apprentissages et preuves.</h2>
-      </div>
-
-      <div class="competence-layout">
-        <div class="competence-index" aria-label="Liste des competences">
-          <div id="competence-tabs" class="competence-tabs"></div>
+        <div class="filter-bar" aria-label="Filtrer les experiences">
+          <button
+            class="filter-button is-active"
+            type="button"
+            data-filter="all"
+          >
+            Tout
+          </button>
+          <button class="filter-button" type="button" data-filter="SAE">
+            SAE
+          </button>
+          <button class="filter-button" type="button" data-filter="Projet">
+            Projet
+          </button>
+          <button class="filter-button" type="button" data-filter="Stage">
+            Stage
+          </button>
         </div>
-        <div id="competence-panel" class="competence-panel" aria-live="polite"></div>
-      </div>
-    </section>
 
-    <section class="section reveal">
-      <div class="section-heading">
-        <p class="eyebrow">Progression</p>
-        <h2>Ce que ces situations racontent dans l'ordre.</h2>
-      </div>
-      <div id="progression-list" class="progression-list"></div>
-    </section>
+        <div id="experiences-list" class="experiences-list"></div>
+      </section>
 
-    <section id="bilan" class="section reveal">
-      <div class="section-heading wide">
-        <p class="eyebrow">Auto&eacute;valuation</p>
-        <h2>Un bilan encore vivant, &agrave; enrichir avec le stage.</h2>
-      </div>
+      <section id="competences" class="section reveal">
+        <div class="section-heading wide">
+          <p class="eyebrow">Portefeuille des comp&eacute;tences</p>
+          <h2>
+            Mettre en relation exp&eacute;riences, apprentissages et preuves.
+          </h2>
+        </div>
 
-      <div class="bilan-grid">
-        <article class="bilan-card">
-          <p class="card-label">Acquis consolid&eacute;s</p>
-          <h3>Passer d'une id&eacute;e &agrave; une structure exploitable.</h3>
-          <p>
-            La SAE Caisse-Cro&ucirc;te et le projet Sleep Space Game m'ont fait travailler
-            la transformation d'un besoin en fonctionnalit&eacute;s, puis en mod&egrave;les,
-            parcours, maquettes et choix techniques.
-          </p>
-        </article>
-        <article class="bilan-card">
-          <p class="card-label">Point de progression</p>
-          <h3>Renforcer la pratique dans un contexte professionnel.</h3>
-          <p>
-            Le stage sur Flotto doit m'aider &agrave; passer d'un cadre scolaire &agrave; une base
-            de code existante, avec des tickets, des contraintes d'&eacute;quipe et une
-            technologie nouvelle : Angular.
-          </p>
-        </article>
-        <article class="bilan-card emphasis">
-          <p class="card-label">M&eacute;thode pour la suite</p>
-          <h3>Actualiser le portfolio au fil des missions.</h3>
-          <p>
-            Pour chaque mission de stage, je conserverai le m&ecirc;me format : action
-            r&eacute;alis&eacute;e, apprentissage contextualis&eacute;, comp&eacute;tence d&eacute;velopp&eacute;e et preuve
-            associ&eacute;e, en anonymisant ce qui doit l'&ecirc;tre.
-          </p>
-        </article>
-      </div>
-    </section>
-  </main>
+        <div class="competence-layout">
+          <div class="competence-index" aria-label="Liste des competences">
+            <div id="competence-tabs" class="competence-tabs"></div>
+          </div>
+          <div
+            id="competence-panel"
+            class="competence-panel"
+            aria-live="polite"
+          ></div>
+        </div>
+      </section>
 
-  <footer class="site-footer">
-    <p>Portfolio BUT Informatique - Nathana&euml;l Bayard - mise &agrave; jour continue pendant le stage.</p>
-    <a href="#top">Retour en haut</a>
-  </footer>
+      <section class="section reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Progression</p>
+          <h2>Ce que ces situations racontent dans l'ordre.</h2>
+        </div>
+        <div id="progression-list" class="progression-list"></div>
+      </section>
 
-  <script src="scripts/config.js"></script>
-  <script src="scripts/data.js"></script>
-  <script src="scripts/render.js"></script>
-  <script src="scripts/interactions.js"></script>
-  <script src="scripts/graph.js"></script>
-  <script src="scripts/main.js"></script>
-</body>
+      <section id="bilan" class="section reveal">
+        <div class="section-heading wide">
+          <p class="eyebrow">Auto&eacute;valuation</p>
+          <h2>Un bilan encore vivant, &agrave; enrichir avec le stage.</h2>
+        </div>
+
+        <div class="bilan-grid">
+          <article class="bilan-card">
+            <p class="card-label">Acquis consolid&eacute;s</p>
+            <h3>
+              Passer d'une id&eacute;e &agrave; une structure exploitable.
+            </h3>
+            <p>
+              La SAE Caisse-Cro&ucirc;te et le projet Sleep Space Game m'ont
+              fait travailler la transformation d'un besoin en
+              fonctionnalit&eacute;s, puis en mod&egrave;les, parcours,
+              maquettes et choix techniques.
+            </p>
+          </article>
+          <article class="bilan-card">
+            <p class="card-label">Point de progression</p>
+            <h3>Renforcer la pratique dans un contexte professionnel.</h3>
+            <p>
+              Le stage sur Flotto doit m'aider &agrave; passer d'un cadre
+              scolaire &agrave; une base de code existante, avec des tickets,
+              des contraintes d'&eacute;quipe et une technologie nouvelle :
+              Angular.
+            </p>
+          </article>
+          <article class="bilan-card emphasis">
+            <p class="card-label">M&eacute;thode pour la suite</p>
+            <h3>Actualiser le portfolio au fil des missions.</h3>
+            <p>
+              Pour chaque mission de stage, je conserverai le m&ecirc;me format
+              : action r&eacute;alis&eacute;e, apprentissage
+              contextualis&eacute;, comp&eacute;tence d&eacute;velopp&eacute;e
+              et preuve associ&eacute;e, en anonymisant ce qui doit
+              l'&ecirc;tre.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section reveal contact-section">
+        <div class="section-heading wide">
+          <p class="eyebrow">Contact</p>
+          <h2>Un message, une question, une opportunit&eacute;.</h2>
+        </div>
+
+        <div class="contact-layout">
+          <form class="contact-form" data-contact-form>
+            <div class="contact-grid">
+              <label class="contact-field">
+                <span>Votre mail</span>
+                <input
+                  type="email"
+                  name="email"
+                  autocomplete="email"
+                  placeholder="prenom.nom@mail.com"
+                  required
+                />
+              </label>
+
+              <label class="contact-field">
+                <span>Objet</span>
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Stage, projet, question..."
+                  required
+                />
+              </label>
+            </div>
+
+            <label class="contact-field contact-field-full">
+              <span>Message</span>
+              <textarea
+                name="message"
+                rows="7"
+                placeholder="Ecrivez votre message ici..."
+                required
+              ></textarea>
+            </label>
+
+            <div class="contact-actions">
+              <button class="button button-primary" type="submit">
+                Pr&eacute;parer le mail
+              </button>
+              <p
+                class="contact-status"
+                data-contact-status
+                role="status"
+                aria-live="polite"
+              ></p>
+            </div>
+          </form>
+
+          <aside class="contact-shortcuts" aria-label="Liens rapides">
+            <a
+              class="button button-primary profile-button"
+              href="#contact"
+              data-profile-link="linkedin"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-disabled="true"
+            >
+              <img
+                class="button-icon"
+                src="asset/linkedin_icon.png"
+                alt=""
+                aria-hidden="true"
+              />
+              <span>LinkedIn</span>
+            </a>
+            <a
+              class="button button-secondary profile-button"
+              href="#contact"
+              data-profile-link="cv"
+              aria-disabled="true"
+            >
+              <img
+                class="button-icon"
+                src="asset/download-icon.png"
+                alt=""
+                aria-hidden="true"
+              />
+              <span>Voir mon CV</span>
+            </a>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Portfolio BUT Informatique - Nathana&euml;l Bayard - mise &agrave; jour
+        continue pendant le stage.
+      </p>
+      <a href="#top">Retour en haut</a>
+    </footer>
+
+    <script src="scripts/config.js"></script>
+    <script src="scripts/data.js"></script>
+    <script src="scripts/render.js"></script>
+    <script src="scripts/interactions.js"></script>
+    <script src="scripts/graph.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
 </html>

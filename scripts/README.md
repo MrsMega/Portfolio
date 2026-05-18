@@ -7,7 +7,7 @@ namespace `window.Portfolio`.
 - `config.js` : selecteurs DOM, breakpoints et preferences globales.
 - `data.js` : contenu editable du portfolio.
 - `render.js` : generation du HTML a partir des donnees.
-- `interactions.js` : filtres, navigation active, reveal au scroll et terminal.
+- `interactions.js` : filtres, navigation active, reveal au scroll, terminal, captures cliquables et formulaire de contact.
 - `graph.js` : carte canvas et physique des noeuds.
 - `main.js` : point d'entree qui initialise l'application.
 
@@ -16,5 +16,7 @@ Regles de maintenance :
 - Ajouter ou modifier le contenu dans `data.js`.
 - Eviter de generer du HTML depuis les fichiers d'interaction.
 - Garder les selecteurs reutilises dans `config.js`.
+- Renseigner l'adresse du formulaire dans `CONTACT.recipientEmail`.
+- Renseigner LinkedIn et le CV dans `PROFILE_LINKS`.
 - Ajouter une nouvelle fonctionnalite dans le fichier correspondant a sa
   responsabilite avant de toucher `main.js`.

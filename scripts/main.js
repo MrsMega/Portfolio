@@ -5,9 +5,12 @@
   const { injectContent } = portfolio.render;
   const {
     setupActiveNav,
+    setupContactForm,
     setupCompetenceTabs,
+    setupExpandableScreens,
     setupFilters,
     setupHeroTerminal,
+    setupProfileLinks,
     setupReveal,
     setupScrollMeter
   } = portfolio.interactions;
@@ -18,8 +21,11 @@
     setupReveal();
     setupFilters();
     setupCompetenceTabs();
+    setupExpandableScreens();
     setupScrollMeter();
     setupActiveNav();
+    setupProfileLinks();
+    setupContactForm();
     setupCanvasMap();
     setupHeroTerminal();
   }

@@ -80,10 +80,14 @@
       subtitle: "D&eacute;couverte d'Angular sur une application de gestion de flottes",
       logo: "asset/flotto-logo.png",
       logoAlt: "Logo Flotto",
+      companyLogo: "asset/amiltone.png",
+      companyLogoAlt: "Logo Amiltone",
+      companyLabel: "Entreprise d'accueil",
+      companyName: "Amiltone",
       summary:
-        "D&eacute;but de stage sur Flotto, une application web permettant de g&eacute;rer des parcs et flottes de voitures. La premi&egrave;re phase consiste &agrave; d&eacute;couvrir Angular, technologie non encore abord&eacute;e &agrave; l'IUT, puis &agrave; prendre progressivement en charge des tickets simples.",
+        "D&eacute;but de stage chez Amiltone, une ESN, autour de Flotto : une application web permettant de g&eacute;rer des parcs et flottes de voitures. Ce contexte me permet de d&eacute;couvrir le fonctionnement d'un projet professionnel port&eacute; par une entreprise de services num&eacute;riques. La premi&egrave;re phase consiste &agrave; d&eacute;couvrir Angular, technologie non encore abord&eacute;e &agrave; l'IUT, puis &agrave; prendre progressivement en charge des tickets simples.",
       role:
-        "Int&eacute;gration progressive dans un projet existant : apprentissage du framework, lecture de la base de code, compr&eacute;hension du domaine m&eacute;tier et premiers correctifs ou petites &eacute;volutions.",
+        "Int&eacute;gration progressive dans un projet existant au sein d'Amiltone : apprentissage du framework, lecture de la base de code, compr&eacute;hension du domaine m&eacute;tier et premiers correctifs ou petites &eacute;volutions.",
       actions: [
         "Comprendre l'architecture Angular du projet et la logique des composants.",
         "Identifier les conventions de l'application avant de modifier du code.",

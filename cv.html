@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Nathana&euml;l Bayard</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background: #1f2a24;
+    }
+
+    .cv-viewer {
+      display: block;
+      width: 100%;
+      height: 100vh;
+      border: 0;
+      background: #1f2a24;
+    }
+
+    .cv-fallback {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0.75rem 1rem;
+      color: #fff7e8;
+      font-family: "Segoe UI", Aptos, system-ui, sans-serif;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .cv-fallback a {
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+  <object
+    class="cv-viewer"
+    data="asset/Nathana%C3%ABlBAYARDCV.pdf"
+    type="application/pdf"
+  >
+    <p class="cv-fallback">
+      Si le CV ne s'affiche pas, <a href="asset/Nathana%C3%ABlBAYARDCV.pdf">ouvrir le PDF</a>.
+    </p>
+  </object>
+</body>
+</html>

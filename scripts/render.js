@@ -47,17 +47,57 @@
       return "";
     }
 
+    const isExpandable = experience.screenLayout === "phone";
+    const screenClass = `experience-screen${isExpandable ? " experience-screen-phone is-expandable is-minimized" : ""}`;
+    const screenAttributes = isExpandable ? ` data-expandable-screen data-screen-title="${experience.title}"` : "";
+    const screenControls = isExpandable
+      ? `
+        <span class="screen-controls">
+          <button class="screen-control" type="button" data-screen-toggle aria-expanded="false" aria-label="Agrandir la capture ${experience.title}">+</button>
+          <button class="screen-control screen-control-close" type="button" data-screen-close aria-label="Fermer la capture ${experience.title}">x</button>
+        </span>
+      `
+      : "";
+    const imageContent = `
+      <img src="${experience.screenImage}" alt="${experience.screenAlt}" loading="lazy">
+      ${isExpandable ? '<span class="screen-hint" aria-hidden="true">Cliquer pour agrandir</span>' : ""}
+    `;
+    const windowHeader = `
+      <div class="site-preview-bar"${isExpandable ? " data-screen-header" : ""}>
+        <span></span>
+        <strong>${experience.title}</strong>
+        ${screenControls}
+      </div>
+    `;
+
     return `
-      <figure class="experience-screen${experience.screenLayout === "phone" ? " experience-screen-phone" : ""}">
+      <figure class="${screenClass}"${screenAttributes}>
         <div class="experience-screen-window">
-          <div class="site-preview-bar">
-            <span></span>
-            <strong>${experience.title}</strong>
-          </div>
-          <img src="${experience.screenImage}" alt="${experience.screenAlt}" loading="lazy">
+          ${windowHeader}
+          ${
+            isExpandable
+              ? `<button class="screen-preview-button" type="button" data-screen-toggle aria-expanded="false" aria-label="Agrandir la capture ${experience.title}">${imageContent}</button>`
+              : imageContent
+          }
         </div>
         <figcaption>${experience.screenCaption}</figcaption>
       </figure>
+    `;
+  }
+
+  function createCompanyLogo(experience) {
+    if (!experience.companyLogo) {
+      return "";
+    }
+
+    return `
+      <div class="experience-company">
+        <p>${experience.companyLabel}</p>
+        <div class="experience-company-lockup">
+          <img src="${experience.companyLogo}" alt="${experience.companyLogoAlt}" loading="lazy">
+          <strong>${experience.companyName}</strong>
+        </div>
+      </div>
     `;
   }
 
@@ -68,6 +108,7 @@
           <div class="experience-logo-wrap">
             <img class="experience-logo" src="${experience.logo}" alt="${experience.logoAlt}" loading="lazy">
           </div>
+          ${createCompanyLogo(experience)}
           <p class="card-label">${experience.category}</p>
           <span>${experience.period}</span>
         </div>

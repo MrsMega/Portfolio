@@ -357,6 +357,16 @@ img {
   box-shadow: 5px 5px 0 var(--ink);
 }
 
+.button[aria-disabled="true"] {
+  opacity: 0.72;
+  cursor: not-allowed;
+}
+
+.button[aria-disabled="true"]:hover {
+  transform: none;
+  box-shadow: none;
+}
+
 .button-primary {
   color: var(--white);
   background: var(--ink);
@@ -438,7 +448,8 @@ main {
 .experience-card,
 .competence-card,
 .progression-item,
-.bilan-card {
+.bilan-card,
+.contact-form {
   border: 2px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
@@ -580,6 +591,49 @@ main {
   object-fit: cover;
 }
 
+.experience-company {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0.15rem 0 0.75rem;
+  padding: 0.62rem;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.experience-company p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.experience-company img {
+  display: block;
+  width: 2.75rem;
+  height: 2.75rem;
+  object-fit: contain;
+}
+
+.experience-company-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.experience-company-lockup strong {
+  min-width: 0;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
 .experience-main {
   display: grid;
   gap: 1rem;
@@ -687,7 +741,7 @@ main {
   font-size: 0.76rem;
 }
 
-.site-preview-bar span {
+.site-preview-bar > span:first-child {
   width: 0.58rem;
   height: 0.58rem;
   border-radius: 50%;
@@ -697,6 +751,7 @@ main {
 
 .site-preview-bar strong {
   margin-left: 1.85rem;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -728,23 +783,112 @@ main {
 .experience-screen {
   width: min(100%, 420px);
   margin: 0;
+  transition: width 220ms ease;
 }
 
 .experience-screen-phone {
   width: min(100%, 220px);
 }
 
+.experience-screen-phone.is-expanded {
+  width: min(100%, 430px);
+}
+
+.experience-screen-phone.is-minimized {
+  width: min(100%, 170px);
+}
+
 .experience-screen-window {
+  position: relative;
   overflow: hidden;
   border: 2px solid var(--line-strong);
   border-radius: 8px;
   background: var(--surface);
   box-shadow: 6px 6px 0 var(--ink);
+  transition: box-shadow 180ms ease, transform 180ms ease;
+}
+
+.experience-screen-window:hover {
+  box-shadow: 9px 9px 0 var(--ink);
+}
+
+.screen-preview-button {
+  position: relative;
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  cursor: zoom-in;
+  text-align: inherit;
+  font: inherit;
+}
+
+.experience-screen.is-expanded .screen-preview-button {
+  cursor: zoom-out;
 }
 
 .experience-screen-window .site-preview-bar {
   padding: 0.45rem 0.55rem;
   border-bottom: 2px solid var(--ink);
+}
+
+.experience-screen.is-expandable .site-preview-bar {
+  cursor: pointer;
+  user-select: none;
+}
+
+.screen-controls {
+  display: inline-flex;
+  gap: 0.35rem;
+  margin-left: auto;
+}
+
+.screen-control {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 1.35rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  border: 2px solid var(--ink);
+  border-radius: 5px;
+  color: var(--ink);
+  background: var(--surface-strong);
+  cursor: pointer;
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 1rem;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.screen-control:hover,
+.screen-control:focus-visible {
+  color: var(--surface);
+  background: var(--ink);
+}
+
+.experience-screen.is-expanded .screen-control {
+  color: var(--surface);
+  background: var(--red);
+}
+
+.experience-screen.is-expanded .screen-control-close {
+  color: var(--ink);
+  background: var(--surface-strong);
+}
+
+.experience-screen.is-minimized .screen-control-close {
+  display: none;
+}
+
+.experience-screen.is-minimized .site-preview-bar {
+  border-bottom: 0;
+}
+
+.experience-screen.is-minimized .screen-preview-button,
+.experience-screen.is-minimized figcaption {
+  display: none;
 }
 
 .experience-screen-window img {
@@ -764,6 +908,32 @@ main {
 .experience-screen-phone .experience-screen-window img {
   max-height: 330px;
   padding: 0.35rem;
+}
+
+.experience-screen-phone.is-expanded .experience-screen-window img {
+  max-height: 620px;
+}
+
+.screen-hint {
+  position: absolute;
+  right: 0.55rem;
+  bottom: 0.55rem;
+  padding: 0.32rem 0.48rem;
+  border: 2px solid var(--ink);
+  border-radius: 5px;
+  color: var(--surface);
+  background: var(--ink);
+  font-size: 0.72rem;
+  font-weight: 900;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.screen-preview-button:hover .screen-hint,
+.screen-preview-button:focus-visible .screen-hint {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .experience-screen figcaption {
@@ -954,6 +1124,103 @@ details ul {
   background: var(--surface-strong);
 }
 
+/* Contact */
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  gap: 1rem;
+  align-items: start;
+  max-width: 1180px;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+  padding: 1.1rem;
+}
+
+.contact-shortcuts {
+  position: sticky;
+  top: 7.5rem;
+  display: grid;
+  gap: 0.75rem;
+  justify-self: end;
+  width: 100%;
+}
+
+.profile-button {
+  justify-content: flex-start;
+  min-height: 3.25rem;
+}
+
+.button-icon {
+  flex: 0 0 1.65rem;
+  width: 1.65rem;
+  height: 1.65rem;
+  object-fit: contain;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.contact-field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.contact-field span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-field input,
+.contact-field textarea {
+  width: 100%;
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  padding: 0.85rem 0.9rem;
+  color: var(--ink);
+  background: var(--paper);
+  font: inherit;
+  outline: none;
+}
+
+.contact-field textarea {
+  min-height: 11rem;
+  resize: vertical;
+}
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+  background: var(--surface-strong);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.contact-status {
+  min-height: 1.4rem;
+  margin: 0;
+  color: var(--green);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.contact-status.is-error {
+  color: var(--red);
+}
+
 /* Footer */
 .site-footer {
   display: flex;
@@ -1013,8 +1280,15 @@ details ul {
   .analysis-grid,
   .evidence-row,
   .competence-layout,
-  .bilan-grid {
+  .bilan-grid,
+  .contact-layout,
+  .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .contact-shortcuts {
+    position: static;
+    justify-self: stretch;
   }
 
   .hero {
@@ -1182,6 +1456,11 @@ details ul {
   }
 
   .site-footer {
+    flex-direction: column;
+  }
+
+  .contact-actions {
+    align-items: stretch;
     flex-direction: column;
   }
 }
