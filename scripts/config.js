@@ -33,7 +33,8 @@
   });
 
   const CONTACT = Object.freeze({
-    recipientEmail: "nathanael.bayard05@gmail.com"
+    recipientEmail: "nathanael.bayard05@gmail.com",
+    formspreeEndpoint: "https://formspree.io/f/mdajkbyr"
   });
 
   const PROFILE_LINKS = Object.freeze({

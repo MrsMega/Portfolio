@@ -1139,6 +1139,15 @@ details ul {
   padding: 1.1rem;
 }
 
+.contact-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .contact-shortcuts {
   position: sticky;
   top: 7.5rem;
@@ -1219,6 +1228,13 @@ details ul {
 
 .contact-status.is-error {
   color: var(--red);
+}
+
+.contact-form button:disabled {
+  opacity: 0.68;
+  cursor: wait;
+  transform: none;
+  box-shadow: none;
 }
 
 /* Footer */

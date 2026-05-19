@@ -226,7 +226,15 @@
         </div>
 
         <div class="contact-layout">
-          <form class="contact-form" data-contact-form>
+          <form class="contact-form" method="POST" data-contact-form>
+            <input
+              class="contact-honeypot"
+              type="text"
+              name="_gotcha"
+              autocomplete="off"
+              tabindex="-1"
+              aria-hidden="true"
+            />
             <div class="contact-grid">
               <label class="contact-field">
                 <span>Votre mail</span>

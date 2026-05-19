@@ -257,6 +257,90 @@
     status.classList.toggle("is-error", isError);
   }
 
+  function getFormspreeEndpoint() {
+    const endpoint = String(CONTACT.formspreeEndpoint || "")
+      .trim()
+      .replace(/\/+$/, "");
+
+    if (!endpoint) {
+      return "";
+    }
+
+    if (/^[a-z0-9]+$/i.test(endpoint)) {
+      return `https://formspree.io/f/${endpoint}`;
+    }
+
+    return endpoint;
+  }
+
+  function getSubmitButton(form) {
+    return form.querySelector('button[type="submit"]');
+  }
+
+  function setSubmitText(form, text) {
+    const submitButton = getSubmitButton(form);
+
+    if (!submitButton) {
+      return;
+    }
+
+    submitButton.dataset.originalText = text;
+    submitButton.textContent = text;
+  }
+
+  function setSubmitState(form, isSubmitting) {
+    const submitButton = getSubmitButton(form);
+
+    if (!submitButton) {
+      return;
+    }
+
+    submitButton.disabled = isSubmitting;
+    submitButton.textContent = isSubmitting ? "Envoi..." : submitButton.dataset.originalText;
+  }
+
+  function getFormspreeErrorMessage(result) {
+    const errors = Array.isArray(result?.errors) ? result.errors : [];
+    const message = errors
+      .map((error) => error.message || error.field)
+      .filter(Boolean)
+      .join(" ");
+
+    return message || "L'envoi a echoue. Vous pouvez reessayer dans un instant.";
+  }
+
+  async function submitWithFormspree(form, endpoint) {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      body: new FormData(form),
+      headers: {
+        Accept: "application/json"
+      }
+    });
+    const result = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+      throw new Error(getFormspreeErrorMessage(result));
+    }
+  }
+
+  function submitWithMailto(form) {
+    if (!CONTACT.recipientEmail) {
+      setContactStatus("Ajoute ton adresse mail dans scripts/config.js pour activer l'envoi.", true);
+      return;
+    }
+
+    const formData = new FormData(form);
+    const senderEmail = String(formData.get("email") || "").trim();
+    const subject = String(formData.get("subject") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+    const body = [`Mail de contact : ${senderEmail}`, "", message].join("\n");
+    const mailtoUrl = `mailto:${CONTACT.recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    setContactStatus("Votre client mail va s'ouvrir avec le message prepare.");
+    window.location.href = mailtoUrl;
+  }
+
   function setupProfileLinks() {
     const links = document.querySelectorAll(SELECTORS.profileLink);
 
@@ -285,7 +369,16 @@
       return;
     }
 
-    form.addEventListener("submit", (event) => {
+    const endpoint = getFormspreeEndpoint();
+
+    if (endpoint) {
+      form.action = endpoint;
+      setSubmitText(form, "Envoyer le message");
+    } else {
+      setSubmitText(form, "Preparer le mail");
+    }
+
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
       if (!form.checkValidity()) {
@@ -293,20 +386,25 @@
         return;
       }
 
-      if (!CONTACT.recipientEmail) {
-        setContactStatus("Ajoute ton adresse mail dans scripts/config.js pour activer l'envoi.", true);
+      const currentEndpoint = getFormspreeEndpoint();
+
+      if (!currentEndpoint) {
+        submitWithMailto(form);
         return;
       }
 
-      const formData = new FormData(form);
-      const senderEmail = String(formData.get("email") || "").trim();
-      const subject = String(formData.get("subject") || "").trim();
-      const message = String(formData.get("message") || "").trim();
-      const body = [`Mail de contact : ${senderEmail}`, "", message].join("\n");
-      const mailtoUrl = `mailto:${CONTACT.recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setContactStatus("Envoi du message...");
+      setSubmitState(form, true);
 
-      setContactStatus("Votre client mail va s'ouvrir avec le message prepare.");
-      window.location.href = mailtoUrl;
+      try {
+        await submitWithFormspree(form, currentEndpoint);
+        form.reset();
+        setContactStatus("Message envoye. Merci, je reviens vers vous rapidement.");
+      } catch (error) {
+        setContactStatus(error.message || "L'envoi a echoue. Vous pouvez reessayer dans un instant.", true);
+      } finally {
+        setSubmitState(form, false);
+      }
     });
   }
 
