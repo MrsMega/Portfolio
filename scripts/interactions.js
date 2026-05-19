@@ -181,6 +181,204 @@
     window.addEventListener("scroll", update, { passive: true });
   }
 
+  const DELETE_MODE_COMMAND = /^(?:sudo\s+)?chmod\s+(?:-R\s+)?777\s+(?:\.\/)?portfolio_intro\.sh$/i;
+  const WIPE_SITE_COMMAND = /^(?:sudo\s+)?rm\s+-rf(?:\s+(?:\.|\.\/|\*|\/|--no-preserve-root|portfolio|site|all))*$/i;
+  const SCHREK_COMMAND = /^schrek$/i;
+  const HELP_TEXT = `Commandes disponibles:
+help
+whoami
+ls
+cat bilan.md
+open experiences
+open competences
+open parcours
+open bilan
+open contact
+clear
+theme hacker
+theme normal
+matrix
+fortune
+coffee
+schrek
+chmod 777 portfolio_intro.sh
+sudo hire nathanael
+sudo rm -rf *`;
+  const LS_TEXT = `portfolio_intro.sh
+experiences/
+competences/
+bilan.md
+contact.sh
+cv.html
+asset/`;
+  const BILAN_TEXT = `# bilan.md
+Acquis: passer d'une idee a une structure exploitable.
+Progression: renforcer la pratique dans un contexte professionnel.
+Suite: actualiser le portfolio au fil des missions de stage.`;
+  const FORTUNES = [
+    "Un bug compris vaut mieux que trois bugs contournes.",
+    "Le meilleur commit est petit, lisible, et pousse avant le cafe froid.",
+    "Chaque projet devient plus clair quand on peut expliquer ce qu'il ne fait pas.",
+    "Un portfolio vivant bat toujours une vitrine trop parfaite.",
+    "Aujourd'hui: une petite amelioration, demain: une competence solide."
+  ];
+  const MATRIX_CHARS = "01<>/\\{}[]$#@&%";
+  const SCHREK_ASCII = `⢀⡴⠑⡄⠀⠀⠀⠀⠀⠀⠀⣀⣀⣤⣤⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠸⡇⠀⠿⡀⠀⠀⠀⣀⡴⢿⣿⣿⣿⣿⣿⣿⣿⣷⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠑⢄⣠⠾⠁⣀⣄⡈⠙⣿⣿⣿⣿⣿⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢀⡀⠁⠀⠀⠈⠙⠛⠂⠈⣿⣿⣿⣿⣿⠿⡿⢿⣆⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢀⡾⣁⣀⠀⠴⠂⠙⣗⡀⠀⢻⣿⣿⠭⢤⣴⣦⣤⣹⠀⠀⠀⢀⢴⣶⣆
+⠀⠀⢀⣾⣿⣿⣿⣷⣮⣽⣾⣿⣥⣴⣿⣿⡿⢂⠔⢚⡿⢿⣿⣦⣴⣾⠁⠸⣼⡿
+⠀⢀⡞⠁⠙⠻⠿⠟⠉⠀⠛⢹⣿⣿⣿⣿⣿⣌⢤⣼⣿⣾⣿⡟⠉⠀⠀⠀⠀⠀
+⠀⣾⣷⣶⠇⠀⠀⣤⣄⣀⡀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀
+⠀⠉⠈⠉⠀⠀⢦⡈⢻⣿⣿⣿⣶⣶⣶⣶⣤⣽⡹⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠉⠲⣽⡻⢿⣿⣿⣿⣿⣿⣿⣷⣜⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣷⣶⣮⣭⣽⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⣀⣀⣈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠻⠿⠿⠿⠿⠛⠉`;
+  const DELETE_TARGET_SELECTOR = [
+    ".site-header",
+    ".brand-mark",
+    ".site-nav",
+    ".hero-copy",
+    ".hero-terminal",
+    ".hero-actions",
+    ".section",
+    ".section-heading",
+    ".principle",
+    ".filter-bar",
+    ".experience-card",
+    ".experience-logo-wrap",
+    ".experience-company",
+    ".experience-link-block",
+    ".site-preview-frame",
+    ".experience-screen",
+    ".analysis-grid section",
+    ".evidence-row",
+    ".competence-index",
+    ".competence-card",
+    ".code-row",
+    ".tag-row",
+    ".progression-item",
+    ".bilan-card",
+    ".contact-form",
+    ".contact-field",
+    ".contact-actions",
+    ".contact-shortcuts",
+    ".site-footer"
+  ].join(",");
+  let deleteModeEnabled = false;
+  let deleteModeObserver = null;
+
+  function isDeleteTarget(element) {
+    return (
+      element instanceof HTMLElement &&
+      element.matches(DELETE_TARGET_SELECTOR) &&
+      !element.matches(".portfolio-delete-button, script, style, template")
+    );
+  }
+
+  function getDeleteTargets(root = document) {
+    const targets = [];
+
+    if (isDeleteTarget(root)) {
+      targets.push(root);
+    }
+
+    root.querySelectorAll?.(DELETE_TARGET_SELECTOR).forEach((element) => {
+      if (isDeleteTarget(element)) {
+        targets.push(element);
+      }
+    });
+
+    return targets;
+  }
+
+  function decorateDeleteTarget(element) {
+    if (element.dataset.deleteReady === "true") {
+      return;
+    }
+
+    element.dataset.deleteReady = "true";
+    element.classList.add("portfolio-delete-target");
+
+    if (window.getComputedStyle(element).position === "static") {
+      element.style.position = "relative";
+    }
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "portfolio-delete-button";
+    button.textContent = "x";
+    button.setAttribute("aria-label", "Supprimer ce module");
+
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      element.remove();
+    });
+
+    element.append(button);
+  }
+
+  function decorateDeleteTargets(root = document) {
+    getDeleteTargets(root).forEach(decorateDeleteTarget);
+  }
+
+  function enableDeleteMode() {
+    if (!document.body) {
+      return false;
+    }
+
+    document.body.classList.add("is-delete-mode");
+    decorateDeleteTargets();
+
+    if (!deleteModeObserver && "MutationObserver" in window) {
+      deleteModeObserver = new MutationObserver((mutations) => {
+        if (!deleteModeEnabled) {
+          return;
+        }
+
+        mutations.forEach((mutation) => {
+          mutation.addedNodes.forEach((node) => decorateDeleteTargets(node));
+        });
+      });
+      deleteModeObserver.observe(document.body, { childList: true, subtree: true });
+    }
+
+    const wasEnabled = deleteModeEnabled;
+    deleteModeEnabled = true;
+    return !wasEnabled;
+  }
+
+  function wipeVisibleSite() {
+    if (!document.body) {
+      return 0;
+    }
+
+    const elements = [...document.body.children].filter(
+      (element) => !element.matches("script, style, template")
+    );
+
+    elements.forEach((element) => element.remove());
+    deleteModeObserver?.disconnect();
+    deleteModeObserver = null;
+    deleteModeEnabled = false;
+    document.body.classList.remove("is-delete-mode");
+
+    return elements.length;
+  }
+
+  function normalizeTerminalCommand(command) {
+    return command
+      .trim()
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+  }
+
   function setupHeroTerminal() {
     const terminal = document.querySelector(SELECTORS.heroTerminal);
     const output = document.querySelector(SELECTORS.terminalOutput);
@@ -191,26 +389,246 @@
 
     const text = terminal.dataset.terminalText || "";
     const cursor = terminal.querySelector(SELECTORS.terminalCursor);
+    const promptText = terminal.querySelector(".terminal-prompt")?.textContent || "nathanael@portfolio:~$";
+    const inputPromptText = promptText.endsWith(" ") ? promptText : `${promptText} `;
+    const inputLine = document.createElement("span");
+    const inputPrompt = document.createElement("span");
+    const input = document.createElement("span");
+    let inputValue = "";
+    let draftInputValue = "";
     let index = 0;
     let started = false;
+    let introComplete = false;
+    let typingTimer = 0;
+    let matrixTimer = 0;
+    let matrixRun = 0;
+    let commandHistoryIndex = 0;
+    const commandHistory = [];
+    let isInputReady = false;
+
+    terminal.tabIndex = 0;
+    terminal.setAttribute("role", "textbox");
+    terminal.setAttribute("aria-label", "Terminal interactif du portfolio");
+    terminal.setAttribute("aria-multiline", "true");
+
+    function scrollTerminalToBottom() {
+      const terminalBody = terminal.querySelector(".hero-intro");
+      terminalBody?.scrollTo({ top: terminalBody.scrollHeight });
+    }
+
+    inputLine.className = "terminal-line terminal-input-line";
+    inputLine.hidden = true;
+    inputPrompt.className = "terminal-prompt";
+    inputPrompt.textContent = inputPromptText;
+    input.className = "terminal-input";
+    input.setAttribute("data-terminal-input", "");
+    inputLine.append(document.createElement("br"), inputPrompt, input);
+
+    if (cursor) {
+      cursor.before(inputLine);
+    } else {
+      output.after(inputLine);
+    }
+
+    function renderInput() {
+      input.textContent = inputValue;
+      scrollTerminalToBottom();
+    }
+
+    function rememberCommand(command) {
+      if (!command) {
+        commandHistoryIndex = commandHistory.length;
+        return;
+      }
+
+      if (commandHistory.at(-1) !== command) {
+        commandHistory.push(command);
+      }
+
+      commandHistoryIndex = commandHistory.length;
+      draftInputValue = "";
+    }
+
+    function showInputLine() {
+      isInputReady = true;
+      inputLine.hidden = false;
+      renderInput();
+    }
+
+    function addTerminalLine(value, suffix = "") {
+      const line = document.createElement("span");
+      const linePrompt = document.createElement("span");
+      const lineInput = document.createElement("span");
+
+      line.className = "terminal-line terminal-history-line";
+      linePrompt.className = "terminal-prompt";
+      linePrompt.textContent = inputPromptText;
+      lineInput.className = "terminal-input";
+      lineInput.textContent = value;
+      line.append(document.createElement("br"), linePrompt, lineInput);
+
+      if (suffix) {
+        const marker = document.createElement("span");
+        marker.className = "terminal-cancel";
+        marker.textContent = suffix;
+        line.append(marker);
+      }
+
+      inputLine.before(line);
+      scrollTerminalToBottom();
+    }
+
+    function addTerminalOutput(value, className = "") {
+      const line = document.createElement("span");
+
+      line.className = `terminal-line terminal-output-line${className ? ` ${className}` : ""}`;
+      line.append(document.createElement("br"), value);
+      inputLine.before(line);
+      scrollTerminalToBottom();
+    }
+
+    function stopMatrix() {
+      window.clearInterval(matrixTimer);
+      matrixTimer = 0;
+      matrixRun += 1;
+    }
+
+    function clearTerminal() {
+      stopMatrix();
+      terminal.querySelectorAll(".terminal-history-line, .terminal-output-line").forEach((line) => line.remove());
+      terminal.querySelectorAll(".hero-intro > .terminal-cancel").forEach((marker) => marker.remove());
+      inputValue = "";
+      renderInput();
+    }
+
+    function randomMatrixFrame(columns = 44, rows = 7) {
+      return Array.from({ length: rows }, () =>
+        Array.from({ length: columns }, () => MATRIX_CHARS[Math.floor(Math.random() * MATRIX_CHARS.length)]).join("")
+      ).join("\n");
+    }
+
+    function startMatrix() {
+      stopMatrix();
+
+      const currentRun = matrixRun;
+      const line = document.createElement("span");
+      const content = document.createElement("span");
+
+      line.className = "terminal-line terminal-output-line is-matrix";
+      line.append(document.createElement("br"), content);
+      inputLine.before(line);
+      scrollTerminalToBottom();
+
+      content.textContent = randomMatrixFrame();
+      matrixTimer = window.setInterval(() => {
+        content.textContent = randomMatrixFrame();
+        scrollTerminalToBottom();
+      }, 95);
+
+      window.setTimeout(() => {
+        if (currentRun !== matrixRun) {
+          return;
+        }
+
+        stopMatrix();
+        content.textContent = `${content.textContent}\nmatrix: signal termine.`;
+        scrollTerminalToBottom();
+      }, 4200);
+    }
+
+    function scrollToSection(id) {
+      const target = document.getElementById(id);
+
+      if (!target) {
+        return false;
+      }
+
+      target.scrollIntoView({
+        behavior: reduceMotion ? "auto" : "smooth",
+        block: "start"
+      });
+      return true;
+    }
+
+    function openPortfolioSection(sectionName) {
+      const normalizedSectionName = sectionName.replace(/\/+$/, "");
+      const sections = {
+        parcours: "parcours",
+        experiences: "experiences",
+        experience: "experiences",
+        projets: "experiences",
+        competences: "competences",
+        competence: "competences",
+        skills: "competences",
+        bilan: "bilan",
+        contact: "contact"
+      };
+      const sectionId = sections[normalizedSectionName];
+
+      if (!sectionId || !scrollToSection(sectionId)) {
+        addTerminalOutput(`open: section introuvable: ${normalizedSectionName}`, "is-error");
+        return;
+      }
+
+      addTerminalOutput(`open: navigation vers ${sectionId}/`);
+    }
+
+    function setTerminalTheme(theme) {
+      if (!document.body) {
+        return;
+      }
+
+      document.body.classList.toggle("is-theme-hacker", theme === "hacker");
+      addTerminalOutput(theme === "hacker" ? "theme: hacker active." : "theme: theme normal restaure.");
+    }
+
+    function hireNathanael() {
+      addTerminalOutput("sudo: permission granted. Opening contact channel...");
+      scrollToSection("contact");
+    }
+
+    function stopIntro(showCancelMarker = false) {
+      if (introComplete) {
+        return;
+      }
+
+      window.clearTimeout(typingTimer);
+      introComplete = true;
+      cursor?.classList.add("is-idle");
+
+      if (showCancelMarker) {
+        const marker = document.createElement("span");
+        marker.className = "terminal-cancel";
+        marker.textContent = " ^C";
+        output.after(marker);
+      }
+    }
 
     function finish() {
+      window.clearTimeout(typingTimer);
       output.textContent = text;
+      introComplete = true;
       cursor?.classList.add("is-idle");
     }
 
     function typeNext() {
+      if (introComplete) {
+        return;
+      }
+
       output.textContent = text.slice(0, index);
 
       if (index >= text.length) {
+        introComplete = true;
         cursor?.classList.add("is-idle");
+
         return;
       }
 
       const current = text[index];
       index += 1;
       const delay = current === "." || current === ":" || current === "," ? 90 : 22;
-      window.setTimeout(typeNext, delay);
+      typingTimer = window.setTimeout(typeNext, delay);
     }
 
     function start() {
@@ -227,6 +645,230 @@
 
       typeNext();
     }
+
+    function handleCancel() {
+      if (!introComplete) {
+        stopIntro(true);
+        showInputLine();
+        return;
+      }
+
+      showInputLine();
+      addTerminalLine(inputValue, " ^C");
+      inputValue = "";
+      renderInput();
+    }
+
+    function runTerminalCommand(command) {
+      const normalizedCommand = normalizeTerminalCommand(command);
+
+      if (!normalizedCommand) {
+        return;
+      }
+
+      if (normalizedCommand === "help") {
+        addTerminalOutput(HELP_TEXT);
+        return;
+      }
+
+      if (normalizedCommand === "whoami") {
+        addTerminalOutput("nathanael - etudiant BUT Informatique, developpeur web/mobile en progression.");
+        return;
+      }
+
+      if (/^ls(?:\s+-la?)?$/.test(normalizedCommand)) {
+        addTerminalOutput(LS_TEXT);
+        return;
+      }
+
+      if (normalizedCommand === "cat bilan.md") {
+        addTerminalOutput(BILAN_TEXT);
+        return;
+      }
+
+      if (normalizedCommand.startsWith("open ")) {
+        openPortfolioSection(normalizedCommand.replace(/^open\s+/, ""));
+        return;
+      }
+
+      if (normalizedCommand === "clear") {
+        clearTerminal();
+        return;
+      }
+
+      if (normalizedCommand === "theme hacker") {
+        setTerminalTheme("hacker");
+        return;
+      }
+
+      if (normalizedCommand === "theme normal") {
+        setTerminalTheme("normal");
+        return;
+      }
+
+      if (normalizedCommand === "matrix") {
+        startMatrix();
+        return;
+      }
+
+      if (normalizedCommand === "fortune") {
+        addTerminalOutput(FORTUNES[Math.floor(Math.random() * FORTUNES.length)]);
+        return;
+      }
+
+      if (normalizedCommand === "coffee") {
+        addTerminalOutput("coffee: compilation du cafe...\ncoffee: done. Energie +1.");
+        return;
+      }
+
+      if (normalizedCommand === "sudo hire nathanael") {
+        hireNathanael();
+        return;
+      }
+
+      if (SCHREK_COMMAND.test(normalizedCommand)) {
+        addTerminalOutput(SCHREK_ASCII, "is-ascii-art");
+        return;
+      }
+
+      if (DELETE_MODE_COMMAND.test(normalizedCommand)) {
+        const isFirstUnlock = enableDeleteMode();
+        addTerminalOutput(
+          isFirstUnlock
+            ? "chmod: droits 777 appliques, mode suppression active."
+            : "chmod: droits deja appliques."
+        );
+        return;
+      }
+
+      if (WIPE_SITE_COMMAND.test(normalizedCommand)) {
+        addTerminalOutput("rm: suppression recursive du portfolio...");
+        window.setTimeout(wipeVisibleSite, 420);
+        return;
+      }
+
+      if (/^(?:sudo\s+)?chmod\b/.test(normalizedCommand)) {
+        addTerminalOutput("chmod: cible refusee ou introuvable.", "is-error");
+        return;
+      }
+
+      if (/^(?:sudo\s+)?rm\b/.test(normalizedCommand)) {
+        addTerminalOutput("rm: utilisez sudo rm -rf pour vider le portfolio.", "is-error");
+        return;
+      }
+
+      addTerminalOutput(`${command}: commande pas encore implementee.`, "is-muted");
+    }
+
+    function handleInputKeydown(event) {
+      const isCancelShortcut = event.key.toLowerCase() === "c" && (event.ctrlKey || event.metaKey);
+      const isPrintableKey = event.key.length === 1 && !event.altKey && !event.ctrlKey && !event.metaKey;
+
+      if (isCancelShortcut) {
+        event.preventDefault();
+        handleCancel();
+        return;
+      }
+
+      if (!isInputReady) {
+        if (isPrintableKey || event.key === "Backspace" || event.key === "Enter") {
+          event.preventDefault();
+        }
+
+        return;
+      }
+
+      if (event.key === "Backspace") {
+        event.preventDefault();
+        inputValue = inputValue.slice(0, -1);
+        commandHistoryIndex = commandHistory.length;
+        draftInputValue = inputValue;
+        renderInput();
+        return;
+      }
+
+      if (event.key === "ArrowUp") {
+        event.preventDefault();
+
+        if (!commandHistory.length) {
+          return;
+        }
+
+        if (commandHistoryIndex === commandHistory.length) {
+          draftInputValue = inputValue;
+        }
+
+        commandHistoryIndex = Math.max(0, commandHistoryIndex - 1);
+        inputValue = commandHistory[commandHistoryIndex];
+        renderInput();
+        return;
+      }
+
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+
+        if (!commandHistory.length) {
+          return;
+        }
+
+        commandHistoryIndex = Math.min(commandHistory.length, commandHistoryIndex + 1);
+        inputValue = commandHistoryIndex === commandHistory.length ? draftInputValue : commandHistory[commandHistoryIndex];
+        renderInput();
+        return;
+      }
+
+      if (event.key === "Enter") {
+        event.preventDefault();
+        const command = inputValue.trim();
+        addTerminalLine(inputValue);
+        rememberCommand(command);
+        inputValue = "";
+        renderInput();
+        runTerminalCommand(command);
+        return;
+      }
+
+      if (isPrintableKey) {
+        event.preventDefault();
+        inputValue += event.key;
+        commandHistoryIndex = commandHistory.length;
+        draftInputValue = inputValue;
+        renderInput();
+      }
+    }
+
+    terminal.addEventListener("click", () => {
+      terminal.focus({ preventScroll: true });
+    });
+
+    terminal.addEventListener("focus", () => {
+      terminal.classList.add("is-focused");
+    });
+
+    terminal.addEventListener("blur", () => {
+      terminal.classList.remove("is-focused");
+    });
+
+    terminal.addEventListener("keydown", handleInputKeydown);
+
+    terminal.addEventListener("paste", (event) => {
+      if (!isInputReady) {
+        return;
+      }
+
+      const pastedText = event.clipboardData?.getData("text");
+
+      if (!pastedText) {
+        return;
+      }
+
+      event.preventDefault();
+      showInputLine();
+      inputValue += pastedText.replace(/\r?\n/g, " ");
+      commandHistoryIndex = commandHistory.length;
+      draftInputValue = inputValue;
+      renderInput();
+    });
 
     if (!("IntersectionObserver" in window)) {
       start();

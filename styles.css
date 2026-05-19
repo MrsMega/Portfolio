@@ -41,6 +41,35 @@ body {
   overflow-x: hidden;
 }
 
+body.is-theme-hacker {
+  --paper: #04100a;
+  --paper-soft: #0b2a18;
+  --surface: #07190f;
+  --surface-strong: #123b24;
+  --ink: #d7ffe5;
+  --ink-soft: #9df5bd;
+  --muted: #75b58b;
+  --line: #3cff8f;
+  --line-soft: #1b6d3e;
+  --line-strong: #7dffb0;
+  --red: #ff5a79;
+  --green: #3cff8f;
+  --gold: #d8ff73;
+  --violet: #91a7ff;
+  --blue: #06150d;
+  --white: #eafff0;
+  --shadow: 8px 8px 0 #3cff8f;
+  background:
+    linear-gradient(rgba(60, 255, 143, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(60, 255, 143, 0.035) 1px, transparent 1px),
+    var(--paper);
+  background-size: 28px 28px;
+}
+
+body.is-theme-hacker .map-canvas {
+  filter: hue-rotate(95deg) saturate(1.6) brightness(0.58);
+}
+
 body::before {
   content: none;
 }
@@ -264,6 +293,17 @@ img {
   border-radius: 8px;
   background: var(--ink);
   box-shadow: 8px 8px 0 var(--green);
+  cursor: text;
+  transition: box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.hero-terminal:focus {
+  outline: none;
+}
+
+.hero-terminal.is-focused {
+  border-color: var(--gold);
+  box-shadow: 8px 8px 0 var(--gold);
 }
 
 .terminal-bar {
@@ -303,8 +343,28 @@ img {
 }
 
 .hero-terminal .hero-intro {
+  height: 16rem;
   min-height: 8.6rem;
+  max-height: 16rem;
+  overflow: auto;
   padding: 1rem;
+  scrollbar-color: var(--gold) rgba(255, 247, 232, 0.12);
+  scrollbar-width: thin;
+}
+
+.hero-terminal .hero-intro::-webkit-scrollbar {
+  width: 0.6rem;
+  height: 0.6rem;
+}
+
+.hero-terminal .hero-intro::-webkit-scrollbar-track {
+  background: rgba(255, 247, 232, 0.1);
+}
+
+.hero-terminal .hero-intro::-webkit-scrollbar-thumb {
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--gold);
 }
 
 .terminal-prompt {
@@ -313,6 +373,51 @@ img {
 
 [data-terminal-output] {
   overflow-wrap: anywhere;
+}
+
+.terminal-input {
+  color: var(--surface);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.terminal-cancel {
+  color: var(--gold);
+}
+
+.terminal-output-line {
+  color: #85d5bd;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.terminal-output-line.is-muted {
+  color: rgba(255, 247, 232, 0.68);
+}
+
+.terminal-output-line.is-error {
+  color: var(--red);
+}
+
+.terminal-output-line.is-ascii-art {
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  color: var(--gold);
+  font-size: 0.82em;
+  line-height: 1.08;
+  white-space: pre;
+}
+
+.terminal-output-line.is-matrix {
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  color: #3cff8f;
+  font-size: 0.82em;
+  line-height: 1.08;
+  text-shadow: 0 0 8px rgba(60, 255, 143, 0.46);
+  white-space: pre;
 }
 
 .terminal-cursor {
@@ -329,6 +434,49 @@ img {
   50% {
     opacity: 0;
   }
+}
+
+/* Delete mode */
+.portfolio-delete-target {
+  outline: 1px dashed rgba(242, 106, 46, 0.58);
+  outline-offset: -3px;
+}
+
+.portfolio-delete-target:hover {
+  outline-color: var(--red);
+}
+
+.portfolio-delete-button {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.35rem;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  padding: 0;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  color: var(--surface);
+  background: var(--red);
+  box-shadow: 2px 2px 0 var(--ink);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 900;
+  line-height: 1;
+  opacity: 0.92;
+}
+
+.portfolio-delete-button:hover,
+.portfolio-delete-button:focus-visible {
+  transform: translate(-1px, -1px);
+  opacity: 1;
+}
+
+.portfolio-delete-button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
 }
 
 /* Hero actions */
@@ -1386,7 +1534,9 @@ details ul {
   }
 
   .hero-terminal .hero-intro {
+    height: 15rem;
     min-height: 10rem;
+    max-height: 15rem;
     padding: 0.85rem;
   }
 
