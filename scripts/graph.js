@@ -25,6 +25,14 @@
       ["projet", "preuves"]
     ];
     const pointer = { x: 0.5, y: 0.5 };
+    const nodeRadius = {
+      default: 17,
+      active: 22,
+      hitMouse: 34,
+      hitTouch: 42
+    };
+    const labelFont = "600 12px Segoe UI, sans-serif";
+    const labelHitPadding = 8;
     const drag = {
       node: null,
       offsetX: 0,
@@ -100,12 +108,36 @@
       node.y = node.py / height;
     }
 
-    function hitTest(x, y) {
+    function getLabelBounds(node) {
+      ctx.font = labelFont;
+      return {
+        x: node.px + 12,
+        y: node.py - 12,
+        width: ctx.measureText(node.label).width + 18,
+        height: 24
+      };
+    }
+
+    function isPointInRect(x, y, rect, padding = 0) {
+      return (
+        x >= rect.x - padding &&
+        x <= rect.x + rect.width + padding &&
+        y >= rect.y - padding &&
+        y <= rect.y + rect.height + padding
+      );
+    }
+
+    function hitTest(x, y, pointerType = "mouse") {
+      const hitRadius = pointerType === "touch" || pointerType === "pen" ? nodeRadius.hitTouch : nodeRadius.hitMouse;
+
       return [...nodes].reverse().find((node) => {
-        const radius = node.radius || 22;
         const dx = x - node.px;
         const dy = y - node.py;
-        return Math.hypot(dx, dy) <= radius + 6;
+        if (Math.hypot(dx, dy) <= hitRadius) {
+          return true;
+        }
+
+        return isPointInRect(x, y, getLabelBounds(node), labelHitPadding);
       });
     }
 
@@ -233,7 +265,7 @@
     }
 
     function drawLabel(text, x, y, isActive) {
-      ctx.font = "600 12px Segoe UI, sans-serif";
+      ctx.font = labelFont;
       const textWidth = ctx.measureText(text).width;
       ctx.fillStyle = isActive ? "rgba(255, 250, 240, 0.92)" : "rgba(244, 240, 229, 0.78)";
       ctx.strokeStyle = isActive ? "rgba(35, 43, 59, 0.34)" : "rgba(35, 43, 59, 0.12)";
@@ -270,7 +302,7 @@
 
       nodes.forEach((node) => {
         const isHeld = drag.node === node;
-        node.radius = isHeld || hoverNode === node ? 22 : 17;
+        node.radius = isHeld || hoverNode === node ? nodeRadius.active : nodeRadius.default;
       });
 
       const restLength = getRestLength();
@@ -360,7 +392,7 @@
           return;
         }
 
-        hoverNode = hitTest(point.x, point.y) || null;
+        hoverNode = hitTest(point.x, point.y, event.pointerType) || null;
         hero.classList.toggle("is-graph-hover", Boolean(hoverNode));
 
         if (reduceMotion) {
@@ -380,7 +412,7 @@
       }
 
       const point = getCanvasPoint(event);
-      const node = hitTest(point.x, point.y);
+      const node = hitTest(point.x, point.y, event.pointerType);
 
       if (!node) {
         return;
