@@ -742,6 +742,7 @@ main {
 .experience-company {
   display: grid;
   gap: 0.45rem;
+  min-width: 8.25rem;
   margin: 0.15rem 0 0.75rem;
   padding: 0.62rem;
   border: 2px solid var(--ink);
@@ -767,19 +768,30 @@ main {
   object-fit: contain;
 }
 
+.experience-company-logo-link {
+  display: block;
+  border-radius: 6px;
+}
+
+.experience-company-logo-link:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
 .experience-company-lockup {
-  display: flex;
+  display: grid;
   align-items: center;
-  gap: 0.55rem;
+  justify-items: center;
+  gap: 0.38rem;
   min-width: 0;
+  text-align: center;
 }
 
 .experience-company-lockup strong {
-  min-width: 0;
   color: var(--ink);
   font-size: 1rem;
   line-height: 1.1;
-  overflow-wrap: anywhere;
+  white-space: nowrap;
 }
 
 .experience-main {
@@ -938,10 +950,6 @@ main {
   width: min(100%, 220px);
 }
 
-.experience-screen-phone.is-expanded {
-  width: min(100%, 430px);
-}
-
 .experience-screen-phone.is-minimized {
   width: min(100%, 170px);
 }
@@ -968,13 +976,9 @@ main {
   padding: 0;
   color: inherit;
   background: transparent;
-  cursor: zoom-in;
+  cursor: pointer;
   text-align: inherit;
   font: inherit;
-}
-
-.experience-screen.is-expanded .screen-preview-button {
-  cursor: zoom-out;
 }
 
 .experience-screen-window .site-preview-bar {
@@ -1016,12 +1020,12 @@ main {
   background: var(--ink);
 }
 
-.experience-screen.is-expanded .screen-control {
+.experience-screen:not(.is-minimized) .screen-control {
   color: var(--surface);
   background: var(--red);
 }
 
-.experience-screen.is-expanded .screen-control-close {
+.experience-screen:not(.is-minimized) .screen-control-close {
   color: var(--ink);
   background: var(--surface-strong);
 }
@@ -1056,10 +1060,6 @@ main {
 .experience-screen-phone .experience-screen-window img {
   max-height: 330px;
   padding: 0.35rem;
-}
-
-.experience-screen-phone.is-expanded .experience-screen-window img {
-  max-height: 620px;
 }
 
 .screen-hint {

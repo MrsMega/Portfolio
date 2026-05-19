@@ -58,16 +58,13 @@
   }
 
   function setupExpandableScreens() {
+    const screens = document.querySelectorAll("[data-expandable-screen]");
     const toggles = document.querySelectorAll(SELECTORS.screenToggle);
     const closeButtons = document.querySelectorAll(SELECTORS.screenClose);
     const headers = document.querySelectorAll(SELECTORS.screenHeader);
 
     function getNextScreenState(screen) {
-      if (screen?.classList.contains("is-minimized")) {
-        return "expanded";
-      }
-
-      return screen?.classList.contains("is-expanded") ? "normal" : "expanded";
+      return screen?.classList.contains("is-minimized") ? "normal" : "minimized";
     }
 
     function setScreenState(screen, state) {
@@ -75,29 +72,32 @@
         return;
       }
 
-      const isExpanded = state === "expanded";
       const isMinimized = state === "minimized";
       const screenTitle = screen.dataset.screenTitle || "";
-      const labelAction = isExpanded ? "Reduire" : isMinimized ? "Restaurer" : "Agrandir";
+      const labelAction = isMinimized ? "Restaurer" : "Minimiser";
       const hint = screen.querySelector(".screen-hint");
       const screenToggles = screen.querySelectorAll(SELECTORS.screenToggle);
 
-      screen.classList.toggle("is-expanded", isExpanded);
+      screen.classList.remove("is-expanded");
       screen.classList.toggle("is-minimized", isMinimized);
 
       screenToggles.forEach((toggle) => {
-        toggle.setAttribute("aria-expanded", String(isExpanded));
+        toggle.setAttribute("aria-expanded", String(!isMinimized));
         toggle.setAttribute("aria-label", `${labelAction} la capture ${screenTitle}`.trim());
 
         if (toggle.classList.contains("screen-control")) {
-          toggle.textContent = isExpanded ? "-" : "+";
+          toggle.textContent = isMinimized ? "+" : "-";
         }
       });
 
       if (hint) {
-        hint.textContent = isExpanded ? "Cliquer pour reduire" : "Cliquer pour agrandir";
+        hint.textContent = isMinimized ? "Cliquer pour restaurer" : "Cliquer pour minimiser";
       }
     }
+
+    screens.forEach((screen) => {
+      setScreenState(screen, screen.classList.contains("is-minimized") ? "minimized" : "normal");
+    });
 
     toggles.forEach((toggle) => {
       toggle.addEventListener("click", () => {

@@ -82,6 +82,7 @@
       logoAlt: "Logo Flotto",
       companyLogo: "asset/amiltone.png",
       companyLogoAlt: "Logo Amiltone",
+      companyUrl: "https://www.amiltone.com",
       companyLabel: "Entreprise d'accueil",
       companyName: "Amiltone",
       summary:
