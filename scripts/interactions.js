@@ -2,7 +2,7 @@
   "use strict";
 
   const portfolio = window.Portfolio;
-  const { CONTACT, PROFILE_LINKS, SECTION_IDS, SELECTORS, reduceMotion } = portfolio.config;
+  const { CONTACT, PAYMENT_LINKS, PROFILE_LINKS, SECTION_IDS, SELECTORS, reduceMotion } = portfolio.config;
   const { competences } = portfolio.data;
   const { renderCompetencePanel } = portfolio.render;
 
@@ -199,7 +199,7 @@ theme hacker
 theme normal
 matrix
 fortune
-coffee
+buymeacoffee
 schrek
 chmod 777 portfolio_intro.sh
 sudo hire nathanael
@@ -402,6 +402,8 @@ Suite: actualiser le portfolio au fil des missions de stage.`;
     let typingTimer = 0;
     let matrixTimer = 0;
     let matrixRun = 0;
+    let matrixOverlay = null;
+    let matrixState = null;
     let commandHistoryIndex = 0;
     const commandHistory = [];
     let isInputReady = false;
@@ -491,6 +493,10 @@ Suite: actualiser le portfolio au fil des missions de stage.`;
       window.clearInterval(matrixTimer);
       matrixTimer = 0;
       matrixRun += 1;
+      matrixOverlay?.remove();
+      matrixOverlay = null;
+      matrixState = null;
+      terminal.classList.remove("is-matrix-active");
     }
 
     function clearTerminal() {
@@ -501,29 +507,75 @@ Suite: actualiser le portfolio au fil des missions de stage.`;
       renderInput();
     }
 
-    function randomMatrixFrame(columns = 44, rows = 7) {
-      return Array.from({ length: rows }, () =>
-        Array.from({ length: columns }, () => MATRIX_CHARS[Math.floor(Math.random() * MATRIX_CHARS.length)]).join("")
-      ).join("\n");
+    function getRandomMatrixChar() {
+      return MATRIX_CHARS[Math.floor(Math.random() * MATRIX_CHARS.length)];
+    }
+
+    function createMatrixDrop(rows) {
+      return {
+        head: -Math.floor(Math.random() * rows * 1.7),
+        speed: Math.random() > 0.72 ? 2 : 1,
+        trail: 4 + Math.floor(Math.random() * Math.max(4, rows * 0.45))
+      };
+    }
+
+    function createMatrixState(columns, rows) {
+      return {
+        columns,
+        rows,
+        drops: Array.from({ length: columns }, () => createMatrixDrop(rows))
+      };
+    }
+
+    function renderMatrixFrame(target) {
+      const terminalRect = terminal.getBoundingClientRect();
+      const columns = Math.max(32, Math.floor(terminalRect.width / 10));
+      const rows = Math.max(10, Math.floor(terminalRect.height / 15));
+      const lines = Array.from({ length: rows }, () => Array.from({ length: columns }, () => " "));
+
+      if (!matrixState || matrixState.columns !== columns || matrixState.rows !== rows) {
+        matrixState = createMatrixState(columns, rows);
+      }
+
+      matrixState.drops.forEach((drop, columnIndex) => {
+        for (let trailIndex = 0; trailIndex < drop.trail; trailIndex += 1) {
+          const rowIndex = drop.head - trailIndex;
+
+          if (rowIndex >= 0 && rowIndex < rows) {
+            lines[rowIndex][columnIndex] = getRandomMatrixChar();
+          }
+        }
+
+        drop.head += drop.speed;
+
+        if (drop.head - drop.trail > rows + 2) {
+          Object.assign(drop, createMatrixDrop(rows));
+        }
+      });
+
+      target.textContent = lines.map((line) => line.join("")).join("\n");
     }
 
     function startMatrix() {
       stopMatrix();
 
       const currentRun = matrixRun;
-      const line = document.createElement("span");
+      const overlay = document.createElement("div");
       const content = document.createElement("span");
 
-      line.className = "terminal-line terminal-output-line is-matrix";
-      line.append(document.createElement("br"), content);
-      inputLine.before(line);
-      scrollTerminalToBottom();
+      overlay.className = "terminal-matrix-overlay";
+      overlay.setAttribute("aria-hidden", "true");
+      content.className = "terminal-matrix-rain";
+      overlay.append(content);
+      terminal.append(overlay);
+      matrixOverlay = overlay;
+      terminal.classList.add("is-matrix-active");
 
-      content.textContent = randomMatrixFrame();
+      addTerminalOutput("matrix: flux visuel active sur tout le terminal.");
+      renderMatrixFrame(content);
       matrixTimer = window.setInterval(() => {
-        content.textContent = randomMatrixFrame();
-        scrollTerminalToBottom();
-      }, 95);
+        renderMatrixFrame(content);
+      }, 170);
 
       window.setTimeout(() => {
         if (currentRun !== matrixRun) {
@@ -531,8 +583,7 @@ Suite: actualiser le portfolio au fil des missions de stage.`;
         }
 
         stopMatrix();
-        content.textContent = `${content.textContent}\nmatrix: signal termine.`;
-        scrollTerminalToBottom();
+        addTerminalOutput("matrix: signal termine.");
       }, 4200);
     }
 
@@ -585,6 +636,22 @@ Suite: actualiser le portfolio au fil des missions de stage.`;
     function hireNathanael() {
       addTerminalOutput("sudo: permission granted. Opening contact channel...");
       scrollToSection("contact");
+    }
+
+    function openPaypalTransfer() {
+      let paypalUrl = String(PAYMENT_LINKS.paypal || "").trim();
+
+      if (!paypalUrl) {
+        addTerminalOutput("paypal: ajoute ton lien PayPal dans scripts/config.js pour activer la commande.", "is-error");
+        return;
+      }
+
+      if (!/^https?:\/\//i.test(paypalUrl)) {
+        paypalUrl = `https://${paypalUrl}`;
+      }
+
+      addTerminalOutput("paypal: ouverture du lien de virement...");
+      window.open(paypalUrl, "_blank", "noopener,noreferrer");
     }
 
     function stopIntro(showCancelMarker = false) {
@@ -716,8 +783,8 @@ Suite: actualiser le portfolio au fil des missions de stage.`;
         return;
       }
 
-      if (normalizedCommand === "coffee") {
-        addTerminalOutput("coffee: compilation du cafe...\ncoffee: done. Energie +1.");
+      if (normalizedCommand === "buymeacoffee" || normalizedCommand === "buymeacoffee") {
+        openPaypalTransfer();
         return;
       }
 

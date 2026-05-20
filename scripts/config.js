@@ -42,6 +42,10 @@
     linkedin: "https://www.linkedin.com/in/nathanael-bayard-9137b3331"
   });
 
+  const PAYMENT_LINKS = Object.freeze({
+    paypal: "https://paypal.me/DonezMoiTouVotreArge"
+  });
+
   const SECTION_IDS = Object.freeze(["parcours", "experiences", "competences", "bilan", "contact"]);
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -49,6 +53,7 @@
   portfolio.config = Object.freeze({
     BREAKPOINTS,
     CONTACT,
+    PAYMENT_LINKS,
     PROFILE_LINKS,
     SECTION_IDS,
     SELECTORS,

@@ -286,6 +286,8 @@ img {
 
 /* Terminal intro */
 .hero-terminal {
+  position: relative;
+  isolation: isolate;
   max-width: 66ch;
   margin: 1.35rem 0 0;
   overflow: hidden;
@@ -304,6 +306,62 @@ img {
 .hero-terminal.is-focused {
   border-color: var(--gold);
   box-shadow: 8px 8px 0 var(--gold);
+}
+
+.hero-terminal > :not(.terminal-matrix-overlay) {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-terminal.is-matrix-active {
+  border-color: #3cff8f;
+  background: #020805;
+  box-shadow: 8px 8px 0 rgba(60, 255, 143, 0.78);
+}
+
+.hero-terminal.is-matrix-active .terminal-bar {
+  border-bottom-color: #3cff8f;
+  background: #03170b;
+}
+
+.hero-terminal.is-matrix-active .terminal-bar strong,
+.hero-terminal.is-matrix-active .hero-intro,
+.hero-terminal.is-matrix-active .terminal-input,
+.hero-terminal.is-matrix-active .terminal-output-line {
+  color: #b9ffd4;
+  text-shadow: 0 0 8px rgba(60, 255, 143, 0.44);
+}
+
+.hero-terminal.is-matrix-active .terminal-prompt,
+.hero-terminal.is-matrix-active .terminal-cancel {
+  color: #3cff8f;
+  text-shadow: 0 0 10px rgba(60, 255, 143, 0.58);
+}
+
+.terminal-matrix-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  pointer-events: none;
+  overflow: hidden;
+  padding: 0;
+  background: rgba(2, 8, 5, 0.78);
+  color: #3cff8f;
+  font-family: "Cascadia Mono", Consolas, "Courier New", monospace;
+  font-size: 0.86rem;
+  line-height: 1.08;
+  opacity: 0.92;
+  text-align: left;
+  text-shadow: 0 0 7px rgba(60, 255, 143, 0.82);
+  white-space: pre;
+}
+
+.terminal-matrix-rain {
+  display: inline-block;
 }
 
 .terminal-bar {
