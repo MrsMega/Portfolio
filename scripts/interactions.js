@@ -584,7 +584,7 @@ Suite: actualiser le portfolio au fil des missions de stage.`;
 
         stopMatrix();
         addTerminalOutput("matrix: signal termine.");
-      }, 4200);
+      }, 7200);
     }
 
     function scrollToSection(id) {
