@@ -46,7 +46,7 @@
     paypal: "https://paypal.me/DonezMoiTouVotreArge"
   });
 
-  const SECTION_IDS = Object.freeze(["parcours", "experiences", "competences", "bilan", "contact"]);
+  const SECTION_IDS = Object.freeze(["profil", "experiences", "competences", "bilan", "contact"]);
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

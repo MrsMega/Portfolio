@@ -13,6 +13,19 @@
     return items.map((item) => `<li>${item}</li>`).join("");
   }
 
+  function createLearningOutcomes(outcomes) {
+    return outcomes
+      .map(
+        (outcome) => `
+          <li>
+            <span class="ac-code">${outcome.code}</span>
+            <span>${outcome.text}</span>
+          </li>
+        `
+      )
+      .join("");
+  }
+
   function createExperienceLink(experience) {
     if (!experience.url) {
       return "";
@@ -174,9 +187,10 @@
         <p class="card-label">${competence.level}</p>
         <h3>${competence.title}</h3>
         <p class="competence-short">${competence.short}</p>
-        <div class="code-row" aria-label="Apprentissages critiques">
-          ${competence.ac.map((code) => `<span>${code}</span>`).join("")}
-        </div>
+        <section class="ac-section" aria-label="Apprentissages critiques">
+          <p class="card-label">Apprentissages critiques</p>
+          <ul class="ac-list">${createLearningOutcomes(competence.outcomes)}</ul>
+        </section>
         <p>${competence.evidence}</p>
         <div>
           <p class="card-label">Preuves associ&eacute;es</p>

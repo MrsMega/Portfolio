@@ -190,6 +190,7 @@ whoami
 ls
 cat bilan.md
 open experiences
+open profil
 open competences
 open parcours
 open bilan
@@ -602,6 +603,8 @@ Suite: actualiser le portfolio au fil des missions de stage.`;
     function openPortfolioSection(sectionName) {
       const normalizedSectionName = sectionName.replace(/\/+$/, "");
       const sections = {
+        profil: "profil",
+        profile: "profil",
         parcours: "parcours",
         experiences: "experiences",
         experience: "experiences",

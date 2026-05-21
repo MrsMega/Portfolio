@@ -117,6 +117,28 @@
       level: "Niveau 2 en consolidation",
       short: "Concevoir, d&eacute;velopper, tester et int&eacute;grer une solution.",
       ac: ["AC21.01", "AC21.02", "AC21.03", "AC21.04"],
+      outcomes: [
+        {
+          code: "AC21.01",
+          text:
+            "Transformer un besoin en sp&eacute;cifications puis en fonctionnalit&eacute;s d'application."
+        },
+        {
+          code: "AC21.02",
+          text:
+            "Penser les interfaces pour qu'elles restent lisibles, utilisables et coh&eacute;rentes."
+        },
+        {
+          code: "AC21.03",
+          text:
+            "Structurer le code et les choix de conception avec des pratiques maintenables."
+        },
+        {
+          code: "AC21.04",
+          text:
+            "V&eacute;rifier que l'application fonctionne comme pr&eacute;vu par des tests ou validations."
+        }
+      ],
       evidence:
         "Caisse-Cro&ucirc;te mobilise les sp&eacute;cifications, les interfaces, les choix de conception et la qualit&eacute; attendue d'une application compl&egrave;te. Flotto ajoute le travail sur une base de code existante avec Angular.",
       traces: ["Dossier SAE", "Maquettes", "Tickets Flotto", "Code et tests &agrave; ajouter au fil du stage"]
@@ -127,6 +149,23 @@
       level: "Comp&eacute;tence en &eacute;mergence",
       short: "Choisir des structures, analyser des contraintes et justifier des r&eacute;sultats.",
       ac: ["AC22.01", "AC22.03", "AC22.04"],
+      outcomes: [
+        {
+          code: "AC22.01",
+          text:
+            "Choisir des structures de donn&eacute;es adapt&eacute;es aux r&egrave;gles du produit."
+        },
+        {
+          code: "AC22.03",
+          text:
+            "Rep&eacute;rer les risques de s&eacute;curit&eacute; li&eacute;s aux donn&eacute;es, au code et au serveur."
+        },
+        {
+          code: "AC22.04",
+          text:
+            "Questionner l'impact de la solution : usages encourag&eacute;s, batterie, sobri&eacute;t&eacute; et limites."
+        }
+      ],
       evidence:
         "Sleep Space Game demande d'anticiper des contraintes de temps fiable, de batterie, de progression et de comportement utilisateur. La comp&eacute;tence reste &agrave; renforcer avec des mesures et tests plus concrets.",
       traces: ["R&egrave;gles de progression", "Contraintes Android", "Sc&eacute;narios optimiste / r&eacute;f&eacute;rence / pessimiste"]
@@ -137,6 +176,23 @@
       level: "Niveau 2 &agrave; consolider",
       short: "D&eacute;ployer, s&eacute;curiser et maintenir des services.",
       ac: ["AC23.01", "AC23.02", "AC23.03"],
+      outcomes: [
+        {
+          code: "AC23.01",
+          text:
+            "Concevoir une application qui communique avec un serveur, une base de donn&eacute;es ou un backend."
+        },
+        {
+          code: "AC23.02",
+          text:
+            "Utiliser des services h&eacute;berg&eacute;s ou r&eacute;seau pour rendre le projet accessible."
+        },
+        {
+          code: "AC23.03",
+          text:
+            "Identifier les points &agrave; prot&eacute;ger : comptes, sessions, donn&eacute;es et acc&egrave;s serveur."
+        }
+      ],
       evidence:
         "La SAE impose un serveur, une base de donn&eacute;es et un projet accessible en ligne. Le projet Sleep Space Game ajoute la question d'un backend centralis&eacute; et d'une r&eacute;f&eacute;rence serveur pour limiter les incoh&eacute;rences.",
       traces: ["Architecture SAE", "Choix serveur", "R&egrave;gles c&ocirc;t&eacute; serveur", "S&eacute;curisation &agrave; documenter"]
@@ -147,6 +203,28 @@
       level: "Niveau 2 en construction",
       short: "Concevoir, exploiter et prot&eacute;ger les donn&eacute;es.",
       ac: ["AC24.01", "AC24.02", "AC24.03", "AC24.04"],
+      outcomes: [
+        {
+          code: "AC24.01",
+          text:
+            "Construire des mod&egrave;les de donn&eacute;es coh&eacute;rents avec les besoins m&eacute;tier."
+        },
+        {
+          code: "AC24.02",
+          text:
+            "Pr&eacute;voir l'int&eacute;grit&eacute; et la confidentialit&eacute; des donn&eacute;es manipul&eacute;es."
+        },
+        {
+          code: "AC24.03",
+          text:
+            "Organiser l'affichage ou la restitution des donn&eacute;es pour aider l'utilisateur."
+        },
+        {
+          code: "AC24.04",
+          text:
+            "Manipuler plusieurs types de donn&eacute;es : comptes, inventaire, sessions, historique ou transactions."
+        }
+      ],
       evidence:
         "Caisse-Cro&ucirc;te repose sur des donn&eacute;es de compte, inventaire, ingr&eacute;dients, recettes, annonces et transactions. Sleep Space Game formalise aussi des entit&eacute;s m&eacute;tier : routine, trajet, session, groupe et historique.",
       traces: ["Diagramme de classes", "Mod&egrave;le logique Sleep Space Game", "Marketplace", "Inventaire"]
@@ -157,6 +235,23 @@
       level: "Niveau 2 solide",
       short: "Organiser un projet, formaliser le besoin et suivre l'avancement.",
       ac: ["AC25.02", "AC25.03", "AC25.04"],
+      outcomes: [
+        {
+          code: "AC25.02",
+          text:
+            "Clarifier les besoins des utilisateurs avant de d&eacute;finir les fonctionnalit&eacute;s."
+        },
+        {
+          code: "AC25.03",
+          text:
+            "Evaluer ce qui est faisable avec le temps, les outils, l'&eacute;quipe et les contraintes."
+        },
+        {
+          code: "AC25.04",
+          text:
+            "Suivre l'avancement avec des objectifs, un d&eacute;coupage, des priorit&eacute;s et des jalons."
+        }
+      ],
       evidence:
         "La SAE montre une d&eacute;marche projet compl&egrave;te : objectif SMART, MoSCoW, EPIC, user stories, WBS, Gantt et maquettes. Le projet personnel montre aussi une capacit&eacute; &agrave; arbitrer un p&eacute;rim&egrave;tre.",
       traces: ["Objectifs SMART", "MoSCoW", "EPIC et user stories", "Gantt", "P&eacute;rim&egrave;tre produit"]
@@ -167,6 +262,28 @@
       level: "Niveau 2 en situation",
       short: "Travailler efficacement dans une &eacute;quipe informatique.",
       ac: ["AC26.01", "AC26.02", "AC26.03", "AC26.04"],
+      outcomes: [
+        {
+          code: "AC26.01",
+          text:
+            "Comprendre comment un projet informatique s'inscrit dans une organisation : IUT, &eacute;quipe ou ESN."
+        },
+        {
+          code: "AC26.02",
+          text:
+            "S'int&eacute;grer progressivement &agrave; une &eacute;quipe, &agrave; ses outils et &agrave; ses habitudes."
+        },
+        {
+          code: "AC26.03",
+          text:
+            "Communiquer, demander des retours et coordonner son travail avec les autres membres."
+        },
+        {
+          code: "AC26.04",
+          text:
+            "Rendre compte de ce qui est fait, de ce qui bloque et de ce qui reste &agrave; faire."
+        }
+      ],
       evidence:
         "La SAE a &eacute;t&eacute; men&eacute;e en &eacute;quipe de quatre avec outils partag&eacute;s, r&eacute;partition des sujets et communication r&eacute;guli&egrave;re. Le stage va enrichir cette comp&eacute;tence dans une organisation professionnelle.",
       traces: ["GitLab de l'IUT", "Google Docs", "Fiche de suivi", "Retours de stage &agrave; ajouter"]
