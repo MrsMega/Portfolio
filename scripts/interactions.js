@@ -571,7 +571,6 @@ Suite: actualiser le portfolio au fil des missions de stage.`;
       matrixOverlay = overlay;
       terminal.classList.add("is-matrix-active");
 
-      addTerminalOutput("matrix: flux visuel active sur tout le terminal.");
       renderMatrixFrame(content);
       matrixTimer = window.setInterval(() => {
         renderMatrixFrame(content);
@@ -583,8 +582,7 @@ Suite: actualiser le portfolio au fil des missions de stage.`;
         }
 
         stopMatrix();
-        addTerminalOutput("matrix: signal termine.");
-      }, 7200);
+      }, 6200);
     }
 
     function scrollToSection(id) {
@@ -621,7 +619,6 @@ Suite: actualiser le portfolio au fil des missions de stage.`;
         return;
       }
 
-      addTerminalOutput(`open: navigation vers ${sectionId}/`);
     }
 
     function setTerminalTheme(theme) {
@@ -630,11 +627,9 @@ Suite: actualiser le portfolio au fil des missions de stage.`;
       }
 
       document.body.classList.toggle("is-theme-hacker", theme === "hacker");
-      addTerminalOutput(theme === "hacker" ? "theme: hacker active." : "theme: theme normal restaure.");
     }
 
     function hireNathanael() {
-      addTerminalOutput("sudo: permission granted. Opening contact channel...");
       scrollToSection("contact");
     }
 
@@ -650,7 +645,6 @@ Suite: actualiser le portfolio au fil des missions de stage.`;
         paypalUrl = `https://${paypalUrl}`;
       }
 
-      addTerminalOutput("paypal: ouverture du lien de virement...");
       window.open(paypalUrl, "_blank", "noopener,noreferrer");
     }
 

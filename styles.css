@@ -764,6 +764,7 @@ main {
   gap: 0.5rem;
   padding: 1rem;
   border-right: 2px solid var(--line);
+  border-radius: calc(var(--radius) - 2px) 0 0 calc(var(--radius) - 2px);
   background: var(--surface-strong);
 }
 
@@ -1623,6 +1624,7 @@ details ul {
     align-items: center;
     border-right: 0;
     border-bottom: 1px solid var(--line);
+    border-radius: calc(var(--radius) - 2px) calc(var(--radius) - 2px) 0 0;
   }
 
   .experience-logo-wrap {
