@@ -1,78 +1,136 @@
-Découverte d'une nouvelle techno encore pas apprise à l'iut c'est le framework angular je vais participer un un projet nommer flotto qui est une app web permettant de gerer des parcs et flotte de voiture.
-mon but est d'apprendre le framework et d'essayer de commencer à résoudre des tickets simple pour prendre le projet en main.
+# Mission de stage - Flotto
 
-1er ticket réaliser : Refactoriser les inputs date/heure en composants réutilisables
-Description
+## FLT-1517 - Refactoriser les inputs date/heure en composants reutilisables
 
-Contexte
+### Contexte
 
-Les inputs de date (mat-datepicker) et d'heure (mat-timepicker) sont utilisés dans 9 templates de l'application, avec du code dupliqué et des incohérences visuelles et comportementales entre les différentes vues.
+Cette mission a ete realisee pendant le sprint 6 de mon stage chez Amiltone, sur l'application Flotto. Flotto est une application web de gestion de parcs et de flottes de voitures.
 
-Problèmes identifiés
-Duplication de code
+Les champs de date et d'heure etaient utilises dans plusieurs parties du produit : formulaires vehicules, trajets, reservations, maintenance, parametres et onboarding. Avant mon intervention, ces champs etaient directement codes dans les templates avec `mat-datepicker` et `mat-timepicker`.
 
-Chaque occurrence réécrit le même bloc de 4 à 6 lignes :
+Cette solution fonctionnait, mais elle entrainait une duplication importante de code dans neuf templates, avec des classes CSS, des conventions de nommage et une gestion des erreurs parfois differentes selon les formulaires.
 
+### Objectif
+
+L'objectif du ticket Jira FLT-1517 etait de creer deux composants partages dans le module commun de l'application :
+
+- `app-date-input` pour les champs de date ;
+- `app-time-input` pour les champs d'heure.
+
+Ces composants devaient pouvoir etre utilises comme des champs Angular classiques dans les formulaires reactifs, notamment avec `formControlName`. Ils devaient aussi prendre en charge les parametres utiles comme `min`, `max` ou `disabled`, tout en harmonisant le rendu visuel, les etats de focus et les etats d'erreur.
+
+Cette mission ne consistait pas a ajouter une fonctionnalite visible, mais a ameliorer la maintenabilite de l'existant sans modifier le comportement metier attendu.
+
+### Probleme initial
+
+Chaque occurrence reecrivait un bloc proche de celui-ci :
+
+```html
 <mat-form-field class="...">
   <input matInput [matDatepicker]="picker" formControlName="..." />
   <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
-Classes CSS incohérentes selon les vues :
+```
 
-Fichier
-Classe(s) appliquée(s)
-reservation-form-fields
-reservation-form-fields\_\_date-time
-cars-form (leasing)
-car-form-input-container-full date-pill
-cars-form (entrée fleet)
-car-form-input-container-full custom-calendar_container date-pill
-cars-details
-custom-calendar_container date-pill archive-date-field
-settings
-custom-calendar, date-pill (virgule dans l'attribut class — bug)
-onboarding-add-first-car
-custom-calendar_container date-pill
-maintenance-form-schedule, journeys-form, journeys-list
-aucune classe spécifique
-Attribut du toggle inconsistant
-matIconSuffix utilisé dans : reservation-form-fields, journeys-list, maintenance-form-schedule
-matSuffix utilisé dans : journeys-form, maintenance-form-schedule (timepicker)
-Convention de nommage des template refs inconsistante
-camelCase : #startDatePicker, #endDatePicker (reservation, journeys-list, maintenance)
-PascalCase : #StartDatePicker, #ReturnDatePicker, #ArchiveDatePicker (journeys-form, cars-details)
-Style de fermeture de balise inconsistant
-Self-closing : <mat-datepicker #picker /> (journeys-form, maintenance timepicker)
-Fermant explicite : <mat-datepicker #picker></mat-datepicker> (tous les autres)
-Comportement on-error non uniforme
-Les mat-form-field Material n'étant pas intégrés dans app-form-fieldset, la gestion des erreurs de validation et les styles d'erreur varient selon les contextes (focus, état invalide, message d'erreur).
+Les principaux problemes etaient :
 
-Fichiers concernés
-reservation-form-fields.component.html — lignes 74–140 (datepicker + timepicker start/end)
+- duplication de blocs date/heure dans plusieurs templates ;
+- classes CSS incoherentes selon les vues ;
+- usage variable de `matIconSuffix` et `matSuffix` ;
+- conventions de nommage differentes pour les references de templates ;
+- gestion des erreurs et des bordures visuelles non uniforme ;
+- cas particulier dans `settings` avec une virgule dans l'attribut `class`.
 
-journeys-form.component.html — lignes 235–328
-journeys-list.component.html — lignes 446–456
-maintenance-form-schedule.component.html — lignes 36–101
-cars-form.component.html — lignes 533, 693, 855
-cars-details.component.html — lignes 113–157
-settings.component.html — ligne 452
-onboarding-add-first-car.component.html — lignes 506, 651, 779
-Travail attendu
-Créer deux composants dans le module shared :
-app-date-input — wrapping du mat-datepicker
-Inputs : formControlName, min?, max?, disabled?
-app-time-input — wrapping du mat-timepicker
-Inputs : formControlName, min?, disabled?
-Les deux composants doivent :
-implémenter ControlValueAccessor pour s'intégrer aux reactive forms
-appliquer des classes CSS uniformes et cohérentes avec le design system
-avoir un comportement on-focus et on-error standardisé (aligné avec app-form-fieldset)
-respecter les conventions de nommage du projet (app- + kebab-case)
-Critères d'acceptance
-Les 9 fichiers ci-dessus utilisent app-date-input / app-time-input à la place du code inline
-Rendu visuel identique dans toutes les vues (notamment le cas settings avec le bug de virgule corrigé)
-Comportement d'erreur/focus uniforme
+### Fichiers concernes
 
-Pour ce 1er ticket il s'agit d'ameliorer la qualite du code apres une montee de version d'angular sur le projet
-les differentes diffuculté rencontré ont été un existant assez grand donc compliqué d'identifier tout les forms et leur connexion a travers tout le code surtout que je decouvrais a peine angular surtout que le refacton etais pas le meme partout car les form étais parfois different
+- `reservation-form-fields.component.html`
+- `journeys-form.component.html`
+- `journeys-list.component.html`
+- `maintenance-form-schedule.component.html`
+- `cars-form.component.html`
+- `cars-details.component.html`
+- `settings.component.html`
+- `onboarding-add-first-car.component.html`
+
+### Demarche
+
+1. Identifier tous les usages des champs de date et d'heure dans l'application.
+2. Comparer les differences entre les formulaires pour eviter de creer un composant trop rigide.
+3. Utiliser `ControlValueAccessor` afin que les composants personnalises s'integrent aux formulaires reactifs Angular.
+4. Conserver Angular Material a l'interieur des nouveaux composants pour limiter les risques de regression.
+5. Remplacer progressivement les anciennes implementations dans les templates concernes.
+6. Adapter les imports, les bindings Angular et les regles SCSS.
+7. Tester les composants dans plusieurs contextes fonctionnels.
+
+### Verifications effectuees
+
+| Element verifie | Objectif |
+| --- | --- |
+| Selection via calendrier ou selecteur d'heure | Verifier que les composants Angular Material restaient utilisables apres encapsulation. |
+| Saisie manuelle au clavier | Verifier que l'utilisateur pouvait toujours saisir une valeur sans passer uniquement par le calendrier. |
+| Contraintes `min` et `max` | S'assurer que les limites de dates continuaient a etre respectees. |
+| Etat `disabled` | Verifier que les champs desactives ne pouvaient pas etre modifies. |
+| Etats de focus et d'erreur | Controler l'affichage visuel des bordures, messages et retours utilisateur. |
+
+### Difficultes rencontrees
+
+La principale difficulte a ete de creer des composants assez generiques pour couvrir les usages existants sans imposer un comportement trop rigide. Certains formulaires avaient des besoins proches, mais pas strictement identiques.
+
+Apres integration, plusieurs problemes sont apparus en recette :
+
+- certaines dates ne pouvaient pas etre saisies correctement au clavier ;
+- des bordures d'erreur restaient affichees alors que le champ semblait corrige ;
+- l'etat d'erreur persistant pouvait empecher la validation du formulaire.
+
+Ces retours ont montre qu'une refactorisation ne se valide pas uniquement avec la compilation du projet. Il faut aussi verifier les parcours reels et les cas d'usage complets.
+
+### Solutions apportees
+
+J'ai ajuste :
+
+- la gestion des saisies manuelles ;
+- la perte de focus ;
+- la synchronisation avec les formulaires reactifs ;
+- la gestion visuelle des erreurs ;
+- la disparition des bordures rouges lorsque la valeur redevient valide.
+
+### Resultat
+
+La mission est terminee. Les corrections demandees apres recette ont ete integrees et validees par un developpeur de l'equipe.
+
+Le projet dispose maintenant de deux composants partages pour les champs de date et d'heure. Le resultat reduit la duplication, rend le code plus homogene et facilitera les futures evolutions si l'equipe doit modifier le comportement ou le style de ces champs.
+
+### Competences mobilisees
+
+#### Realiser
+
+- Creer deux composants Angular reutilisables.
+- Utiliser `ControlValueAccessor`.
+- Integrer les composants dans des formulaires reactifs.
+- Verifier le comportement dans plusieurs contextes.
+
+Preuves :
+
+- `app-date-input`
+- `app-time-input`
+- remplacement des anciens champs dans les formulaires ;
+- corrections apres recette.
+
+#### Collaborer
+
+- Comprendre un ticket Jira et ses criteres d'acceptance.
+- Prendre en compte les retours de recette.
+- Faire valider les corrections par un developpeur de l'equipe.
+
+Preuves :
+
+- ticket FLT-1517 ;
+- retours de recette integres ;
+- validation de la mission.
+
+### Recul personnel
+
+Cette mission m'a permis de mieux comprendre l'architecture d'une application Angular reelle. Elle m'a fait travailler sur les composants partages, les formulaires reactifs, les bindings, la gestion des etats et l'organisation du SCSS.
+
+Elle m'a aussi appris a etre prudent avec les refactorisations : meme lorsqu'on ne change pas volontairement une regle metier, une modification technique peut provoquer des regressions si tous les cas d'usage ne sont pas verifies.

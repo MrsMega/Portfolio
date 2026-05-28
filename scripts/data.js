@@ -75,9 +75,9 @@
     },
     {
       category: "Stage",
-      period: "En cours",
-      title: "Flotto",
-      subtitle: "D&eacute;couverte d'Angular sur une application de gestion de flottes",
+      period: "Sprint 6 - Stage 2026",
+      title: "Flotto - FLT-1517",
+      subtitle: "Refactorisation Angular des champs date/heure",
       logo: "asset/flotto-logo.png",
       logoAlt: "Logo Flotto",
       companyLogo: "asset/amiltone.png",
@@ -86,27 +86,61 @@
       companyLabel: "Entreprise d'accueil",
       companyName: "Amiltone",
       summary:
-        "D&eacute;but de stage chez Amiltone, une ESN, autour de Flotto : une application web permettant de g&eacute;rer des parcs et flottes de voitures. Ce contexte me permet de d&eacute;couvrir le fonctionnement d'un projet professionnel port&eacute; par une entreprise de services num&eacute;riques. La premi&egrave;re phase consiste &agrave; d&eacute;couvrir Angular, technologie non encore abord&eacute;e &agrave; l'IUT, puis &agrave; prendre progressivement en charge des tickets simples.",
+        "Stage chez Amiltone, une ESN qui accompagne des entreprises dans la conception et l'&eacute;volution d'applications web. J'interviens sur Flotto, une application de gestion de parcs automobiles qui centralise des informations li&eacute;es aux v&eacute;hicules, trajets, r&eacute;servations, maintenances et param&egrave;tres de flotte. Cette premi&egrave;re contribution front m'a permis de travailler dans une base Angular existante.",
       role:
-        "Int&eacute;gration progressive dans un projet existant au sein d'Amiltone : apprentissage du framework, lecture de la base de code, compr&eacute;hension du domaine m&eacute;tier et premiers correctifs ou petites &eacute;volutions.",
-      actions: [
-        "Comprendre l'architecture Angular du projet et la logique des composants.",
-        "Identifier les conventions de l'application avant de modifier du code.",
-        "R&eacute;soudre des tickets simples pour prendre confiance dans le contexte technique.",
-        "Documenter au fil du stage les missions significatives, les apprentissages et les preuves anonymisables."
-      ],
-      learning:
-        "Cette exp&eacute;rience est encore en construction. Son int&eacute;r&ecirc;t principal est de m'obliger &agrave; apprendre dans une base de code r&eacute;elle, avec une technologie nouvelle et des contraintes professionnelles.",
-      contribution:
-        "Elle servira &agrave; montrer ma capacit&eacute; d'adaptation : passer d'exercices ou de SAE &agrave; un projet existant, comprendre les tickets, demander les bons retours et livrer des changements simples mais utiles.",
+        "Intervention encadr&eacute;e sur un ticket front : comprendre l'existant, proposer une refactorisation, corriger les retours de recette et faire valider le r&eacute;sultat avec l'&eacute;quipe.",
       skills: ["R&eacute;aliser", "Collaborer", "Conduire"],
       proofs: [
-        "Notes de prise en main Angular",
-        "Tickets trait&eacute;s ou suivis",
-        "Captures ou extraits anonymis&eacute;s si autoris&eacute;s",
-        "Documentation personnelle des conventions du projet",
-        "Bilan hebdomadaire des apprentissages"
-      ]
+        "Ticket Jira : [FRONT] Refactoriser les inputs date/heure en composants r&eacute;utilisables",
+        "Deux composants Angular partag&eacute;s pour les champs de date et d'heure",
+        "Corrections int&eacute;gr&eacute;es apr&egrave;s recette et validation par un d&eacute;veloppeur de l'&eacute;quipe"
+      ],
+      mission: {
+        label: "Mission de stage - Ticket Jira",
+        title: "[FRONT] Refactoriser les inputs date/heure en composants r&eacute;utilisables",
+        summary:
+          "Mission termin&eacute;e : harmonisation des champs date/heure, moins de duplication et un comportement plus fiable dans les formulaires.",
+        context:
+          "Les champs de date et d'heure &eacute;taient pr&eacute;sents dans plusieurs parcours de Flotto : v&eacute;hicules, trajets, r&eacute;servations, maintenance, param&egrave;tres et onboarding. Avant la mission, ils &eacute;taient impl&eacute;ment&eacute;s s&eacute;par&eacute;ment dans plusieurs &eacute;crans, ce qui rendait les corrections plus longues et pouvait cr&eacute;er des diff&eacute;rences de comportement.",
+        objective:
+          "Regrouper ces champs dans deux composants r&eacute;utilisables afin de centraliser leur rendu et leur comportement, sans modifier les r&egrave;gles m&eacute;tier existantes.",
+        approach: [
+          "Comparer les formulaires concern&eacute;s pour rep&eacute;rer les points communs et les cas particuliers.",
+          "Construire deux composants communs capables de s'int&eacute;grer aux formulaires existants.",
+          "Remplacer progressivement les anciens champs, puis corriger les retours observ&eacute;s en recette."
+        ],
+        difficulties: [
+          "Trouver le bon &eacute;quilibre entre composant commun et besoins propres &agrave; certains formulaires.",
+          "Conserver les usages attendus, comme la saisie au clavier ou les champs d&eacute;sactiv&eacute;s.",
+          "Corriger des &eacute;tats d'erreur qui restaient affich&eacute;s alors que la valeur avait &eacute;t&eacute; modifi&eacute;e."
+        ],
+        result:
+          "La mission est termin&eacute;e et valid&eacute;e. Flotto dispose maintenant de composants date/heure partag&eacute;s, ce qui rend le code plus homog&egrave;ne et facilitera les futures &eacute;volutions.",
+        selfReview:
+          "J'ai compris qu'une refactorisation doit &ecirc;tre test&eacute;e dans ses vrais contextes d'utilisation : une petite diff&eacute;rence entre formulaires peut suffire &agrave; cr&eacute;er une r&eacute;gression.",
+        competences: [
+          {
+            competence: "R&eacute;aliser - AC21.03 / AC21.04",
+            title: "Concevoir et valider une &eacute;volution maintenable",
+            action:
+              "Cr&eacute;ation de composants r&eacute;utilisables, puis int&eacute;gration progressive dans plusieurs formulaires.",
+            proof:
+              "Composants partag&eacute;s, formulaires mis &agrave; jour et corrections apr&egrave;s recette.",
+            progress:
+              "Mieux anticiper les cas &agrave; tester avant la recette et formaliser davantage les points de v&eacute;rification."
+          },
+          {
+            competence: "Collaborer - AC26.02 / AC26.04",
+            title: "S'int&eacute;grer dans un flux d'&eacute;quipe",
+            action:
+              "Prise en compte des retours de recette et validation du ticket avec un d&eacute;veloppeur de l'&eacute;quipe.",
+            proof:
+              "Corrections int&eacute;gr&eacute;es apr&egrave;s retours et mission valid&eacute;e.",
+            progress:
+              "Demander plus t&ocirc;t des retours cibl&eacute;s sur les points sensibles d'un composant partag&eacute;."
+          }
+        ]
+      }
     }
   ];
 
@@ -140,8 +174,8 @@
         }
       ],
       evidence:
-        "Caisse-Cro&ucirc;te mobilise les sp&eacute;cifications, les interfaces, les choix de conception et la qualit&eacute; attendue d'une application compl&egrave;te. Flotto ajoute le travail sur une base de code existante avec Angular.",
-      traces: ["Dossier SAE", "Maquettes", "Tickets Flotto", "Code et tests &agrave; ajouter au fil du stage"]
+        "Caisse-Cro&ucirc;te mobilise les sp&eacute;cifications, les interfaces, les choix de conception et la qualit&eacute; attendue d'une application compl&egrave;te. La mission FLT-1517 sur Flotto ajoute le travail sur une base de code Angular existante, avec la cr&eacute;ation de composants partag&eacute;s et une validation dans plusieurs formulaires.",
+      traces: ["Dossier SAE", "Maquettes", "Ticket Jira FLT-1517", "Composants date/heure partag&eacute;s", "Validation apr&egrave;s recette"]
     },
     {
       id: "optimiser",
@@ -253,8 +287,8 @@
         }
       ],
       evidence:
-        "La SAE montre une d&eacute;marche projet compl&egrave;te : objectif SMART, MoSCoW, EPIC, user stories, WBS, Gantt et maquettes. Le projet personnel montre aussi une capacit&eacute; &agrave; arbitrer un p&eacute;rim&egrave;tre.",
-      traces: ["Objectifs SMART", "MoSCoW", "EPIC et user stories", "Gantt", "P&eacute;rim&egrave;tre produit"]
+        "La SAE montre une d&eacute;marche projet compl&egrave;te : objectif SMART, MoSCoW, EPIC, user stories, WBS, Gantt et maquettes. Le projet personnel montre aussi une capacit&eacute; &agrave; arbitrer un p&eacute;rim&egrave;tre. La mission Flotto ajoute la lecture d'un ticket professionnel, de ses crit&egrave;res d'acceptance et des v&eacute;rifications n&eacute;cessaires avant validation.",
+      traces: ["Objectifs SMART", "MoSCoW", "EPIC et user stories", "Gantt", "Ticket FLT-1517", "Validation de recette"]
     },
     {
       id: "collaborer",
@@ -285,8 +319,8 @@
         }
       ],
       evidence:
-        "La SAE a &eacute;t&eacute; men&eacute;e en &eacute;quipe de quatre avec outils partag&eacute;s, r&eacute;partition des sujets et communication r&eacute;guli&egrave;re. Le stage va enrichir cette comp&eacute;tence dans une organisation professionnelle.",
-      traces: ["GitLab de l'IUT", "Google Docs", "Fiche de suivi", "Retours de stage &agrave; ajouter"]
+        "La SAE a &eacute;t&eacute; men&eacute;e en &eacute;quipe de quatre avec outils partag&eacute;s, r&eacute;partition des sujets et communication r&eacute;guli&egrave;re. Le stage enrichit cette comp&eacute;tence dans une organisation professionnelle : lecture d'un ticket, int&eacute;gration de retours de recette et validation avec un d&eacute;veloppeur de l'&eacute;quipe.",
+      traces: ["GitLab de l'IUT", "Google Docs", "Fiche de suivi", "Retours de recette FLT-1517", "Validation par un d&eacute;veloppeur"]
     }
   ];
 
@@ -307,7 +341,7 @@
       marker: "03",
       title: "Entrer dans une base de code professionnelle",
       text:
-        "Avec Flotto, je commence &agrave; apprendre Angular dans un contexte r&eacute;el. Le but est de transformer la d&eacute;couverte d'une technologie en contributions simples, tra&ccedil;ables et utiles."
+        "Avec Flotto, j'ai travaill&eacute; sur un ticket Angular concret : refactoriser des champs date/heure utilis&eacute;s dans plusieurs formulaires. Cette mission m'a fait passer de la d&eacute;couverte d'une technologie &agrave; une contribution trac&eacute;e, test&eacute;e et valid&eacute;e."
     }
   ];
 

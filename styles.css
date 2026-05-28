@@ -968,13 +968,13 @@ main {
 }
 
 .experience-summary {
-  max-width: 85ch;
+  width: 100%;
   margin: 0;
 }
 
 .experience-role {
+  width: 100%;
   margin: 0;
-  max-width: 88ch;
   padding-left: 0.85rem;
   border-left: 3px solid var(--red);
 }
@@ -1287,6 +1287,152 @@ main {
 
 .analysis-grid p + p {
   margin-top: 0.75rem;
+}
+
+.mission-focus {
+  border: 2px solid var(--line-soft);
+  border-radius: 8px;
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.mission-summary {
+  position: relative;
+  display: grid;
+  gap: 0.38rem;
+  padding: 0.95rem 3.2rem 0.95rem 1rem;
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 400;
+  list-style: none;
+}
+
+.mission-summary::-webkit-details-marker {
+  display: none;
+}
+
+.mission-summary::after {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  display: grid;
+  place-items: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  color: var(--surface);
+  background: var(--ink);
+  box-shadow: 3px 3px 0 var(--line-soft);
+  content: "+";
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-weight: 900;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+.mission-focus[open] .mission-summary::after {
+  content: "-";
+}
+
+.mission-summary:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: -5px;
+}
+
+.mission-summary > span {
+  color: var(--green);
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+.mission-focus-body {
+  display: grid;
+  gap: 0.85rem;
+  padding: 0 1rem 1rem;
+}
+
+.mission-context {
+  padding-top: 0.8rem;
+  border-top: 2px solid var(--line-soft);
+}
+
+.mission-focus h4,
+.mission-focus h5 {
+  margin: 0;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.mission-focus h4 {
+  max-width: 58ch;
+  font-size: 1.22rem;
+}
+
+.mission-focus h5 {
+  font-size: 0.98rem;
+}
+
+.mission-focus p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.64;
+}
+
+.mission-focus ul {
+  margin: 0;
+  padding-left: 1.05rem;
+  color: var(--ink-soft);
+  line-height: 1.58;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.mission-grid-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.mission-grid section,
+.mission-competences {
+  padding-top: 0.8rem;
+  border-top: 2px solid var(--line-soft);
+}
+
+.mission-grid section {
+  display: grid;
+  align-content: start;
+  gap: 0.55rem;
+}
+
+.mission-competences {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.mission-competences > div {
+  display: grid;
+  gap: 0;
+}
+
+.mission-competences article {
+  display: grid;
+  gap: 0.36rem;
+  padding: 0.8rem 0;
+  border-top: 1px solid rgba(31, 43, 36, 0.18);
+  background: transparent;
+}
+
+.mission-competences article:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.mission-competences strong {
+  color: var(--ink);
 }
 
 .evidence-row {
@@ -1753,6 +1899,12 @@ details ul {
 
   .hero-brief {
     max-width: 620px;
+  }
+
+  .mission-grid,
+  .mission-grid-three,
+  .mission-competences > div {
+    grid-template-columns: 1fr;
   }
 
   .competence-index {

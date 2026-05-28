@@ -26,6 +26,96 @@
       .join("");
   }
 
+  function createMissionCompetences(items) {
+    return items
+      .map(
+        (item) => `
+          <article>
+            <p class="card-label">${item.competence}</p>
+            <h5>${item.title}</h5>
+            <p><strong>Action :</strong> ${item.action}</p>
+            <p><strong>Preuve :</strong> ${item.proof}</p>
+            <p><strong>Axe de progr&egrave;s :</strong> ${item.progress}</p>
+          </article>
+        `
+      )
+      .join("");
+  }
+
+  function createMissionFocus(mission) {
+    if (!mission) {
+      return "";
+    }
+
+    return `
+      <details class="mission-focus">
+        <summary class="mission-summary">
+          <p class="card-label">${mission.label}</p>
+          <h4>${mission.title}</h4>
+          <p>${mission.summary}</p>
+          <span>Voir le d&eacute;tail</span>
+        </summary>
+
+        <div class="mission-focus-body">
+          <section class="mission-context">
+            <p>${mission.context}</p>
+          </section>
+
+          <div class="mission-grid">
+            <section>
+              <h5>Objectif</h5>
+              <p>${mission.objective}</p>
+            </section>
+            <section>
+              <h5>D&eacute;marche</h5>
+              <ul>${createList(mission.approach)}</ul>
+            </section>
+          </div>
+
+          <div class="mission-grid mission-grid-three">
+            <section>
+              <h5>Difficult&eacute;s</h5>
+              <ul>${createList(mission.difficulties)}</ul>
+            </section>
+            <section>
+              <h5>R&eacute;sultat</h5>
+              <p>${mission.result}</p>
+            </section>
+            <section>
+              <h5>Recul personnel</h5>
+              <p>${mission.selfReview}</p>
+            </section>
+          </div>
+
+          <section class="mission-competences">
+            <p class="card-label">Comp&eacute;tences prouv&eacute;es par la mission</p>
+            <div>${createMissionCompetences(mission.competences)}</div>
+          </section>
+        </div>
+      </details>
+    `;
+  }
+
+  function createExperienceAnalysis(experience) {
+    if (experience.mission || !experience.actions?.length) {
+      return "";
+    }
+
+    return `
+      <div class="analysis-grid">
+        <section>
+          <h4>Ce que j'ai r&eacute;alis&eacute;</h4>
+          <ul>${createList(experience.actions)}</ul>
+        </section>
+        <section>
+          <h4>Ce que cela m'apporte</h4>
+          <p>${experience.learning}</p>
+          <p>${experience.contribution}</p>
+        </section>
+      </div>
+    `;
+  }
+
   function createExperienceLink(experience) {
     if (!experience.url) {
       return "";
@@ -139,18 +229,8 @@
           <p class="experience-role"><strong>Mon r&ocirc;le :</strong> ${experience.role}</p>
           ${createExperienceLink(experience)}
           ${createExperienceScreen(experience)}
-
-          <div class="analysis-grid">
-            <section>
-              <h4>Ce que j'ai r&eacute;alis&eacute;</h4>
-              <ul>${createList(experience.actions)}</ul>
-            </section>
-            <section>
-              <h4>Ce que cela m'apporte</h4>
-              <p>${experience.learning}</p>
-              <p>${experience.contribution}</p>
-            </section>
-          </div>
+          ${createMissionFocus(experience.mission)}
+          ${createExperienceAnalysis(experience)}
 
           <div class="evidence-row">
             <div>
