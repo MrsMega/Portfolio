@@ -76,10 +76,15 @@
     {
       category: "Stage",
       period: "Sprint 6 - Stage 2026",
-      title: "Flotto - FLT-1517",
-      subtitle: "Refactorisation Angular des champs date/heure",
+      title: "Flotto",
+      subtitle: "Apprentissage d'Angular au sein d'un projet concret",
       logo: "asset/flotto-logo.png",
       logoAlt: "Logo Flotto",
+      logoUrl: "https://www.flotto-app.com/",
+      logoUrlLabel: "Ouvrir le site Flotto",
+      logoPreviewTitle: "flotto-app.com",
+      logoPreviewText:
+        "Site officiel de Flotto, solution de gestion de flotte automobile.",
       companyLogo: "asset/amiltone.png",
       companyLogoAlt: "Logo Amiltone",
       companyUrl: "https://www.amiltone.com",

@@ -188,6 +188,43 @@
     `;
   }
 
+  function createExperienceLogo(experience) {
+    const logo = `<img class="experience-logo" src="${experience.logo}" alt="${experience.logoAlt}" loading="lazy">`;
+
+    if (!experience.logoUrl) {
+      return logo;
+    }
+
+    return `
+      <div class="experience-logo-link-block">
+        <a
+          class="experience-logo-link"
+          href="${experience.logoUrl}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="${experience.logoUrlLabel || `Ouvrir le site de ${experience.title}`}"
+        >
+          ${logo}
+        </a>
+        <div class="site-preview logo-site-preview" aria-hidden="true">
+          <div class="site-preview-bar">
+            <span></span>
+            <strong>${experience.logoPreviewTitle || experience.logoUrl}</strong>
+          </div>
+          <div class="site-preview-frame site-preview-frame-live">
+            <iframe
+              src="${experience.logoUrl}"
+              title="${experience.logoPreviewTitle || experience.title}"
+              loading="lazy"
+              tabindex="-1"
+            ></iframe>
+          </div>
+          ${experience.logoPreviewText ? `<p>${experience.logoPreviewText}</p>` : ""}
+        </div>
+      </div>
+    `;
+  }
+
   function createCompanyLogo(experience) {
     if (!experience.companyLogo) {
       return "";
@@ -214,7 +251,7 @@
       <article class="experience-card reveal" data-category="${experience.category}">
         <div class="experience-side">
           <div class="experience-logo-wrap">
-            <img class="experience-logo" src="${experience.logo}" alt="${experience.logoAlt}" loading="lazy">
+            ${createExperienceLogo(experience)}
           </div>
           ${createCompanyLogo(experience)}
           <p class="card-label">${experience.category}</p>
