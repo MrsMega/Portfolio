@@ -152,7 +152,17 @@
 
     const isExpandable = experience.screenLayout === "phone";
     const screenClass = `experience-screen${isExpandable ? " experience-screen-phone is-expandable is-minimized" : ""}`;
-    const screenAttributes = isExpandable ? ` data-expandable-screen data-screen-title="${experience.title}"` : "";
+    const screenAttributes = isExpandable
+      ? ` data-expandable-screen data-screen-default-state="minimized" data-screen-title="${experience.title}"`
+      : "";
+    const phoneControls = isExpandable
+      ? `
+        <span class="phone-screen-controls">
+          <button class="screen-control" type="button" data-screen-toggle aria-expanded="false" aria-label="Restaurer la capture ${experience.title}">+</button>
+          <button class="screen-control screen-control-close" type="button" data-screen-close aria-label="Fermer la capture ${experience.title}">x</button>
+        </span>
+      `
+      : "";
     const screenControls = isExpandable
       ? `
         <span class="screen-controls">
@@ -172,6 +182,25 @@
         ${screenControls}
       </div>
     `;
+
+    if (isExpandable) {
+      return `
+        <figure class="${screenClass}"${screenAttributes}>
+          <div class="phone-device">
+            ${phoneControls}
+            <div class="phone-device-frame" data-screen-header>
+              <div class="phone-dynamic-island" aria-hidden="true">
+                <span></span>
+              </div>
+              <button class="screen-preview-button phone-screen-button" type="button" data-screen-toggle aria-expanded="false" aria-label="Restaurer la capture ${experience.title}">
+                ${imageContent}
+              </button>
+            </div>
+          </div>
+          <figcaption>${experience.screenCaption}</figcaption>
+        </figure>
+      `;
+    }
 
     return `
       <figure class="${screenClass}"${screenAttributes}>

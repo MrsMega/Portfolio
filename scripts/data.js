@@ -63,7 +63,7 @@
       learning:
         "Ce projet m'a permis de travailler la conception avant le code : clarifier une intention, &eacute;viter les fonctionnalit&eacute;s inutiles, penser les r&egrave;gles m&eacute;tier et anticiper les limites techniques d'une application mobile.",
       contribution:
-        "Il apporte au portfolio une dimension produit plus personnelle : je montre ma capacit&eacute; &agrave; concevoir une exp&eacute;rience coh&eacute;rente, &agrave; justifier les arbitrages et &agrave; penser l'impact utilisateur sans pr&eacute;tendre produire un outil m&eacute;dical.",
+        "Ce projet montre ma capacit&eacute; &agrave; concevoir une exp&eacute;rience produit coh&eacute;rente, &agrave; justifier des arbitrages fonctionnels et &agrave; penser l'impact utilisateur sans pr&eacute;tendre produire un outil m&eacute;dical.",
       skills: ["R&eacute;aliser", "Optimiser", "G&eacute;rer", "Conduire"],
       proofs: [
         "Sp&eacute;cification produit et fonctionnelle",
@@ -180,7 +180,7 @@
       ],
       evidence:
         "Caisse-Cro&ucirc;te mobilise les sp&eacute;cifications, les interfaces, les choix de conception et la qualit&eacute; attendue d'une application compl&egrave;te. La mission FLT-1517 sur Flotto ajoute le travail sur une base de code Angular existante, avec la cr&eacute;ation de composants partag&eacute;s et une validation dans plusieurs formulaires.",
-      traces: ["Dossier SAE", "Maquettes", "Ticket Jira FLT-1517", "Composants date/heure partag&eacute;s", "Validation apr&egrave;s recette"]
+      traces: ["Dossier SAE", "Maquettes", "Ticket Jira", "Composants date/heure partag&eacute;s", "Validation apr&egrave;s recette"]
     },
     {
       id: "optimiser",

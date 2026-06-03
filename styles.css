@@ -1167,11 +1167,11 @@ main {
 }
 
 .experience-screen-phone {
-  width: min(100%, 220px);
+  width: min(100%, 250px);
 }
 
 .experience-screen-phone.is-minimized {
-  width: min(100%, 170px);
+  width: min(100%, 178px);
 }
 
 .experience-screen-window {
@@ -1263,6 +1263,10 @@ main {
   display: none;
 }
 
+.experience-screen-phone.is-minimized .screen-preview-button {
+  display: block;
+}
+
 .experience-screen-window img {
   display: block;
   width: 100%;
@@ -1280,6 +1284,96 @@ main {
 .experience-screen-phone .experience-screen-window img {
   max-height: 330px;
   padding: 0.35rem;
+}
+
+.phone-device {
+  position: relative;
+  width: 100%;
+}
+
+.phone-device-frame {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 9 / 19.5;
+  padding: 0.42rem;
+  border: 1px solid #090d13;
+  border-radius: 26px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 18%),
+    #101622;
+  cursor: pointer;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.phone-device-frame:hover {
+  border-color: var(--green);
+}
+
+.phone-dynamic-island {
+  position: absolute;
+  top: 0.72rem;
+  left: 50%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 4.6rem;
+  height: 1.2rem;
+  padding-right: 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: #02050a;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.phone-dynamic-island span {
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: #151f2c;
+}
+
+.phone-screen-button {
+  overflow: hidden;
+  height: 100%;
+  border-radius: 21px;
+  background: #101622;
+}
+
+.phone-screen-button img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  padding: 0;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.phone-screen-controls {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  z-index: 6;
+  display: inline-flex;
+  gap: 0.35rem;
+}
+
+.experience-screen-phone.is-minimized .phone-screen-controls {
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.experience-screen-phone.is-minimized .phone-device-frame {
+  padding: 0.34rem;
+  border-radius: 22px;
+}
+
+.experience-screen-phone.is-minimized .phone-dynamic-island {
+  top: 0.58rem;
+  width: 3.5rem;
+  height: 0.92rem;
 }
 
 .screen-hint {
