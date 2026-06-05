@@ -102,7 +102,7 @@
       learning:
         "Ce projet m'a permis de consolider l'utilisation d'un framework back-end complet. J'ai mieux compris l'int&eacute;r&ecirc;t de s&eacute;parer les responsabilit&eacute;s entre entit&eacute;s, contr&ocirc;leurs, services, repositories et templates.",
       contribution:
-        "Il compl&egrave;te les autres exp&eacute;riences du portfolio en apportant un exemple plus technique sur Symfony, Doctrine, la gestion de donn&eacute;es et la construction d'une application web c&ocirc;t&eacute; serveur.",
+        "SmartCart m'a fait travailler la construction d'une application web c&ocirc;t&eacute; serveur avec une logique m&eacute;tier structur&eacute;e, une base de donn&eacute;es relationnelle et des acc&egrave;s diff&eacute;renci&eacute;s entre utilisateur et administrateur.",
       skills: ["R&eacute;aliser", "G&eacute;rer", "Administrer"],
       resources: [
         {
