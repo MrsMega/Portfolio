@@ -14,13 +14,31 @@ Le portfolio est déjà sérieux et au-dessus d'un simple site vitrine scolaire.
 - compétences reliées au référentiel ;
 - CV, LinkedIn, contact et liens utiles présents.
 
-Le principal axe d'amélioration n'est plus la structure générale du site. Le vrai gain de points se joue maintenant sur les **preuves**, leur accessibilité et l'**autoévaluation**.
+Le principal axe d'amélioration n'est plus la structure générale du site. Le vrai gain de qualité se joue maintenant sur les **liens et documents associés**, leur accessibilité et l'**autoévaluation**.
+
+## Choix de vocabulaire
+
+L'ancien vocabulaire de justification est à éviter dans l'interface du portfolio.
+
+Raison :
+
+- il donne une impression trop défensive ;
+- il peut faire scolaire ou forcé ;
+- certaines ressources parlent déjà d'elles-mêmes, comme le lien vers Caisse-Croûte ;
+- une liste abstraite d'éléments non cliquables n'apporte pas grand-chose.
+
+Vocabulaire à privilégier :
+
+- `Liens et documents` pour les ressources consultables ;
+- `Expériences associées` dans la partie compétences ;
+- `Résultat` dans la mission de stage ;
+- `Traces` seulement dans les notes internes ou quand le contexte universitaire l'impose.
 
 ## Estimation actuelle
 
 Estimation honnête à partir des fichiers actuels, sans test navigateur complet : **78 à 84 / 100**.
 
-Avec un oral bien préparé et quelques preuves mieux intégrées, le portfolio peut viser plus haut.
+Avec un oral bien préparé, des ressources bien intégrées et une autoévaluation plus concrète, le portfolio peut viser plus haut.
 
 ## À garder absolument
 
@@ -31,33 +49,49 @@ Avec un oral bien préparé et quelques preuves mieux intégrées, le portfolio 
 - Les liens utiles : CV, LinkedIn, contact, Caisse-Croûte, preview SSG.
 - Le lien entre Flotto, la mission FLT-1517 et les compétences `Réaliser` / `Collaborer`.
 
-## Ce qui manque le plus
+## Ressources déjà intégrées
 
-### 1. Des preuves réellement accessibles
+### Caisse-Croûte
 
-Aujourd'hui, beaucoup de preuves sont listées dans le portfolio, mais elles ne sont pas toutes consultables directement depuis le site.
+- Application en ligne.
+- Dossier SAE S3-S4 en PDF.
+- Maquette Figma.
 
-À améliorer :
+### Sleep Space Game
 
-- ajouter des boutons ou liens `Voir la preuve` ;
-- relier les preuves aux documents Markdown existants ;
-- rendre accessibles les documents de conception, captures, schémas ou extraits anonymisés.
+- Spécification produit en PDF.
+- Maquette Figma.
+- Capture actuelle dans le mockup mobile.
 
-### 2. Une preuve anonymisée pour Flotto
+### SmartCart
 
-La mission Flotto est bien racontée, mais elle gagnerait beaucoup avec une preuve visuelle ou technique partageable.
+- Spécification / maquette Figma.
+- Dépôt GitLab.
 
-Exemples possibles :
+### Flotto
 
-- capture floutée ou anonymisée ;
-- schéma simplifié `avant / après` ;
-- extrait de composant non confidentiel ;
-- mini diagramme montrant l'encapsulation des champs date/heure ;
-- tableau court : problème initial -> solution -> résultat.
+- Site Flotto accessible depuis le logo.
+- Logo Amiltone et lien vers l'entreprise.
 
-### 3. Une autoévaluation plus concrète
+Pour Flotto, ne rien publier de technique sans autorisation. Si une ressource est ajoutée plus tard, privilégier un schéma simplifié ou une capture anonymisée.
 
-Le bilan existe, mais il peut encore être plus précis pour Caisse-Croûte et Sleep Space Game.
+## Ce qui manque encore
+
+### 1. Ressources plus visibles et mieux contextualisées
+
+Les liens existent maintenant, mais il faudra vérifier qu'ils sont tous accessibles depuis l'environnement de soutenance.
+
+À vérifier :
+
+- accès aux Figma ;
+- accès au GitLab SmartCart ;
+- ouverture correcte des PDF ;
+- fonctionnement du lien Caisse-Croûte ;
+- lisibilité des captures sur mobile et desktop.
+
+### 2. Autoévaluation plus concrète
+
+Le bilan existe, mais il peut encore être plus précis pour Caisse-Croûte, Sleep Space Game et SmartCart.
 
 À ajouter pour chaque expérience :
 
@@ -66,7 +100,7 @@ Le bilan existe, mais il peut encore être plus précis pour Caisse-Croûte et S
 - ce qui a été appris ;
 - ce qui serait refait autrement.
 
-### 4. Un parcours oral prêt
+### 3. Parcours oral prêt
 
 La navigation commentée vaut beaucoup de points. Il ne faut pas présenter tout le site.
 
@@ -78,23 +112,31 @@ Parcours conseillé :
 4. ouvrir les compétences associées ;
 5. conclure sur la progression et les axes d'amélioration.
 
+## Ressources à chercher ou confirmer
+
+### Sleep Space Game
+
+- Ajouter plus de captures si elles montrent mieux l'application.
+- Ajouter une vidéo courte si une démo existe.
+- Ajouter un dépôt GitHub/GitLab seulement s'il est présentable et accessible.
+
+### Caisse-Croûte
+
+- Vérifier si un lien GitLab est partageable.
+- Vérifier que la maquette Figma est accessible sans compte bloquant.
+
+### Flotto
+
+- Demander l'autorisation avant toute capture ou schéma trop proche du projet réel.
+- Envisager un schéma neutre `ancien champ dispersé -> composant partagé`.
+
 ## Priorités d'amélioration
 
-### Priorité 1 - Preuves cliquables
+### Priorité 1 - Nettoyer les liens
 
-Ajouter une mini-zone dans chaque expérience :
+Tous les liens affichés doivent fonctionner et être compréhensibles sans explication longue.
 
-`Compétence -> action -> preuve -> recul`.
-
-L'objectif est que le jury comprenne vite pourquoi une expérience prouve une compétence.
-
-### Priorité 2 - Mission Flotto
-
-Ajouter une preuve anonymisée ou un schéma explicatif.
-
-La mission est déjà le point fort du portfolio. Une preuve mieux matérialisée peut fortement renforcer la partie stage.
-
-### Priorité 3 - Autoévaluation
+### Priorité 2 - Autoévaluation
 
 Renforcer le bilan avec des phrases plus concrètes :
 
@@ -103,13 +145,13 @@ Renforcer le bilan avec des phrases plus concrètes :
 - maintenant, je comprends mieux la prudence nécessaire dans une refactorisation ;
 - je dois encore progresser sur l'anticipation des cas de test.
 
-### Priorité 4 - Oral
+### Priorité 3 - Oral
 
 Préparer une navigation de 4 à 5 minutes maximum.
 
 Le portfolio doit servir de support au bilan de stage, pas devenir une visite complète de toutes les pages.
 
-### Priorité 5 - Vérification finale
+### Priorité 4 - Vérification finale
 
 Avant l'évaluation :
 
@@ -128,7 +170,7 @@ Le jury attend surtout :
 
 - mission de stage ;
 - compétences ;
-- preuves ;
+- ressources consultables ;
 - recul personnel ;
 - progression.
 
@@ -136,8 +178,8 @@ Les effets doivent soutenir le propos, pas devenir le sujet principal.
 
 ## Conclusion
 
-La base du portfolio est bonne. Pour passer d'un bon portfolio à un portfolio très solide, il faut surtout transformer les traces existantes en **preuves consultables et argumentées**.
+La base du portfolio est bonne. Pour passer d'un bon portfolio à un portfolio très solide, il faut surtout que les ressources intégrées soient **accessibles, utiles et bien contextualisées**.
 
 Phrase directrice à garder :
 
-**Ce que j'ai fait, ce que cela prouve, ce que cela m'a appris.**
+**Ce que j'ai fait, ce que cela montre, ce que cela m'a appris.**

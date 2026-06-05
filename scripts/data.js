@@ -30,13 +30,19 @@
       contribution:
         "Elle montre ma capacit&eacute; &agrave; travailler dans un cadre collectif, &agrave; produire une conception exploitable et &agrave; anticiper les contraintes d'une application web avec base de donn&eacute;es, serveur et interactions entre joueurs.",
       skills: ["R&eacute;aliser", "G&eacute;rer", "Conduire", "Collaborer", "Administrer"],
-      proofs: [
-        "Dossier de conception SAE S3-S4",
-        "Diagramme de cas d'utilisation",
-        "Diagramme de s&eacute;quence sur l'ouverture d'une loot box",
-        "Diagramme de classes : utilisateur, inventaire, recette, transaction, annonce",
-        "WBS, EPIC, user stories, Gantt",
-        "Maquettes Figma : connexion, accueil, marketplace, inventaire"
+      resources: [
+        {
+          label: "Application en ligne",
+          url: "https://caisse-croute.alwaysdata.net/sae-s3/public/pages/dashboard.php"
+        },
+        {
+          label: "Dossier SAE S3-S4",
+          url: "data/mission%26sae/SAE%20S3-S4.pdf"
+        },
+        {
+          label: "Maquette Figma",
+          url: "https://www.figma.com/proto/Gf0ncUJW9Bdsv2r7ZikVRS/SAE-S3-S4?node-id=0-1&t=C3qbLNFbvWCqGwnC-1"
+        }
       ]
     },
     {
@@ -65,12 +71,48 @@
       contribution:
         "Ce projet montre ma capacit&eacute; &agrave; concevoir une exp&eacute;rience produit coh&eacute;rente, &agrave; justifier des arbitrages fonctionnels et &agrave; penser l'impact utilisateur sans pr&eacute;tendre produire un outil m&eacute;dical.",
       skills: ["R&eacute;aliser", "Optimiser", "G&eacute;rer", "Conduire"],
-      proofs: [
-        "Sp&eacute;cification produit et fonctionnelle",
-        "P&eacute;rim&egrave;tre inclus et hors p&eacute;rim&egrave;tre",
-        "R&egrave;gles de progression et de session du soir",
-        "Mod&egrave;le logique : utilisateur, routine, vaisseau, trajet, session, groupe",
-        "Contraintes techniques Android, backend, Firebase et Cloud Functions"
+      resources: [
+        {
+          label: "Sp&eacute;cification produit",
+          url: "data/mission%26sae/app-specification.pdf"
+        },
+        {
+          label: "Maquette Figma",
+          url: "https://www.figma.com/make/Samsl2xFBtdjD8WEz14KVM/Polished-UI-Design?fullscreen=1&t=fNspWmuV4Mf9yatv-1"
+        }
+      ]
+    },
+    {
+      category: "Projet",
+      period: "Projet scolaire S4",
+      title: "SmartCart",
+      subtitle: "Projet Symfony compl&eacute;mentaire de gestion de courses",
+      logo: "asset/logoSmartCart.png",
+      logoAlt: "Logo SmartCart",
+      summary:
+        "Application Symfony de gestion de listes de courses. Elle permet &agrave; un utilisateur de cr&eacute;er ses listes, ajouter des articles, suivre les achats et consulter des statistiques de d&eacute;penses. Le projet int&egrave;gre aussi un espace administrateur pour g&eacute;rer le catalogue, les magasins, les prix et les disponibilit&eacute;s.",
+      role:
+        "Participation au d&eacute;veloppement d'une application web structur&eacute;e avec Symfony : mod&egrave;le de donn&eacute;es Doctrine, contr&ocirc;leurs, services m&eacute;tier, templates Twig, s&eacute;curit&eacute; et interface d'administration.",
+      actions: [
+        "Structuration du domaine autour des utilisateurs, listes de courses, articles, magasins, prix et statuts de liste.",
+        "Mise en place de fonctionnalit&eacute;s de gestion : cr&eacute;ation de listes, ajout d'articles, changement de quantit&eacute;, validation d'achat et suppression.",
+        "S&eacute;paration progressive de la logique dans des services Symfony pour garder des contr&ocirc;leurs plus lisibles.",
+        "Ajout d'&eacute;l&eacute;ments plus avanc&eacute;s : statistiques de d&eacute;penses, recherche catalogue, recommandations de magasins et contr&ocirc;le d'acc&egrave;s aux listes."
+      ],
+      learning:
+        "Ce projet m'a permis de consolider l'utilisation d'un framework back-end complet. J'ai mieux compris l'int&eacute;r&ecirc;t de s&eacute;parer les responsabilit&eacute;s entre entit&eacute;s, contr&ocirc;leurs, services, repositories et templates.",
+      contribution:
+        "Il compl&egrave;te les autres exp&eacute;riences du portfolio en apportant un exemple plus technique sur Symfony, Doctrine, la gestion de donn&eacute;es et la construction d'une application web c&ocirc;t&eacute; serveur.",
+      skills: ["R&eacute;aliser", "G&eacute;rer", "Administrer"],
+      resources: [
+        {
+          label: "Sp&eacute;cification / maquette Figma",
+          url: "https://www.figma.com/make/Q3vuJnue5S6rdkl9U385wb/Complete-Product-Specification?code-node-id=0-9&p=f&t=o7BGcTQWMMkyhziN-0&fullscreen=1"
+        },
+        {
+          label: "D&eacute;p&ocirc;t GitLab",
+          url: "https://forge.univ-lyon1.fr/p2401303/s4-jackass.git"
+        }
       ]
     },
     {
@@ -95,11 +137,6 @@
       role:
         "Intervention encadr&eacute;e sur un ticket front : comprendre l'existant, proposer une refactorisation, corriger les retours de recette et faire valider le r&eacute;sultat avec l'&eacute;quipe.",
       skills: ["R&eacute;aliser", "Collaborer", "Conduire"],
-      proofs: [
-        "Ticket Jira : [FRONT] Refactoriser les inputs date/heure en composants r&eacute;utilisables",
-        "Deux composants Angular partag&eacute;s pour les champs de date et d'heure",
-        "Corrections int&eacute;gr&eacute;es apr&egrave;s recette et validation par un d&eacute;veloppeur de l'&eacute;quipe"
-      ],
       mission: {
         label: "Mission de stage - Ticket Jira",
         title: "[FRONT] Refactoriser les inputs date/heure en composants r&eacute;utilisables",
@@ -129,7 +166,7 @@
             title: "Concevoir et valider une &eacute;volution maintenable",
             action:
               "Cr&eacute;ation de composants r&eacute;utilisables, puis int&eacute;gration progressive dans plusieurs formulaires.",
-            proof:
+            result:
               "Composants partag&eacute;s, formulaires mis &agrave; jour et corrections apr&egrave;s recette.",
             progress:
               "Mieux anticiper les cas &agrave; tester avant la recette et formaliser davantage les points de v&eacute;rification."
@@ -139,7 +176,7 @@
             title: "S'int&eacute;grer dans un flux d'&eacute;quipe",
             action:
               "Prise en compte des retours de recette et validation du ticket avec un d&eacute;veloppeur de l'&eacute;quipe.",
-            proof:
+            result:
               "Corrections int&eacute;gr&eacute;es apr&egrave;s retours et mission valid&eacute;e.",
             progress:
               "Demander plus t&ocirc;t des retours cibl&eacute;s sur les points sensibles d'un composant partag&eacute;."
@@ -179,8 +216,8 @@
         }
       ],
       evidence:
-        "Caisse-Cro&ucirc;te mobilise les sp&eacute;cifications, les interfaces, les choix de conception et la qualit&eacute; attendue d'une application compl&egrave;te. La mission FLT-1517 sur Flotto ajoute le travail sur une base de code Angular existante, avec la cr&eacute;ation de composants partag&eacute;s et une validation dans plusieurs formulaires.",
-      traces: ["Dossier SAE", "Maquettes", "Ticket Jira", "Composants date/heure partag&eacute;s", "Validation apr&egrave;s recette"]
+        "Caisse-Cro&ucirc;te mobilise les sp&eacute;cifications, les interfaces, les choix de conception et la qualit&eacute; attendue d'une application compl&egrave;te. SmartCart ajoute un exemple Symfony avec une application structur&eacute;e en entit&eacute;s, contr&ocirc;leurs, services et templates. La mission FLT-1517 sur Flotto ajoute le travail sur une base de code Angular existante, avec la cr&eacute;ation de composants partag&eacute;s et une validation dans plusieurs formulaires.",
+      traces: ["Caisse-Cro&ucirc;te", "SmartCart", "Flotto FLT-1517"]
     },
     {
       id: "optimiser",
@@ -207,7 +244,7 @@
       ],
       evidence:
         "Sleep Space Game demande d'anticiper des contraintes de temps fiable, de batterie, de progression et de comportement utilisateur. La comp&eacute;tence reste &agrave; renforcer avec des mesures et tests plus concrets.",
-      traces: ["R&egrave;gles de progression", "Contraintes Android", "Sc&eacute;narios optimiste / r&eacute;f&eacute;rence / pessimiste"]
+      traces: ["Sleep Space Game"]
     },
     {
       id: "administrer",
@@ -233,8 +270,8 @@
         }
       ],
       evidence:
-        "La SAE impose un serveur, une base de donn&eacute;es et un projet accessible en ligne. Le projet Sleep Space Game ajoute la question d'un backend centralis&eacute; et d'une r&eacute;f&eacute;rence serveur pour limiter les incoh&eacute;rences.",
-      traces: ["Architecture SAE", "Choix serveur", "R&egrave;gles c&ocirc;t&eacute; serveur", "S&eacute;curisation &agrave; documenter"]
+        "La SAE impose un serveur, une base de donn&eacute;es et un projet accessible en ligne. SmartCart ajoute un cadre Symfony avec configuration, migrations, seed de d&eacute;monstration, espace admin et contr&ocirc;le des acc&egrave;s. Le projet Sleep Space Game ajoute la question d'un backend centralis&eacute; et d'une r&eacute;f&eacute;rence serveur pour limiter les incoh&eacute;rences.",
+      traces: ["Caisse-Cro&ucirc;te", "SmartCart", "Sleep Space Game"]
     },
     {
       id: "gerer",
@@ -265,8 +302,8 @@
         }
       ],
       evidence:
-        "Caisse-Cro&ucirc;te repose sur des donn&eacute;es de compte, inventaire, ingr&eacute;dients, recettes, annonces et transactions. Sleep Space Game formalise aussi des entit&eacute;s m&eacute;tier : routine, trajet, session, groupe et historique.",
-      traces: ["Diagramme de classes", "Mod&egrave;le logique Sleep Space Game", "Marketplace", "Inventaire"]
+        "Caisse-Cro&ucirc;te repose sur des donn&eacute;es de compte, inventaire, ingr&eacute;dients, recettes, annonces et transactions. SmartCart consolide cette comp&eacute;tence avec des entit&eacute;s Doctrine, des relations entre listes, articles, magasins et prix, ainsi que des statistiques de d&eacute;penses. Sleep Space Game formalise aussi des entit&eacute;s m&eacute;tier : routine, trajet, session, groupe et historique.",
+      traces: ["Caisse-Cro&ucirc;te", "SmartCart", "Sleep Space Game"]
     },
     {
       id: "conduire",
@@ -293,7 +330,7 @@
       ],
       evidence:
         "La SAE montre une d&eacute;marche projet compl&egrave;te : objectif SMART, MoSCoW, EPIC, user stories, WBS, Gantt et maquettes. Le projet personnel montre aussi une capacit&eacute; &agrave; arbitrer un p&eacute;rim&egrave;tre. La mission Flotto ajoute la lecture d'un ticket professionnel, de ses crit&egrave;res d'acceptance et des v&eacute;rifications n&eacute;cessaires avant validation.",
-      traces: ["Objectifs SMART", "MoSCoW", "EPIC et user stories", "Gantt", "Ticket FLT-1517", "Validation de recette"]
+      traces: ["Caisse-Cro&ucirc;te", "Sleep Space Game", "Flotto FLT-1517"]
     },
     {
       id: "collaborer",
@@ -325,7 +362,7 @@
       ],
       evidence:
         "La SAE a &eacute;t&eacute; men&eacute;e en &eacute;quipe de quatre avec outils partag&eacute;s, r&eacute;partition des sujets et communication r&eacute;guli&egrave;re. Le stage enrichit cette comp&eacute;tence dans une organisation professionnelle : lecture d'un ticket, int&eacute;gration de retours de recette et validation avec un d&eacute;veloppeur de l'&eacute;quipe.",
-      traces: ["GitLab de l'IUT", "Google Docs", "Fiche de suivi", "Retours de recette FLT-1517", "Validation par un d&eacute;veloppeur"]
+      traces: ["Caisse-Cro&ucirc;te", "Stage Amiltone / Flotto"]
     }
   ];
 

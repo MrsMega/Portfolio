@@ -13,16 +13,16 @@
       { id: "sae", label: "SAE", x: 0.22, y: 0.46, color: "#d6533a", filter: "SAE", target: "experiences" },
       { id: "projet", label: "Projet", x: 0.58, y: 0.24, color: "#00766d", filter: "Projet", target: "experiences" },
       { id: "stage", label: "Stage", x: 0.78, y: 0.58, color: "#26324d", filter: "Stage", target: "experiences" },
-      { id: "preuves", label: "Preuves", x: 0.42, y: 0.68, color: "#b38a1f", target: "competences" },
+      { id: "liens", label: "Liens", x: 0.42, y: 0.68, color: "#b38a1f", target: "experiences" },
       { id: "bilan", label: "Bilan", x: 0.68, y: 0.82, color: "#5a4b7a", target: "bilan" }
     ];
     const links = [
       ["sae", "projet"],
       ["projet", "stage"],
       ["stage", "bilan"],
-      ["bilan", "preuves"],
-      ["preuves", "sae"],
-      ["projet", "preuves"]
+      ["bilan", "liens"],
+      ["liens", "sae"],
+      ["projet", "liens"]
     ];
     const pointer = { x: 0.5, y: 0.5 };
     const nodeRadius = {

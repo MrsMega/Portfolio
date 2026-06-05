@@ -34,7 +34,7 @@
             <p class="card-label">${item.competence}</p>
             <h5>${item.title}</h5>
             <p><strong>Action :</strong> ${item.action}</p>
-            <p><strong>Preuve :</strong> ${item.proof}</p>
+            <p><strong>R&eacute;sultat :</strong> ${item.result}</p>
             <p><strong>Axe de progr&egrave;s :</strong> ${item.progress}</p>
           </article>
         `
@@ -88,7 +88,7 @@
           </div>
 
           <section class="mission-competences">
-            <p class="card-label">Comp&eacute;tences prouv&eacute;es par la mission</p>
+            <p class="card-label">Comp&eacute;tences mobilis&eacute;es dans la mission</p>
             <div>${createMissionCompetences(mission.competences)}</div>
           </section>
         </div>
@@ -112,6 +112,37 @@
           <p>${experience.learning}</p>
           <p>${experience.contribution}</p>
         </section>
+      </div>
+    `;
+  }
+
+  function createResourceLinks(items) {
+    return items
+      .map(
+        (item) => `
+          <a
+            class="resource-link"
+            href="${item.url}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ${item.label}
+            <span aria-hidden="true">&#8599;</span>
+          </a>
+        `
+      )
+      .join("");
+  }
+
+  function createExperienceResources(experience) {
+    if (!experience.resources?.length) {
+      return "";
+    }
+
+    return `
+      <div>
+        <p class="card-label">Liens et documents</p>
+        <div class="resource-links">${createResourceLinks(experience.resources)}</div>
       </div>
     `;
   }
@@ -276,6 +307,8 @@
   }
 
   function createExperienceCard(experience) {
+    const resources = createExperienceResources(experience);
+
     return `
       <article class="experience-card reveal" data-category="${experience.category}">
         <div class="experience-side">
@@ -298,15 +331,12 @@
           ${createMissionFocus(experience.mission)}
           ${createExperienceAnalysis(experience)}
 
-          <div class="evidence-row">
+          <div class="evidence-row${resources ? "" : " evidence-row-single"}">
             <div>
               <p class="card-label">Comp&eacute;tences travaill&eacute;es</p>
               <div class="tag-row">${createTags(experience.skills)}</div>
             </div>
-            <details>
-              <summary>Preuves et traces</summary>
-              <ul>${createList(experience.proofs)}</ul>
-            </details>
+            ${resources}
           </div>
         </div>
       </article>
@@ -339,7 +369,7 @@
         </section>
         <p>${competence.evidence}</p>
         <div>
-          <p class="card-label">Preuves associ&eacute;es</p>
+          <p class="card-label">Exp&eacute;riences associ&eacute;es</p>
           <div class="tag-row">${createTags(competence.traces)}</div>
         </div>
       </article>
