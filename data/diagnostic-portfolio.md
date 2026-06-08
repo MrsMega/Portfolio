@@ -136,22 +136,21 @@ Parcours conseillé :
 
 Tous les liens affichés doivent fonctionner et être compréhensibles sans explication longue.
 
-### Priorité 2 - Autoévaluation
+### Autoévaluation mise en place
 
-Renforcer le bilan avec des phrases plus concrètes :
+Le bilan présente maintenant trois constats courts :
 
-- avant, je faisais surtout des projets encadrés ;
-- pendant le stage, j'ai travaillé dans une base Angular existante ;
-- maintenant, je comprends mieux la prudence nécessaire dans une refactorisation ;
-- je dois encore progresser sur l'anticipation des cas de test.
+- avant : concevoir dans un cadre scolaire ;
+- aujourd'hui : intervenir sur une application existante et intégrer des retours ;
+- à développer : mieux anticiper les cas particuliers et gagner en autonomie.
 
-### Priorité 3 - Oral
+### Priorité 2 - Oral
 
 Préparer une navigation de 4 à 5 minutes maximum.
 
 Le portfolio doit servir de support au bilan de stage, pas devenir une visite complète de toutes les pages.
 
-### Priorité 4 - Vérification finale
+### Priorité 3 - Vérification finale
 
 Avant l'évaluation :
 

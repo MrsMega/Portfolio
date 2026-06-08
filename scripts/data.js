@@ -117,7 +117,7 @@
     },
     {
       category: "Stage",
-      period: "Sprint 6 - Stage 2026",
+      period: "Stage 2026",
       title: "Flotto",
       subtitle: "Apprentissage d'Angular au sein d'un projet concret",
       logo: "asset/flotto-logo.png",
@@ -135,51 +135,29 @@
       summary:
         "Stage chez Amiltone, une ESN qui accompagne des entreprises dans la conception et l'&eacute;volution d'applications web. J'interviens sur Flotto, une application de gestion de parcs automobiles qui centralise des informations li&eacute;es aux v&eacute;hicules, trajets, r&eacute;servations, maintenances et param&egrave;tres de flotte. Cette premi&egrave;re contribution front m'a permis de travailler dans une base Angular existante.",
       role:
-        "Intervention encadr&eacute;e sur un ticket front : comprendre l'existant, proposer une refactorisation, corriger les retours de recette et faire valider le r&eacute;sultat avec l'&eacute;quipe.",
+        "Intervention encadr&eacute;e sur un ticket front : comprendre l'existant, proposer une refactorisation, corriger les probl&egrave;mes relev&eacute;s lors de la validation et faire valider le r&eacute;sultat avec l'&eacute;quipe.",
       skills: ["R&eacute;aliser", "Collaborer", "Conduire"],
       mission: {
         label: "Mission de stage - Ticket Jira",
         title: "[FRONT] Refactoriser les inputs date/heure en composants r&eacute;utilisables",
         summary:
-          "Mission termin&eacute;e : harmonisation des champs date/heure, moins de duplication et un comportement plus fiable dans les formulaires.",
-        context:
-          "Les champs de date et d'heure &eacute;taient pr&eacute;sents dans plusieurs parcours de Flotto : v&eacute;hicules, trajets, r&eacute;servations, maintenance, param&egrave;tres et onboarding. Avant la mission, ils &eacute;taient impl&eacute;ment&eacute;s s&eacute;par&eacute;ment dans plusieurs &eacute;crans, ce qui rendait les corrections plus longues et pouvait cr&eacute;er des diff&eacute;rences de comportement.",
-        objective:
-          "Regrouper ces champs dans deux composants r&eacute;utilisables afin de centraliser leur rendu et leur comportement, sans modifier les r&egrave;gles m&eacute;tier existantes.",
-        approach: [
-          "Comparer les formulaires concern&eacute;s pour rep&eacute;rer les points communs et les cas particuliers.",
-          "Construire deux composants communs capables de s'int&eacute;grer aux formulaires existants.",
-          "Remplacer progressivement les anciens champs, puis corriger les retours observ&eacute;s en recette."
-        ],
-        difficulties: [
-          "Trouver le bon &eacute;quilibre entre composant commun et besoins propres &agrave; certains formulaires.",
-          "Conserver les usages attendus, comme la saisie au clavier ou les champs d&eacute;sactiv&eacute;s.",
-          "Corriger des &eacute;tats d'erreur qui restaient affich&eacute;s alors que la valeur avait &eacute;t&eacute; modifi&eacute;e."
-        ],
-        result:
-          "La mission est termin&eacute;e et valid&eacute;e. Flotto dispose maintenant de composants date/heure partag&eacute;s, ce qui rend le code plus homog&egrave;ne et facilitera les futures &eacute;volutions.",
-        selfReview:
-          "J'ai compris qu'une refactorisation doit &ecirc;tre test&eacute;e dans ses vrais contextes d'utilisation : une petite diff&eacute;rence entre formulaires peut suffire &agrave; cr&eacute;er une r&eacute;gression.",
+          "Cr&eacute;ation de deux composants partag&eacute;s pour harmoniser les champs de date et d'heure dans Flotto.",
+        intervention:
+          "Les champs &eacute;taient r&eacute;p&eacute;t&eacute;s dans plusieurs formulaires avec quelques diff&eacute;rences de comportement. J'ai cr&eacute;&eacute; deux composants communs, puis remplac&eacute; progressivement les anciennes impl&eacute;mentations.",
+        challenge:
+          "Apr&egrave;s int&eacute;gration, la saisie au clavier et certains &eacute;tats d'erreur ne fonctionnaient pas correctement. J'ai repris leur gestion &agrave; partir des retours de validation.",
+        outcome:
+          "La mission a &eacute;t&eacute; valid&eacute;e et le code est maintenant plus homog&egrave;ne. J'en retiens qu'une refactorisation cibl&eacute;e doit &ecirc;tre v&eacute;rifi&eacute;e dans tous ses contextes d'utilisation.",
         competences: [
           {
             competence: "R&eacute;aliser - AC21.03 / AC21.04",
-            title: "Concevoir et valider une &eacute;volution maintenable",
-            action:
-              "Cr&eacute;ation de composants r&eacute;utilisables, puis int&eacute;gration progressive dans plusieurs formulaires.",
-            result:
-              "Composants partag&eacute;s, formulaires mis &agrave; jour et corrections apr&egrave;s recette.",
-            progress:
-              "Mieux anticiper les cas &agrave; tester avant la recette et formaliser davantage les points de v&eacute;rification."
+            text:
+              "Concevoir une &eacute;volution maintenable et la valider dans plusieurs formulaires."
           },
           {
             competence: "Collaborer - AC26.02 / AC26.04",
-            title: "S'int&eacute;grer dans un flux d'&eacute;quipe",
-            action:
-              "Prise en compte des retours de recette et validation du ticket avec un d&eacute;veloppeur de l'&eacute;quipe.",
-            result:
-              "Corrections int&eacute;gr&eacute;es apr&egrave;s retours et mission valid&eacute;e.",
-            progress:
-              "Demander plus t&ocirc;t des retours cibl&eacute;s sur les points sensibles d'un composant partag&eacute;."
+            text:
+              "Prendre en compte les retours de validation et faire valider les corrections par l'&eacute;quipe."
           }
         ]
       }
@@ -361,7 +339,7 @@
         }
       ],
       evidence:
-        "La SAE a &eacute;t&eacute; men&eacute;e en &eacute;quipe de quatre avec outils partag&eacute;s, r&eacute;partition des sujets et communication r&eacute;guli&egrave;re. Le stage enrichit cette comp&eacute;tence dans une organisation professionnelle : lecture d'un ticket, int&eacute;gration de retours de recette et validation avec un d&eacute;veloppeur de l'&eacute;quipe.",
+        "La SAE a &eacute;t&eacute; men&eacute;e en &eacute;quipe de quatre avec outils partag&eacute;s, r&eacute;partition des sujets et communication r&eacute;guli&egrave;re. Le stage enrichit cette comp&eacute;tence dans une organisation professionnelle : lecture d'un ticket, prise en compte des retours de validation et &eacute;change avec un d&eacute;veloppeur de l'&eacute;quipe.",
       traces: ["Caisse-Cro&ucirc;te", "Stage Amiltone / Flotto"]
     }
   ];

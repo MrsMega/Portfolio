@@ -1535,13 +1535,8 @@ main {
 
 .mission-focus-body {
   display: grid;
-  gap: 0.85rem;
+  gap: 0.65rem;
   padding: 0 1rem 1rem;
-}
-
-.mission-context {
-  padding-top: 0.8rem;
-  border-top: 2px solid var(--line-soft);
 }
 
 .mission-focus h4,
@@ -1566,38 +1561,27 @@ main {
   line-height: 1.64;
 }
 
-.mission-focus ul {
-  margin: 0;
-  padding-left: 1.05rem;
-  color: var(--ink-soft);
-  line-height: 1.58;
-}
-
-.mission-grid {
+.mission-minimal-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.85rem;
-}
-
-.mission-grid-three {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
 }
 
-.mission-grid section,
+.mission-minimal-grid section,
 .mission-competences {
-  padding-top: 0.8rem;
+  padding-top: 0.7rem;
   border-top: 2px solid var(--line-soft);
 }
 
-.mission-grid section {
+.mission-minimal-grid section {
   display: grid;
   align-content: start;
-  gap: 0.55rem;
+  gap: 0.38rem;
 }
 
 .mission-competences {
   display: grid;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 .mission-competences > div {
@@ -1607,8 +1591,8 @@ main {
 
 .mission-competences article {
   display: grid;
-  gap: 0.36rem;
-  padding: 0.8rem 0;
+  gap: 0.24rem;
+  padding: 0.55rem 0;
   border-top: 1px solid rgba(31, 43, 36, 0.18);
   background: transparent;
 }
@@ -1616,10 +1600,6 @@ main {
 .mission-competences article:first-child {
   padding-top: 0;
   border-top: 0;
-}
-
-.mission-competences strong {
-  color: var(--ink);
 }
 
 .evidence-row {
@@ -2092,8 +2072,7 @@ details ul {
     max-width: 620px;
   }
 
-  .mission-grid,
-  .mission-grid-three,
+  .mission-minimal-grid,
   .mission-competences > div {
     grid-template-columns: 1fr;
   }
