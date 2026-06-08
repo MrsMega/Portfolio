@@ -36,7 +36,7 @@
           url: "https://caisse-croute.alwaysdata.net/sae-s3/public/pages/dashboard.php"
         },
         {
-          label: "Dossier SAE S3-S4",
+          label: "Dossier de conception",
           url: "data/mission%26sae/SAE%20S3-S4.pdf"
         },
         {
@@ -73,7 +73,7 @@
       skills: ["R&eacute;aliser", "Optimiser", "G&eacute;rer", "Conduire"],
       resources: [
         {
-          label: "Sp&eacute;cification produit",
+          label: "Sp&eacute;cification de l'App",
           url: "data/mission%26sae/app-specification.pdf"
         },
         {
