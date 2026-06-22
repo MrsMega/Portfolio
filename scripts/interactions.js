@@ -2,7 +2,7 @@
   "use strict";
 
   const portfolio = window.Portfolio;
-  const { CONTACT, PAYMENT_LINKS, PROFILE_LINKS, SECTION_IDS, SELECTORS, reduceMotion } = portfolio.config;
+  const { CONTACT, PROFILE_LINKS, SECTION_IDS, SELECTORS, reduceMotion } = portfolio.config;
   const { competences } = portfolio.data;
   const { renderCompetencePanel } = portfolio.render;
 
@@ -200,7 +200,6 @@ theme hacker
 theme normal
 matrix
 fortune
-buymeacoffee
 schrek
 chmod 777 portfolio_intro.sh
 sudo hire nathanael
@@ -636,21 +635,6 @@ Suite: actualiser le portfolio au fil des missions de stage.`;
       scrollToSection("contact");
     }
 
-    function openPaypalTransfer() {
-      let paypalUrl = String(PAYMENT_LINKS.paypal || "").trim();
-
-      if (!paypalUrl) {
-        addTerminalOutput("paypal: ajoute ton lien PayPal dans scripts/config.js pour activer la commande.", "is-error");
-        return;
-      }
-
-      if (!/^https?:\/\//i.test(paypalUrl)) {
-        paypalUrl = `https://${paypalUrl}`;
-      }
-
-      window.open(paypalUrl, "_blank", "noopener,noreferrer");
-    }
-
     function stopIntro(showCancelMarker = false) {
       if (introComplete) {
         return;
@@ -777,11 +761,6 @@ Suite: actualiser le portfolio au fil des missions de stage.`;
 
       if (normalizedCommand === "fortune") {
         addTerminalOutput(FORTUNES[Math.floor(Math.random() * FORTUNES.length)]);
-        return;
-      }
-
-      if (normalizedCommand === "buymeacoffee" || normalizedCommand === "buymeacoffee") {
-        openPaypalTransfer();
         return;
       }
 
