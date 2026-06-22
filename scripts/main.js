@@ -12,6 +12,7 @@
     setupHeroTerminal,
     setupProfileLinks,
     setupReveal,
+    setupScreenCarousels,
     setupScrollMeter
   } = portfolio.interactions;
   const { setupCanvasMap } = portfolio.graph;
@@ -26,6 +27,7 @@
     setupActiveNav();
     setupProfileLinks();
     setupContactForm();
+    setupScreenCarousels();
     setupCanvasMap();
     setupHeroTerminal();
   }

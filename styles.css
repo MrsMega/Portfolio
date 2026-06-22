@@ -1439,6 +1439,125 @@ main {
   font-size: 0.84rem;
 }
 
+.experience-screen-carousel {
+  position: relative;
+  width: 100%;
+  padding: 0.25rem 2.8rem;
+  overflow: hidden;
+}
+
+.screen-carousel-track {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr) minmax(0, 0.72fr);
+  align-items: center;
+  gap: 0.4rem;
+  width: min(100%, 540px);
+  margin-inline: auto;
+}
+
+.screen-carousel-slide {
+  display: none;
+  min-width: 0;
+  margin: 0;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.screen-carousel-slide.is-previous,
+.screen-carousel-slide.is-active,
+.screen-carousel-slide.is-next {
+  display: block;
+}
+
+.screen-carousel-slide.is-previous {
+  order: 1;
+}
+
+.screen-carousel-slide.is-active {
+  order: 2;
+}
+
+.screen-carousel-slide.is-next {
+  order: 3;
+}
+
+.screen-carousel-image {
+  display: block;
+  width: min(100%, 115px);
+  margin-inline: auto;
+  padding: 0;
+  border: 0;
+  opacity: 0.55;
+  background: transparent;
+  cursor: pointer;
+  transform: scale(0.82);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.screen-carousel-slide.is-active .screen-carousel-image {
+  width: min(100%, 200px);
+  opacity: 1;
+  transform: scale(1);
+}
+
+.screen-carousel-image:hover,
+.screen-carousel-image:focus-visible {
+  opacity: 1;
+}
+
+.screen-carousel-image:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.screen-carousel-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  object-fit: contain;
+}
+
+.screen-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  color: var(--ink);
+  background: var(--surface);
+  box-shadow: 3px 3px 0 var(--ink);
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 900;
+  line-height: 1;
+  transform: translateY(-50%);
+  transition: color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.screen-carousel-arrow:hover,
+.screen-carousel-arrow:focus-visible {
+  color: var(--surface);
+  background: var(--green);
+  transform: translateY(-50%) scale(1.06);
+}
+
+.screen-carousel-arrow:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.screen-carousel-arrow-prev {
+  left: 0.2rem;
+}
+
+.screen-carousel-arrow-next {
+  right: 0.2rem;
+}
+
 .analysis-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -1563,7 +1682,7 @@ main {
 
 .mission-minimal-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.7rem;
 }
 
@@ -2234,6 +2353,30 @@ details ul {
 
   .experience-screen-phone {
     width: min(100%, 210px);
+  }
+
+  .experience-screen-carousel {
+    padding-inline: 2.4rem;
+  }
+
+  .screen-carousel-track {
+    grid-template-columns: minmax(0, 0.55fr) minmax(0, 1fr) minmax(0, 0.55fr);
+    gap: 0.25rem;
+    width: 120%;
+    margin-left: -10%;
+  }
+
+  .screen-carousel-image {
+    transform: scale(0.72);
+  }
+
+  .screen-carousel-slide.is-active .screen-carousel-image {
+    transform: scale(1);
+  }
+
+  .screen-carousel-arrow {
+    width: 2.15rem;
+    height: 2.15rem;
   }
 
   .evidence-row {

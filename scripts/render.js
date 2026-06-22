@@ -60,11 +60,7 @@
               <p>${mission.intervention}</p>
             </section>
             <section>
-              <h5>Difficult&eacute; rencontr&eacute;e</h5>
-              <p>${mission.challenge}</p>
-            </section>
-            <section>
-              <h5>R&eacute;sultat et recul</h5>
+              <h5>R&eacute;sultat et apprentissage</h5>
               <p>${mission.outcome}</p>
             </section>
           </div>
@@ -78,8 +74,27 @@
     `;
   }
 
+  function createExperienceMissions(experience) {
+    const missions = experience.missions || (experience.mission ? [experience.mission] : []);
+
+    return missions.map(createMissionFocus).join("");
+  }
+
+  function createExperienceTechnologies(experience) {
+    if (!experience.technologies?.length) {
+      return "";
+    }
+
+    return `
+      <div class="experience-technologies">
+        <p class="card-label">Environnement technique</p>
+        <div class="tag-row">${createTags(experience.technologies)}</div>
+      </div>
+    `;
+  }
+
   function createExperienceAnalysis(experience) {
-    if (experience.mission || !experience.actions?.length) {
+    if (experience.mission || experience.missions?.length || !experience.actions?.length) {
       return "";
     }
 
@@ -159,6 +174,28 @@
   }
 
   function createExperienceScreen(experience) {
+    if (experience.screenGallery?.length) {
+      const galleryItems = experience.screenGallery
+        .map(
+          (item, index) => `
+            <figure class="screen-carousel-slide" data-screen-carousel-slide data-screen-index="${index}">
+              <button class="screen-carousel-image" type="button" data-screen-carousel-select aria-label="Afficher ${item.caption} au centre">
+                <img src="${item.src}" alt="${item.alt}" loading="lazy">
+              </button>
+            </figure>
+          `
+        )
+        .join("");
+
+      return `
+        <div class="experience-screen-carousel" data-screen-carousel data-active-index="1" aria-label="Captures de ${experience.title}">
+          <button class="screen-carousel-arrow screen-carousel-arrow-prev" type="button" data-screen-carousel-prev aria-label="Image pr&eacute;c&eacute;dente" title="Image pr&eacute;c&eacute;dente">&#8592;</button>
+          <div class="screen-carousel-track">${galleryItems}</div>
+          <button class="screen-carousel-arrow screen-carousel-arrow-next" type="button" data-screen-carousel-next aria-label="Image suivante" title="Image suivante">&#8594;</button>
+        </div>
+      `;
+    }
+
     if (!experience.screenImage) {
       return "";
     }
@@ -308,9 +345,10 @@
           </div>
           <p class="experience-summary">${experience.summary}</p>
           <p class="experience-role"><strong>Mon r&ocirc;le :</strong> ${experience.role}</p>
+          ${createExperienceTechnologies(experience)}
           ${createExperienceLink(experience)}
           ${createExperienceScreen(experience)}
-          ${createMissionFocus(experience.mission)}
+          ${createExperienceMissions(experience)}
           ${createExperienceAnalysis(experience)}
 
           <div class="evidence-row${resources ? "" : " evidence-row-single"}">
@@ -349,9 +387,9 @@
           <p class="card-label">Apprentissages critiques</p>
           <ul class="ac-list">${createLearningOutcomes(competence.outcomes)}</ul>
         </section>
-        <p>${competence.evidence}</p>
+        <p>${competence.reflection}</p>
         <div>
-          <p class="card-label">Exp&eacute;riences associ&eacute;es</p>
+          <p class="card-label">Projets associ&eacute;es</p>
           <div class="tag-row">${createTags(competence.traces)}</div>
         </div>
       </article>

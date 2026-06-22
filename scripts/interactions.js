@@ -125,6 +125,56 @@
     });
   }
 
+  function setupScreenCarousels() {
+    const carousels = document.querySelectorAll(SELECTORS.screenCarousel);
+
+    carousels.forEach((carousel) => {
+      const slides = [...carousel.querySelectorAll(SELECTORS.screenCarouselSlide)];
+      const previousButton = carousel.querySelector(SELECTORS.screenCarouselPrev);
+      const nextButton = carousel.querySelector(SELECTORS.screenCarouselNext);
+      let activeIndex = Number.parseInt(carousel.dataset.activeIndex || "0", 10);
+
+      if (slides.length === 0) {
+        return;
+      }
+
+      function updateSlides() {
+        activeIndex = (activeIndex + slides.length) % slides.length;
+        carousel.dataset.activeIndex = String(activeIndex);
+
+        slides.forEach((slide, index) => {
+          const relativeIndex = (index - activeIndex + slides.length) % slides.length;
+          const isActive = relativeIndex === 0;
+          const selectButton = slide.querySelector(SELECTORS.screenCarouselSelect);
+
+          slide.classList.toggle("is-active", isActive);
+          slide.classList.toggle("is-next", relativeIndex === 1);
+          slide.classList.toggle("is-previous", relativeIndex === slides.length - 1);
+          selectButton?.setAttribute("aria-pressed", String(isActive));
+        });
+      }
+
+      slides.forEach((slide, index) => {
+        slide.querySelector(SELECTORS.screenCarouselSelect)?.addEventListener("click", () => {
+          activeIndex = index;
+          updateSlides();
+        });
+      });
+
+      previousButton?.addEventListener("click", () => {
+        activeIndex -= 1;
+        updateSlides();
+      });
+
+      nextButton?.addEventListener("click", () => {
+        activeIndex += 1;
+        updateSlides();
+      });
+
+      updateSlides();
+    });
+  }
+
   function setupScrollMeter() {
     const meter = document.querySelector(SELECTORS.scrollMeter);
 
@@ -1102,6 +1152,7 @@ Suite: actualiser le portfolio au fil des missions de stage.`;
     setupHeroTerminal,
     setupProfileLinks,
     setupReveal,
+    setupScreenCarousels,
     setupScrollMeter
   });
 })();

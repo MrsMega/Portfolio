@@ -1,6 +1,6 @@
 # Mission de stage - Flotto
 
-## FLT-1517 - Refactoriser les inputs date/heure en composants reutilisables
+## Refactoriser les inputs date/heure en composants reutilisables
 
 ### Contexte
 
@@ -12,7 +12,7 @@ Cette solution fonctionnait, mais elle entrainait une duplication importante de 
 
 ### Objectif
 
-L'objectif du ticket Jira FLT-1517 etait de creer deux composants partages dans le module commun de l'application :
+L'objectif du ticket Jira etait de creer deux composants partages dans le module commun de l'application :
 
 - `app-date-input` pour les champs de date ;
 - `app-time-input` pour les champs d'heure.
@@ -125,7 +125,7 @@ Preuves :
 
 Preuves :
 
-- ticket FLT-1517 ;
+- ticket Jira associe ;
 - retours de recette integres ;
 - validation de la mission.
 

@@ -10,7 +10,7 @@ Le portfolio est déjà sérieux et au-dessus d'un simple site vitrine scolaire.
 - site codé à la main ;
 - direction artistique identifiable ;
 - projets concrets ;
-- mission Flotto bien exploitée ;
+- missions Flotto bien exploitées ;
 - compétences reliées au référentiel ;
 - CV, LinkedIn, contact et liens utiles présents.
 
@@ -43,11 +43,11 @@ Avec un oral bien préparé, des ressources bien intégrées et une autoévaluat
 ## À garder absolument
 
 - La structure `Profil / Expériences / Compétences / Progression / Bilan / Contact`.
-- La mission Flotto en bloc réduit : c'est le meilleur support pour le bilan de stage.
+- Les missions Flotto en blocs réduits : c'est le meilleur support pour le bilan de stage.
 - Les onglets de compétences : bonne solution ergonomique pour le référentiel.
-- La direction artistique codée maison : elle montre un vrai effort de mise en forme.
+- La direction artistique codée maison correspond à un vrai effort de mise en forme.
 - Les liens utiles : CV, LinkedIn, contact, Caisse-Croûte, preview SSG.
-- Le lien entre Flotto, la mission FLT-1517 et les compétences `Réaliser` / `Collaborer`.
+- Le lien entre les missions Flotto et les compétences `Réaliser` / `Collaborer`.
 
 ## Ressources déjà intégrées
 
@@ -107,7 +107,7 @@ La navigation commentée vaut beaucoup de points. Il ne faut pas présenter tout
 Parcours conseillé :
 
 1. présenter rapidement l'objectif du portfolio ;
-2. aller directement sur la mission Flotto ;
+2. aller directement sur les missions Flotto ;
 3. expliquer le contexte, l'action réalisée, la difficulté et le résultat ;
 4. ouvrir les compétences associées ;
 5. conclure sur la progression et les axes d'amélioration.
@@ -116,7 +116,7 @@ Parcours conseillé :
 
 ### Sleep Space Game
 
-- Ajouter plus de captures si elles montrent mieux l'application.
+- Ajouter plus de captures si elles présentent mieux l'application.
 - Ajouter une vidéo courte si une démo existe.
 - Ajouter un dépôt GitHub/GitLab seulement s'il est présentable et accessible.
 
@@ -181,4 +181,4 @@ La base du portfolio est bonne. Pour passer d'un bon portfolio à un portfolio t
 
 Phrase directrice à garder :
 
-**Ce que j'ai fait, ce que cela montre, ce que cela m'a appris.**
+**Ce que j'ai fait, ce que j'en retiens, comment j'ai progressé.**
