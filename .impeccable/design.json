@@ -1,0 +1,382 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-23T12:52:45.772717+00:00",
+  "title": "Design System: Portfolio de Nathanaël Bayard",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papier parchemin",
+        "tonalRamp": [
+          "oklch(15.00% 0.02745 83.54)",
+          "oklch(26.43% 0.02745 83.54)",
+          "oklch(37.86% 0.02745 83.54)",
+          "oklch(49.29% 0.02745 83.54)",
+          "oklch(60.71% 0.02745 83.54)",
+          "oklch(72.14% 0.02745 83.54)",
+          "oklch(83.57% 0.02745 83.54)",
+          "oklch(95.00% 0.02745 83.54)"
+        ],
+        "rampPurpose": "Synthétique, aperçu seulement ; ne constitue pas une palette livrée."
+      },
+      "paper-soft": {
+        "role": "neutral",
+        "displayName": "Papier soutenu",
+        "tonalRamp": [
+          "oklch(15.00% 0.04466 77.18)",
+          "oklch(26.43% 0.04466 77.18)",
+          "oklch(37.86% 0.04466 77.18)",
+          "oklch(49.29% 0.04466 77.18)",
+          "oklch(60.71% 0.04466 77.18)",
+          "oklch(72.14% 0.04466 77.18)",
+          "oklch(83.57% 0.04466 77.18)",
+          "oklch(95.00% 0.04466 77.18)"
+        ],
+        "rampPurpose": "Synthétique, aperçu seulement ; ne constitue pas une palette livrée."
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Papier crème",
+        "tonalRamp": [
+          "oklch(15.00% 0.02153 83.26)",
+          "oklch(26.43% 0.02153 83.26)",
+          "oklch(37.86% 0.02153 83.26)",
+          "oklch(49.29% 0.02153 83.26)",
+          "oklch(60.71% 0.02153 83.26)",
+          "oklch(72.14% 0.02153 83.26)",
+          "oklch(83.57% 0.02153 83.26)",
+          "oklch(95.00% 0.02153 83.26)"
+        ],
+        "rampPurpose": "Synthétique, aperçu seulement ; ne constitue pas une palette livrée."
+      },
+      "surface-strong": {
+        "role": "neutral",
+        "displayName": "Papier abricot",
+        "tonalRamp": [
+          "oklch(15.00% 0.07096 69.48)",
+          "oklch(26.43% 0.07096 69.48)",
+          "oklch(37.86% 0.07096 69.48)",
+          "oklch(49.29% 0.07096 69.48)",
+          "oklch(60.71% 0.07096 69.48)",
+          "oklch(72.14% 0.07096 69.48)",
+          "oklch(83.57% 0.07096 69.48)",
+          "oklch(95.00% 0.07096 69.48)"
+        ],
+        "rampPurpose": "Synthétique, aperçu seulement ; ne constitue pas une palette livrée."
+      },
+      "ink": {
+        "role": "primary",
+        "displayName": "Encre forêt",
+        "tonalRamp": [
+          "oklch(15.00% 0.01885 160.99)",
+          "oklch(26.43% 0.01885 160.99)",
+          "oklch(37.86% 0.01885 160.99)",
+          "oklch(49.29% 0.01885 160.99)",
+          "oklch(60.71% 0.01885 160.99)",
+          "oklch(72.14% 0.01885 160.99)",
+          "oklch(83.57% 0.01885 160.99)",
+          "oklch(95.00% 0.01885 160.99)"
+        ],
+        "rampPurpose": "Synthétique, aperçu seulement ; ne constitue pas une palette livrée."
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Encre secondaire",
+        "tonalRamp": [
+          "oklch(15.00% 0.02138 158.26)",
+          "oklch(26.43% 0.02138 158.26)",
+          "oklch(37.86% 0.02138 158.26)",
+          "oklch(49.29% 0.02138 158.26)",
+          "oklch(60.71% 0.02138 158.26)",
+          "oklch(72.14% 0.02138 158.26)",
+          "oklch(83.57% 0.02138 158.26)",
+          "oklch(95.00% 0.02138 158.26)"
+        ],
+        "rampPurpose": "Synthétique, aperçu seulement ; ne constitue pas une palette livrée."
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Olive grisée",
+        "tonalRamp": [
+          "oklch(15.00% 0.02522 95.56)",
+          "oklch(26.43% 0.02522 95.56)",
+          "oklch(37.86% 0.02522 95.56)",
+          "oklch(49.29% 0.02522 95.56)",
+          "oklch(60.71% 0.02522 95.56)",
+          "oklch(72.14% 0.02522 95.56)",
+          "oklch(83.57% 0.02522 95.56)",
+          "oklch(95.00% 0.02522 95.56)"
+        ],
+        "rampPurpose": "Synthétique, aperçu seulement ; ne constitue pas une palette livrée."
+      },
+      "line-soft": {
+        "role": "neutral",
+        "displayName": "Trait sable",
+        "tonalRamp": [
+          "oklch(15.00% 0.05912 75.40)",
+          "oklch(26.43% 0.05912 75.40)",
+          "oklch(37.86% 0.05912 75.40)",
+          "oklch(49.29% 0.05912 75.40)",
+          "oklch(60.71% 0.05912 75.40)",
+          "oklch(72.14% 0.05912 75.40)",
+          "oklch(83.57% 0.05912 75.40)",
+          "oklch(95.00% 0.05912 75.40)"
+        ],
+        "rampPurpose": "Synthétique, aperçu seulement ; ne constitue pas une palette livrée."
+      },
+      "green": {
+        "role": "primary",
+        "displayName": "Vert sarcelle",
+        "tonalRamp": [
+          "oklch(15.00% 0.08104 182.31)",
+          "oklch(26.43% 0.08104 182.31)",
+          "oklch(37.86% 0.08104 182.31)",
+          "oklch(49.29% 0.08104 182.31)",
+          "oklch(60.71% 0.08104 182.31)",
+          "oklch(72.14% 0.08104 182.31)",
+          "oklch(83.57% 0.08104 182.31)",
+          "oklch(95.00% 0.08104 182.31)"
+        ],
+        "rampPurpose": "Synthétique, aperçu seulement ; ne constitue pas une palette livrée."
+      },
+      "blue": {
+        "role": "secondary",
+        "displayName": "Forêt profonde",
+        "tonalRamp": [
+          "oklch(15.00% 0.04125 174.02)",
+          "oklch(26.43% 0.04125 174.02)",
+          "oklch(37.86% 0.04125 174.02)",
+          "oklch(49.29% 0.04125 174.02)",
+          "oklch(60.71% 0.04125 174.02)",
+          "oklch(72.14% 0.04125 174.02)",
+          "oklch(83.57% 0.04125 174.02)",
+          "oklch(95.00% 0.04125 174.02)"
+        ],
+        "rampPurpose": "Synthétique, aperçu seulement ; ne constitue pas une palette livrée."
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Alias crème",
+        "tonalRamp": [
+          "oklch(15.00% 0.02153 83.26)",
+          "oklch(26.43% 0.02153 83.26)",
+          "oklch(37.86% 0.02153 83.26)",
+          "oklch(49.29% 0.02153 83.26)",
+          "oklch(60.71% 0.02153 83.26)",
+          "oklch(72.14% 0.02153 83.26)",
+          "oklch(83.57% 0.02153 83.26)",
+          "oklch(95.00% 0.02153 83.26)"
+        ],
+        "rampPurpose": "Synthétique, aperçu seulement ; ne constitue pas une palette livrée."
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "display",
+        "purpose": "Rôle extrait de styles.css ; adaptations responsive décrites dans DESIGN.md."
+      },
+      "headline": {
+        "displayName": "headline",
+        "purpose": "Rôle extrait de styles.css ; adaptations responsive décrites dans DESIGN.md."
+      },
+      "project-title": {
+        "displayName": "project-title",
+        "purpose": "Rôle extrait de styles.css ; adaptations responsive décrites dans DESIGN.md."
+      },
+      "body": {
+        "displayName": "body",
+        "purpose": "Rôle extrait de styles.css ; adaptations responsive décrites dans DESIGN.md."
+      },
+      "button": {
+        "displayName": "button",
+        "purpose": "Rôle extrait de styles.css ; adaptations responsive décrites dans DESIGN.md."
+      },
+      "navigation": {
+        "displayName": "navigation",
+        "purpose": "Rôle extrait de styles.css ; adaptations responsive décrites dans DESIGN.md."
+      },
+      "context": {
+        "displayName": "context",
+        "purpose": "Rôle extrait de styles.css ; adaptations responsive décrites dans DESIGN.md."
+      },
+      "case-display": {
+        "displayName": "case-display",
+        "purpose": "Rôle extrait de styles.css ; adaptations responsive décrites dans DESIGN.md."
+      },
+      "hero-display": {
+        "displayName": "Titre d’accueil",
+        "purpose": "Titre Georgia du hero ; adaptations propres à l’établi décrites dans DESIGN.md."
+      },
+      "featured-title": {
+        "displayName": "Titre vedette",
+        "purpose": "Nom du dossier vedette au-dessus de la capture."
+      }
+    },
+    "shadows": [
+      {
+        "name": "capture-pin",
+        "value": "0 2px 6px rgba(31,42,36,.2)",
+        "purpose": "Détacher localement les repères de la capture ; aucune ombre de carte vedette."
+      },
+      {
+        "name": "button-hover",
+        "value": "3px 3px 0 var(--ink,#1f2a24)",
+        "purpose": "Réponse de survol des boutons."
+      }
+    ],
+    "motion": [
+      {
+        "name": "button-state",
+        "value": "160ms ease",
+        "purpose": "Fond et ombre des boutons."
+      },
+      {
+        "name": "project-arrow",
+        "value": "180ms ease-out",
+        "purpose": "Translation courte de la flèche de projet au survol ou au focus."
+      },
+      {
+        "name": "reduced-motion",
+        "value": ".01ms",
+        "purpose": "Durée forcée des animations et transitions si réduction des animations demandée."
+      },
+      {
+        "name": "capture-selection",
+        "value": "180ms ease-out",
+        "purpose": "Couleurs des repères et numéros, opacité des zones ; seulement sous prefers-reduced-motion: no-preference, sans animation continue."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-max",
+        "value": "1100px"
+      },
+      {
+        "name": "feature-notes-max",
+        "value": "900px"
+      },
+      {
+        "name": "tablet-max",
+        "value": "800px"
+      },
+      {
+        "name": "phone-max",
+        "value": "520px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Bouton principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Action de dossier ou de contact ; survol, focus et désactivation réels.",
+      "html": "<button class=\"ds-button-primary\" type=\"button\">Lire le dossier</button>",
+      "css": ".ds-button-primary{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:44px;border:1px solid var(--ink,#1f2a24);border-radius:6px;padding:.65rem .9rem;text-decoration:none;font-weight:650;font-size:.85rem;line-height:1.6;cursor:pointer;transition:background 160ms ease,box-shadow 160ms ease;font-family:\"Segoe UI\", Aptos, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;background:var(--ink,#1f2a24);color:var(--surface,#fff7e8);}.ds-button-primary:hover{background:var(--green,#116c61);color:var(--surface,#fff7e8);box-shadow:3px 3px 0 var(--ink,#1f2a24)}.ds-button-primary:focus-visible{outline:3px solid var(--green,#116c61);outline-offset:5px}.ds-button-primary:disabled{cursor:wait;opacity:.65;box-shadow:none}"
+    },
+    {
+      "name": "Bouton secondaire",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Action de dossier ou de contact ; survol, focus et désactivation réels.",
+      "html": "<button class=\"ds-button-secondary\" type=\"button\">Lire le dossier</button>",
+      "css": ".ds-button-secondary{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:44px;border:1px solid var(--ink,#1f2a24);border-radius:6px;padding:.65rem .9rem;text-decoration:none;font-weight:650;font-size:.85rem;line-height:1.6;cursor:pointer;transition:background 160ms ease,box-shadow 160ms ease;font-family:\"Segoe UI\", Aptos, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;background:var(--surface,#fff7e8);color:var(--ink,#1f2a24);}.ds-button-secondary:hover{background:var(--green,#116c61);color:var(--surface,#fff7e8);box-shadow:3px 3px 0 var(--ink,#1f2a24)}.ds-button-secondary:focus-visible{outline:3px solid var(--green,#116c61);outline-offset:5px}.ds-button-secondary:disabled{cursor:wait;opacity:.65;box-shadow:none}"
+    },
+    {
+      "name": "Champ de contact",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Champ du contact ouvert sur le papier soutenu, ligne inférieure et focus visible.",
+      "html": "<label class=\"ds-field\">Votre adresse e-mail<input class=\"ds-input\" type=\"email\" placeholder=\"prenom@exemple.fr\" required></label>",
+      "css": ".ds-field{display:grid;gap:.5rem;padding:1rem;background:var(--paper-soft,#e6d2b5);font-size:.85rem;font-weight:650;color:var(--ink,#1f2a24);font-family:\"Segoe UI\",Aptos,system-ui,sans-serif}.ds-input{min-width:0;width:100%;border:0;border-bottom:1px solid var(--ink,#1f2a24);background:transparent;color:var(--ink,#1f2a24);padding:.85rem .25rem;border-radius:0;caret-color:var(--green,#116c61);font-size:.95rem;font-weight:400;font-family:inherit}.ds-input::placeholder{color:var(--ink-soft,#3d4a42);opacity:1}.ds-input:focus{background:var(--surface,#fff7e8)}.ds-input:focus-visible{outline:3px solid var(--green,#116c61);outline-offset:5px}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Liens au repos, courant, survol et focus ; sans faux comportement JavaScript.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Navigation de démonstration\"><a class=\"ds-nav-link\" href=\"#projets\" aria-current=\"location\">Projets</a><a class=\"ds-nav-link\" href=\"#competences\">Compétences</a><a class=\"ds-nav-cv\" href=\"cv.html\">Mon CV</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;flex-wrap:wrap;gap:1.6rem;background:var(--paper,#f2e8d5);border-bottom:1px solid var(--line-soft,#c8ad88);font-size:.9rem;font-family:\"Segoe UI\", Aptos, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;}.ds-nav-link,.ds-nav-cv{color:var(--ink,#1f2a24);padding:.7rem 0;text-decoration:none}.ds-nav-link:hover,.ds-nav-link[aria-current]{color:var(--green,#116c61);text-decoration:underline}.ds-nav-cv{border:1px solid var(--ink,#1f2a24);border-radius:6px;padding:.5rem .8rem}.ds-nav-link:focus-visible{outline:3px solid var(--green,#116c61);outline-offset:5px}.ds-nav-cv:focus-visible{outline:3px solid var(--green,#116c61);outline-offset:5px}"
+    },
+    {
+      "name": "Bouton du menu",
+      "kind": "button",
+      "refersTo": "menu",
+      "description": "Aspect du bouton mobile fermé ; ouverture gérée seulement par le site.",
+      "html": "<button class=\"ds-menu\" type=\"button\" aria-expanded=\"false\">Menu <svg class=\"ds-menu-icon\" viewBox=\"0 0 20 20\" width=\"18\" height=\"18\" aria-hidden=\"true\"><path d=\"M3 6h14M3 10h14M3 14h14\"/></svg></button>",
+      "css": ".ds-menu{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem .7rem;color:var(--ink,#1f2a24);background:var(--surface,#fff7e8);border:1px solid var(--ink,#1f2a24);border-radius:6px;cursor:pointer;font-family:\"Segoe UI\", Aptos, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;}.ds-menu-icon{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round}.ds-menu:focus-visible{outline:3px solid var(--green,#116c61);outline-offset:5px}"
+    },
+    {
+      "name": "Repère de capture",
+      "kind": "custom",
+      "refersTo": "capture-pin",
+      "description": "États non sélectionné et sélectionné des repères. Aperçu statique ; le site synchronise la zone et la légende.",
+      "html": "<div class=\"ds-pins\"><a class=\"ds-pin\" href=\"#ds-note-1\" aria-label=\"Repère 1 : progression du joueur\">1</a><a class=\"ds-pin ds-pin-selected\" href=\"#ds-note-2\" aria-label=\"Repère 2 : équipements de cuisine\">2</a></div><p class=\"ds-pin-note\" id=\"ds-note-1\">Progression du joueur</p><p class=\"ds-pin-note\" id=\"ds-note-2\">Équipements de cuisine</p>",
+      "css": ".ds-pins{display:flex;gap:1rem;background:var(--ink,#1f2a24);padding:1rem}.ds-pin{display:grid;place-items:center;width:44px;height:44px;border:2px solid var(--ink,#1f2a24);background:var(--surface,#fff7e8);color:var(--ink,#1f2a24);border-radius:50%;font-weight:750;text-decoration:none;line-height:1;box-shadow:0 2px 6px rgba(31,42,36,.2);font-family:\"Segoe UI\",Aptos,system-ui,sans-serif}.ds-pin:hover{background:var(--paper-soft,#e6d2b5);text-decoration:none}.ds-pin-selected{background:var(--ink,#1f2a24);color:var(--surface,#fff7e8);border-color:var(--surface,#fff7e8)}.ds-pin:focus-visible{outline:3px solid var(--surface,#fff7e8);outline-offset:3px}.ds-pin-note{color:var(--ink-soft,#3d4a42);font-size:.78rem}@media(prefers-reduced-motion:no-preference){.ds-pin{transition:background-color 180ms ease-out,color 180ms ease-out}}"
+    },
+    {
+      "name": "Note d’atelier",
+      "kind": "custom",
+      "refersTo": "workshop-note",
+      "description": "Détail natif sur le papier, au-dessous des légendes ; texte existant conservé.",
+      "html": "<details class=\"ds-note\"><summary class=\"ds-note-summary\">Note d’atelier</summary><div class=\"ds-note-body\"><h3 class=\"ds-note-title\">Avant le code,<br>donner une forme à l’idée.</h3><p class=\"ds-note-copy\">Un jeu web, une équipe de quatre, et des fonctionnalités à transformer en un projet réalisable.</p><ul class=\"ds-note-list\"><li>Clarifier les besoins et les priorités.</li><li>Relier utilisateurs, données et règles du jeu.</li><li>Découper le travail en sprints.</li></ul><a class=\"ds-note-link\" href=\"projet.html?projet=caisse-croute#preuve-conception\">Voir la preuve de conception</a></div></details>",
+      "css": ".ds-note{border-top:1px solid var(--ink,#1f2a24);margin-top:.25rem;color:var(--ink,#1f2a24);font-family:\"Segoe UI\",Aptos,system-ui,-apple-system,BlinkMacSystemFont,sans-serif}.ds-note-summary{min-height:44px;font-size:.8rem;cursor:pointer}.ds-note-summary:hover{text-decoration:underline}.ds-note-body{padding:.8rem 0}.ds-note-title{font-family:Georgia,\"Times New Roman\",serif;font-size:1.35rem;font-weight:400;line-height:1.3;margin:0 0 .8rem}.ds-note-copy,.ds-note-list{font-size:.8rem;line-height:1.6;color:var(--ink-soft,#3d4a42)}.ds-note-list{padding-left:1.1rem;margin-block:.75rem}.ds-note-link{display:inline-block;padding-block:.5rem;font-size:.8rem;color:var(--green,#116c61);text-underline-offset:.25em}.ds-note-link:hover{text-decoration-thickness:2px}.ds-note-link:focus-visible,.ds-note-summary:focus-visible{outline:3px solid var(--green,#116c61);outline-offset:5px}"
+    },
+    {
+      "name": "Encart de preuve",
+      "kind": "card",
+      "refersTo": "proof-callout",
+      "description": "Trace documentaire ouverte entre deux filets, sans carte.",
+      "html": "<aside class=\"ds-proof\"><p class=\"ds-proof-copy\"><strong class=\"ds-proof-strong\">Lire la trace.</strong> Le dossier présente les choix et les contributions.</p></aside>",
+      "css": ".ds-proof{padding:1.25rem 0;background:transparent;color:var(--ink-soft,#3d4a42);border-block:1px solid var(--line-soft,#c8ad88);font-family:\"Segoe UI\",Aptos,system-ui,sans-serif}.ds-proof-copy{line-height:1.6;margin:0}.ds-proof-strong{color:var(--ink,#1f2a24)}"
+    },
+    {
+      "name": "Lien de preuve",
+      "kind": "custom",
+      "refersTo": "proof-index",
+      "description": "Ligne de l’index de preuves sur fond forêt ; titre Georgia et focus crème.",
+      "html": "<div class=\"ds-proof-index\"><a class=\"ds-proof-row\" href=\"projet.html?projet=flotto#preuve-dates\"><span class=\"ds-proof-label\"><strong class=\"ds-proof-title\">Mutualiser les champs de date et d’heure</strong><span class=\"ds-proof-detail\">Composants Angular partagés</span></span><span class=\"ds-proof-project\">Flotto</span></a></div>",
+      "css": ".ds-proof-index{background:var(--ink,#1f2a24);padding:1.25rem}.ds-proof-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding:1.25rem 0;border-block:1px solid var(--line-soft,#c8ad88);text-decoration:none;color:var(--surface,#fff7e8);font-family:\"Segoe UI\",Aptos,system-ui,sans-serif}.ds-proof-title{display:block;font-family:Georgia,\"Times New Roman\",serif;font-size:1.2rem;line-height:1.35;font-weight:400}.ds-proof-detail{display:block;color:var(--paper,#f2e8d5);font-size:.85rem;line-height:1.6;margin-top:.4rem}.ds-proof-project{font-size:.75rem}.ds-proof-row:hover .ds-proof-title{text-decoration:underline;text-underline-offset:.2rem}.ds-proof-row:focus-visible{outline:3px solid var(--surface,#fff7e8);outline-offset:5px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Le carnet d’atelier numérique",
+    "overview": "Le portfolio conserve son ambiance chaleureuse, ludique et personnelle. Le papier chaud, les titres Georgia et l’encre forêt donnent au carnet sa voix ; les captures et les contributions documentées donnent leur substance aux surfaces. Les composants restent affirmés et chaleureux ; le cadre d’encre, les filets et les états des contrôles portent le relief graphique.\n\nLa version livrée privilégie une composition aérée, des filets et des notes éditoriales. La vedette est ouverte, sans carte ni ombre portée ; son cadre d’encre distingue la capture. Les autres zones se distinguent surtout par les variations de papier et les séparations. Les intentions de page restent dans le contrat de surface, sans devenir une obligation pour chaque nouvelle page.",
+    "keyCharacteristics": [
+      "Papier chaud et encre forêt ; accents sarcelle lisibles.",
+      "Georgia pour les titres, sans-serif pour les contenus et contrôles.",
+      "Cadre d’encre autour de la capture ; filets pour les subdivisions.",
+      "Composants rectangulaires, coins discrets, interactions courtes."
+    ],
+    "rules": [
+      {
+        "name": "The Paper and Ink Rule",
+        "body": "Conserver l’encre et les papiers comme contraste principal ; réserver le sarcelle aux liens, accents typographiques et repères actifs.",
+        "section": "colors"
+      },
+      {
+        "name": "The Reading Voices Rule",
+        "body": "Employer Georgia pour les titres expressifs, la sans-serif pour les explications et les contrôles ; la monospace reste locale aux codes du référentiel.",
+        "section": "typography"
+      },
+      {
+        "name": "The Structural Relief Rule",
+        "body": "Articuler l’établi par les filets et le cadre d’encre ; conserver le relief des contrôles dans leurs états établis.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** reprendre les variables CSS et les rôles du frontmatter avant de créer une nouvelle valeur.",
+      "**Do** conserver les états de focus visibles et les contrôles de hauteur minimale (44 px) là où ils sont déjà établis.",
+      "**Do** conserver des captures réelles, des contributions explicites et des notes lisibles sur les fonds sombres.",
+      "**Do** utiliser l’encre secondaire pour les petits textes du contact sur papier soutenu."
+    ],
+    "donts": [
+      "**Don’t** utiliser `green` ou `muted` en petit texte sur `paper-soft` : ces associations ne sont pas validées à (4.5:1).",
+      "**Don’t** rétablir les palettes hacker, le terminal à commandes ou le canvas comme familles du système actuel.",
+      "**Don’t** réintroduire une ombre de carte dans l’établi ouvert de la vedette.",
+      "**Don’t** traiter les rampes synthétiques du compagnon comme des couleurs livrées ou approuvées.",
+      "**Don’t** imposer une carte identique aux missions, captures, compétences et étapes du parcours."
+    ]
+  }
+}

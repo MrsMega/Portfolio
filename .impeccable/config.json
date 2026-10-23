@@ -1,0 +1,36 @@
+{
+  "buildPath": "code",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "gray-on-color",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-23T12:25:59.072Z",
+        "reason": "Agent : le seul signalement concerne l’encre forêt #3d4a42 sur papier #e6d2b5 de la section contact inchangée ; contraste mesuré 6.32:1. Faux positif du critère de teinte, palette existante conservée."
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-23T12:33:30.515Z",
+        "reason": "User confirmed : palette papier chaud / vert forêt explicitement à conserver ; fond existant #f2e8d5."
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-23T12:33:30.738Z",
+        "reason": "Agent : faux positifs vérifiés dans le DOM à 1440 et 390 px. Introduction : retrait24px sur grand écran, aucun bord sur mobile. Sections inchangées : retrait vertical48à88px, gouttières16à130px. Index : espacement porté par les liens enfants. Capture : cadre image intentionnel sans texte collé. Légendes corrigées à8px de retrait supérieur. Le détecteur confond propriétés logiques, règles media et cadre image ; exception limitée à ce fichier."
+      }
+    ]
+  }
+}

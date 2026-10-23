@@ -47,7 +47,7 @@
     linkedin: "https://www.linkedin.com/in/nathanael-bayard-9137b3331"
   });
 
-  const SECTION_IDS = Object.freeze(["profil", "experiences", "competences", "bilan", "contact"]);
+  const SECTION_IDS = Object.freeze(["projets", "competences", "parcours", "contact"]);
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
